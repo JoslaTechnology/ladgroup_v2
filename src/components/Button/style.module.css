@@ -1,0 +1,17 @@
+.btn button {
+  width: 150px;
+  color: #fff;
+  padding: 8px 0;
+  font-size: 13px;
+  transition: 0.5s;
+  margin: 0 3px;
+  border-radius: 4px;
+  opacity: 0.8;
+  background: #0D6797;
+  border: 1px solid #0D6797;
+  color: #fff;
+}
+
+.btn button:hover {
+  opacity: 1;
+}
