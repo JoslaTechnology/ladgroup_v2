@@ -23,7 +23,7 @@ export const TextInput = ({ label, type = "text", ...props }) => {
 
 export const SelectDisco = ({ active, text, onClick }) => {
   return (
-    <span onClick={onClick} className={active? ` ${selected} col-md-2 py-3` : `col-md-2 py-3`}>
+    <span onClick={onClick} className={active? ` ${selected} col-md-4 py-3` : `col-md-4 py-3`}>
       {<p className="cursor">{text}</p>}
     </span>
   );

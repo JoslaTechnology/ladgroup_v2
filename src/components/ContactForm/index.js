@@ -1,17 +1,21 @@
 import React, { useState, Fragment } from "react";
-import { Formik, Form, useField } from "formik";
+import { Formik, Form } from "formik";
 import { contactFormSchema } from "validationSchema";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import Button from "components/Button";
 import { TextInput, SelectDisco } from "components/Input";
-import {labeltext, select_disco, disco_container} from "components/Input/style.module.css"
+import { labeltext, select_disco, disco_container } from "components/Input/style.module.css";
+import { toast } from "react-toastify";
+import axios from "axios";
+import env from "env";
+const qs = require("querystring");
 
 const ContactForm = () => {
   const [key, setKey] = useState("home");
 
   const [soley, setSoley] = useState("");
-  const [supply, setSupply] = useState("");
+  const [quantity, setQuantity] = useState("");
 
   const soleyArr = [
     { value: "yes", text: "Yes" },
@@ -40,13 +44,55 @@ const ContactForm = () => {
     experience: "",
     reason: ""
   };
+
+  const handleSubmit = (data) => {
+    data.exclusive = soley;
+    data.quantity = quantity;
+
+    const serverData = {
+      token: 1234,
+      subject: "Customer subscription",
+      message: {
+        ...data
+      },
+      name: data.fullname,
+      email: "technology@josla.com.ng",
+      email2: data.email
+    };
+
+    axios
+      .post(`${env.api_mail}/mail/josla`, qs.stringify(serverData), {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
+      })
+      .then(
+        (response) => {
+          if (response) {
+            toast.success(`Enquiry submitted ${data.name} we will be in touch`);
+            this.setState({
+              data: { name: "", email: "", description: "", phone: "", serviceType: "" },
+              enquiryModalDiv: false,
+              enquirySentModal: true
+            });
+          }
+        },
+        (error) => {
+          console.log(error);
+        }
+      )
+      .catch((error) => {
+        toast.error("Enquiry was not sent");
+      });
+  };
+
   return (
     <Fragment>
       <Formik
         initialValues={initialValues}
         validationSchema={contactFormSchema}
         onSubmit={(value) => {
-          console.log(value);
+          soley && quantity && handleSubmit(value);
         }}
       >
         {() => (
@@ -102,15 +148,17 @@ const ContactForm = () => {
                     </div>
                   </div>
                   <div className={`${select_disco} pt-3`}>
-                    <h5 className={labeltext}>Anticipated LADGROUP shea product required monthly</h5>
-                    <div className={`${disco_container} row`} >
+                    <h5 className={labeltext}>
+                      Anticipated LADGROUP shea product required monthly
+                    </h5>
+                    <div className={`${disco_container} row`}>
                       {supplyArr.map((item, index) => {
                         return (
                           <SelectDisco
                             key={index}
-                            active={item.value === supply}
+                            active={item.value === quantity}
                             text={item.text}
-                            onClick={() => setSupply(item.value)}
+                            onClick={() => setQuantity(item.value)}
                           />
                         );
                       })}
