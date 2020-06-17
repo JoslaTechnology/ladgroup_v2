@@ -16,7 +16,7 @@ const Home = () => {
       <section className={hero}>
         {/* <div className="text-center pt-5"> */}
           <div className={hero_text}>
-            <h1 className="text-light">Pioneering in oil-seed production in Nigeria</h1>
+            <h1 className="text-light">Pioneering in Seed-Oil production in Nigeria</h1>
             <p className="text-light">
               Welcome, Kindly note that our website is currently under development Kindly check back
               in....
