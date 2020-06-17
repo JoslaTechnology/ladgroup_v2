@@ -49,11 +49,26 @@ const ContactForm = () => {
     data.exclusive = soley;
     data.quantity = quantity;
 
-
     const serverData = {
       token: 1234,
       subject: "Customer subscription",
-      message: `</html><div>${{ ...data }}</div></html>`,
+      message: `</html><div>
+      <p style="font-size: 1rem;">fullname: ${data.fullname}</p>
+      <p style="font-size: 1rem;">company: ${data.company}</p>
+      <p style="font-size: 1rem;">contact: ${data.contact}</p>
+      <p style="font-size: 1rem;">designation: ${data.designation}</p>
+      <p style="font-size: 1rem;">phone: ${data.phone}</p>
+      <p style="font-size: 1rem;">email: ${data.email}</p>
+      <p style="font-size: 1rem;">location: ${data.location}</p>
+      <p style="font-size: 1rem;">store size: ${data.storeSize}</p>
+      <p style="font-size: 1rem;">rangeofProducts: ${data.rangeofProducts}</p>
+      <p style="font-size: 1rem;">bankReference: ${data.bankReference}</p>
+      <p style="font-size: 1rem;">turnover: ${data.turnover}</p>
+      <p style="font-size: 1rem;">experience: ${data.experience}</p>
+      <p style="font-size: 1rem;">reason: ${data.reason}</p>
+      <p style="font-size: 1rem;">exclusive: ${data.reason}</p>
+      <p style="font-size: 1rem;">quantity: ${data.quantity}</p>
+      </div></html>`,
       name: data.fullname,
       email: "shea-sales@ladgroup.org",
       email2: data.email
@@ -69,7 +84,7 @@ const ContactForm = () => {
       .then(
         (response) => {
           if (response) {
-            toast.success(`Enquiry submitted ${data.name} we will be in touch`);
+            toast.success(`Success, check your mail for confirmation`);
             this.setState({
               data: { name: "", email: "", description: "", phone: "", serviceType: "" },
               enquiryModalDiv: false,

@@ -2,7 +2,7 @@ import React from "react";
 import styles from "components/Input/style.module.css";
 import { useField } from "formik";
 
-const { has_error, input, labeltext, selected, card } = styles;
+const { has_error, input, labeltext, selected } = styles;
 export const TextInput = ({ label, type = "text", ...props }) => {
   const [field, meta] = useField(props);
 
@@ -23,8 +23,8 @@ export const TextInput = ({ label, type = "text", ...props }) => {
 
 export const SelectDisco = ({ active, text, onClick }) => {
   return (
-    <span onClick={onClick} className={active? ` ${selected} col-md-4 py-3` : `col-md-4 py-3`}>
-      {<p className="cursor">{text}</p>}
+    <span onClick={onClick} className={active? ` ${selected} col-md-3 py-3` : `col-md-3 py-3`}>
+      {<p className="cursor" tabIndex="0">{text}</p>}
     </span>
   );
 };
