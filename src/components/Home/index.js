@@ -15,14 +15,13 @@ const Home = () => {
       </header>
       <section className={hero}>
         {/* <div className="text-center pt-5"> */}
-          <div className={hero_text}>
-            <h1 className="text-light">Pioneering in oil-seed production in Nigeria</h1>
-            <p className="text-light">
-              Welcome, Kindly note that our website is currently under development Kindly check back
-              in....
+        <div className={hero_text}>
+          <h1 className="text-light">Pioneering in Seed-Oil production in Nigeria</h1>
+          <p className="text-light">
+            Welcome, Kindly note that our website is currently under development
             </p>
-          </div>
-          {/* <div className="duration text-light">
+        </div>
+        {/* <div className="duration text-light">
             <span>
               <sup>DAYS</sup>
               <h1>10</h1>

@@ -60,8 +60,7 @@ const ContactForm = () => {
       email2: data.email
     };
 
-    console.log("data", data);
-
+    console.log(serverData)
     axios
       .post(`${env.api_mail}/mail/josla`, qs.stringify(serverData), {
         headers: {
@@ -94,8 +93,6 @@ const ContactForm = () => {
         initialValues={initialValues}
         validationSchema={contactFormSchema}
         onSubmit={(value) => {
-          console.log("value", value);
-
           soley && quantity && handleSubmit(value);
         }}
       >
