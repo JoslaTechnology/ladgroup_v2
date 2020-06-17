@@ -60,6 +60,7 @@ const ContactForm = () => {
       email2: data.email
     };
 
+    console.log(serverData)
     axios
       .post(`${env.api_mail}/mail/josla`, qs.stringify(serverData), {
         headers: {

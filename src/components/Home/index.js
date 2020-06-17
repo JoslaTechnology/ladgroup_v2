@@ -18,8 +18,7 @@ const Home = () => {
           <div className={hero_text}>
             <h1 className="text-light">Pioneering in oil-seed production in Nigeria</h1>
             <p className="text-light">
-              Welcome, Kindly note that our website is currently under development Kindly check back
-              in....
+              Welcome, Kindly note that our website is currently under development
             </p>
           </div>
           {/* <div className="duration text-light">
