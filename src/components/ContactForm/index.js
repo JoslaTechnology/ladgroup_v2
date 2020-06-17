@@ -49,20 +49,19 @@ const ContactForm = () => {
     data.exclusive = soley;
     data.quantity = quantity;
 
+
     const serverData = {
       token: 1234,
       subject: "Customer subscription",
-      message: {
-        ...data
-      },
+      message: `</html><div>${{ ...data }}</div></html>`,
       name: data.fullname,
-      email: "technology@josla.com.ng",
+      email: "shea-sales@ladgroup.org",
       email2: data.email
     };
 
-    console.log(serverData)
+    console.log("serverData", serverData);
     axios
-      .post(`${env.api_mail}/mail/josla`, qs.stringify(serverData), {
+      .post(`${env.api_mail}/mail/ladgroup`, qs.stringify(serverData), {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded"
         }
@@ -79,11 +78,12 @@ const ContactForm = () => {
           }
         },
         (error) => {
+          toast.error("Enquiry was not sent");
           console.log(error);
         }
       )
       .catch((error) => {
-        toast.error("Enquiry was not sent");
+        // toast.error("Enquiry was not sent");
       });
   };
 
