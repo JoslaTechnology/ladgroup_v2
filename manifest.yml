@@ -3,6 +3,6 @@ memory: 64M
 instances: 1
 domain: eu-gb.mybluemix.net
 disk_quota: 1024M
-name: ladgroup-web
-host: ladgroup-web
+name: ladgroup
+host: ladgroup
 buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
