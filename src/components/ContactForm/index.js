@@ -42,6 +42,10 @@ const ContactForm = () => {
   const handleSubmit = (data) => {
     data.exclusive = soley;
     data.quantity = quantity;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 803d4c0cf5e530d8afa52897b290c0771d763cd3
     const serverData = {
       token: 1234,
       subject: "Customer subscription",
