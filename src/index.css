@@ -35,7 +35,10 @@ body {
 
 img {
   width: 100%;
-  /* max-width: 100%; */
+}
+
+svg {
+  width: 100%;
 }
 
 a {

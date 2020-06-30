@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from "react";
 import { Formik, Form } from "formik";
-import { contactFormSchema } from "validationSchema";
+import { contactFormSchema } from "utils/validationSchema";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 import Button from "components/Button";

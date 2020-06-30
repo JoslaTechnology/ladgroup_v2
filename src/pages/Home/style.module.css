@@ -1,0 +1,15 @@
+.main {
+  position: relative;
+  width: 100vw;
+  height: 50rem;
+  background: url("../../assets/banner.svg") no-repeat center;
+}
+
+.main h1 {
+  position: absolute;
+  bottom:  20%;
+  font-size: 3rem;
+  color: #fff;
+  width: 100%;
+  text-align: center;
+}
