@@ -1,0 +1,1 @@
+export const FORM_SCHEMA_DATA = 'FORM_SCHEMA_DATA';

@@ -1,16 +1,19 @@
 import React, { useState, Fragment } from "react";
 import { Formik, Form } from "formik";
-import { contactFormSchema } from "validationSchema";
-import Tabs from "react-bootstrap/Tabs";
-import Tab from "react-bootstrap/Tab";
-import Button from "components/Button";
-import { TextInput, SelectDisco } from "components/Input";
-import { labeltext, select_disco, disco_container } from "components/Input/style.module.css";
 import { toast } from "react-toastify";
 import axios from "axios";
+import Tabs from "react-bootstrap/Tabs";
+import Tab from "react-bootstrap/Tab";
+import { contactFormSchema } from "validationSchema";
+
+import Button from "components/Button";
 import env from "env";
+import { TextInput, SelectDisco } from "components/Input";
+import { labeltext, select_disco, disco_container } from "components/Input/style.module.css";
+
 const qs = require("querystring");
 const ContactForm = () => {
+
   const [key, setKey] = useState("home");
   const [soley, setSoley] = useState("");
   const [quantity, setQuantity] = useState("");
@@ -42,10 +45,6 @@ const ContactForm = () => {
   const handleSubmit = (data) => {
     data.exclusive = soley;
     data.quantity = quantity;
-<<<<<<< HEAD
-=======
-
->>>>>>> 803d4c0cf5e530d8afa52897b290c0771d763cd3
     const serverData = {
       token: 1234,
       subject: "Customer subscription",
@@ -70,7 +69,6 @@ const ContactForm = () => {
       email: "temitopealabi@josla.com.ng",
       email2: data.email
     };
-    console.log("serverData", serverData);
     axios
       .post(`${env.api_mail}/mail/ladgroup`, qs.stringify(serverData), {
         headers: {

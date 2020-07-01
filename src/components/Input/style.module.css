@@ -31,6 +31,12 @@
   margin: 0;
 }
 
+.labeltextL {
+  font-size: 1.1rem;
+  vertical-align: middle;
+  margin: 0;
+}
+
 /* select input */
 
 p.has_error {
