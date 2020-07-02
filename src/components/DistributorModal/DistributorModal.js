@@ -1,11 +1,16 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Joi from 'joi-browser';
+import { toast } from "react-toastify";
+import axios from "axios";
 import { HookForm } from '../Template/Form/HookForm/HookForm';
-import { updateSchemaData } from '../../store/actions/index';
+import { updateSchemaData, updateAttachmentsData } from '../../store/actions/index';
+import env from "env";
 import Modal from 'components/Template/Modal';
 import distributionCss from './distribution.module.css';
 import generalCss from '../general.module.css';
+
+const qs = require("querystring");
 const useList = [{ id: 1, title: 'YES' }, { id: 2, title: 'NO' }];
 const packageList = [{ id: 1, title: '25KG CARTON' }, { id: 2, title: '1.3KG SAMPLE PACK' },
 { id: 3, title: '18KG PACK' }, { id: 4, title: 'BULK PURCHASE' }];
@@ -15,9 +20,109 @@ const DistributorModal = (props) => {
     const { bgInput, labeltextL, removeModalPad, bgModal, paddButton } = distributionCss;
     const dispatch = useDispatch();
     const [disableSubmitBtn, setDisableSubmitBtn] = useState(false);
+    const { selectedFiles } = useSelector(state => ({ selectedFiles: state.selectedFiles }));
+    console.log("selectedFiles", selectedFiles);
+
     const checkData = async () => {
         console.log("inputs", inputs);
         // disable the button with disableSubmitBtn
+
+        setDisableSubmitBtn(true);
+        if (Object.keys(selectedFiles).length < 1) {
+            toast.info("attachments are required before you can submit")
+            setDisableSubmitBtn(false);
+            return;
+        }
+        else { onUploadFiles(inputs); }
+
+    }
+
+    const onUploadFiles = (serverData) => {
+        const url = `${env.file_upload}/cosimageibm/multipartupload`;
+        const reqList = [];
+        Object.values(selectedFiles).forEach((file, index) => {
+            const fd = new FormData();
+            fd.append('image', file, file.name)
+            fd.append('bucketName', 'maja-bucket')
+            const req = axios.post(url, fd)
+            reqList.push(req);
+        })
+        axios.all([...reqList]).then(response => {
+            const data = response.map((res, index) => {
+                return ({ fileUrl: res.data.data.createdFileURL })
+            });
+
+            // setDocuments([]);
+            // setSelectedFiles({});
+            // setDisableAddBtn(false);
+            console.log("data", data);
+
+            if (data) {
+                const fileDetail = data.map((info, index) => `<p  style="font-size: 0.8rem;" id=${index}>${info.fileUrl}</p>`)
+                // const modifyData ={ ...inputs,  attachments}
+                const serverData = {
+                    token: 1234,
+                    subject: "Customer subscription",
+                    message: `</html><div>
+                    <p style="font-size: 1rem;">Full name: ${inputs.fullname}</p>
+                    <p style="font-size: 1rem;">Trading Name: ${inputs.tradingName}</p>
+                    <p style="font-size: 1rem;">Contact Address: ${inputs.address}</p>
+                    <p style="font-size: 1rem;">post: ${inputs.post}</p>
+                    <p style="font-size: 1rem;">Phone: ${inputs.phone}</p>
+                    <p style="font-size: 1rem;">Email: ${inputs.email}</p>
+                    <p style="font-size: 1rem;">Shop Address: ${inputs.shopAddress}</p>
+                    <p style="font-size: 1rem;">Shop Size: ${inputs.shopSize}</p>
+                    <p style="font-size: 1rem;">Product List: ${inputs.productList}</p>
+                    <p style="font-size: 1rem;">Intention: ${inputs.intention}</p>
+                    <p style="font-size: 1rem;">Package Type: ${inputs.packageType}</p>
+                    <p style="font-size: 1rem;">Attachments url below: </p> 
+                    ${fileDetail}
+                    <p style="font-size: 1rem;">Turnover: ${inputs.turnover}</p>
+                    <p style="font-size: 1rem;">Sales Experience: ${inputs.salesExperience}</p>
+                    <p style="font-size: 1rem;">More detail about the enquiry: ${inputs.detailReason}</p>
+                    </div></html>`,
+                    name: inputs.fullname,
+                    email: "temitopealabi@josla.com.ng",
+                    email2: inputs.email
+                };
+                postDistInfo(serverData)
+            }
+
+        }).catch(err => {
+            console.log(err);
+        })
+
+    }
+
+    const postDistInfo = (serverData) => {
+        axios
+            .post(`${env.api_mail}/mail/ladgroup`, qs.stringify(serverData), {
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+            })
+            .then(
+                (response) => {
+                    if (response) {
+                        toast.success(`Success, check your mail for confirmation`);
+                        setInputs({
+                            fullname: '', tradingName: '', address: '', post: '', phone: '', email: '',
+                            shopAddress: '', shopSize: '', productList: '', intention: '', packageType: '',
+                            attachments: '', turnover: '', salesExperience: '', detailReason: ''
+                        });
+                        dispatch(updateAttachmentsData({}));
+                        setDisableSubmitBtn(false);
+                    }
+                },
+                (error) => {
+                    toast.error("Distributor Info. was not sent");
+                    setDisableSubmitBtn(false);
+                    console.log(error);
+                }
+            )
+            .catch((error) => {
+                // toast.error("Enquiry was not sent");
+            });
     }
 
     const schemaH = {
@@ -41,6 +146,7 @@ const DistributorModal = (props) => {
     const { renderHInput, renderTextarea, renderHInputDisabled, handleSubmit, inputs, errors, renderButtonH, renderDropdownH,
         validateCheck, validateJobCheck, setInputs, renderJobUploadFile, renderMultipleUploadFile, useSignUpForm } = HookForm(checkData);
 
+
     useEffect(() => {
         dispatch(updateSchemaData({}));
         dispatch(updateSchemaData(schemaH));
@@ -58,6 +164,7 @@ const DistributorModal = (props) => {
     return (<Fragment>
         <Modal showModal={props.showModal} handleClose={() => props.closeModal(false)}>
             <div className="modal-content">
+                {/* {data.map((info, index)=>(<div key={index} id={index}></div>))} */}
                 <div className={`modal-header ${removeModalPad}`}>
                     <div className={`w-100 ${bgModal} d-flex`} style={{ position: 'relative' }}>
                         <div className="float-right  w-100" style={{ position: 'absolute', top: '15px' }}>
@@ -143,7 +250,7 @@ const DistributorModal = (props) => {
                                         {renderDropdownH("packageType", "Select your anticipated LadGroup shea product rquired monthly", packageList, inputs, errors, '', '', 'Anticipated LADGROUP shea product required monthly?',
                                             `${formInput} ${validateCheck() === 'packageType' ? 'border border-danger' : ''}`)}
                                     </div>
-                                    {renderMultipleUploadFile('attachments', 'Upload your bank reference', 'Bankers references',
+                                    {renderMultipleUploadFile('attachments', 'Upload your bank reference', `${Object.keys(selectedFiles).length < 1 ? 'Bankers references' : Object.keys(selectedFiles).length + 'file(s) added'}`,
                                         'file', <span className="text-danger pl-2">*</span>, 'custom-file-input', 'image/*, application/pdf', '', '', inputs, errors,
                                         'required file should be image or pdf', true, `${formInput} `, 'checkM')}
 
@@ -161,7 +268,7 @@ const DistributorModal = (props) => {
                                         )}
                                     </div>
 
-                                    <div className="text-center">{renderButtonH("", "Enquire", `${formSubmitButton} mb-4`, disableSubmitBtn, "submit", {})}</div>
+                                    <div className="text-center">{renderButtonH("", "Register", `${formSubmitButton} mb-4`, disableSubmitBtn, "submit", {})}</div>
                                 </form>
                             </div>
                         </div>

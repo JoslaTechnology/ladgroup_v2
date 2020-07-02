@@ -55,7 +55,6 @@ export const HookForm = (callback) => {
 
     const renderTextarea = (name, label, placeholder, rows = 4, cols = 30, formGroupClass = "", classType = '', inputs, errors, addElement = '',
         labelClass, showError, errorMessage = errors[name]) => {
-        console.log("INPUTS.NAME", inputs.name, name);
 
         return (
             <div className={`${formGroupClass} form-group`}>
@@ -144,8 +143,8 @@ export const HookForm = (callback) => {
         return (
             <div className="form-group">
                 <label className={labelClass} htmlFor={name}>{label} {addElement}</label>
-                <select defaultValue={'DEFAULT'} className={`form-control  ${selectClass}`} onChange={handleInputChange} id={name} name={name} >
-                    <option value="DEFAULT" disabled>{dropTitle}</option>
+                <select defaultValue={''} className={`form-control  ${selectClass}`} onChange={handleInputChange} id={name} name={name} >
+                    <option value="" disabled>{dropTitle}</option>
                     {arrayList.map((data, key) => (
                         <option value={data.title.toLowerCase()} key={key}>{data.title}</option>
                     ))}

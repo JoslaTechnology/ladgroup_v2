@@ -1,27 +1,132 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Joi from 'joi-browser';
+import axios from "axios";
 import { HookForm } from '../Template/Form/HookForm/HookForm';
-import { updateSchemaData } from '../../store/actions/index';
+import { updateSchemaData, updateAttachmentsData } from '../../store/actions/index';
+import env from "env";
 import Modal from 'components/Template/Modal';
 import supplierCss from './supplier.module.css';
 import generalCss from '../general.module.css';
+import { toast } from 'react-toastify';
+
+
 const useList = [{ id: 1, title: 'YES' }, { id: 2, title: 'NO' }];
 const packageList = [{ id: 1, title: '25KG CARTON' }, { id: 2, title: '1.3KG SAMPLE PACK' },
 { id: 3, title: '18KG PACK' }, { id: 4, title: 'BULK PURCHASE' }];
-
 const supplierList = [{ id: 1, title: 'SHEA NUT' }, { id: 2, title: '18KG PACK' },
 { id: 3, title: 'DIESEL' }, { id: 4, title: 'SPARE PARTS' }, { id: 5, title: 'LOGISTIC' },
 { id: 6, title: 'OFFICE EQUIPMENT' }];
+
+const qs = require("querystring");
 
 const SupplierModal = (props) => {
     const { dIcon, dIcon_feedback, formSubmitButton, formInput, centerModalTitle } = generalCss;
     const { bgInput, labeltextL, removeModalPad, bgModal, paddButton } = supplierCss;
     const dispatch = useDispatch();
+
+    const { selectedFiles } = useSelector(state => ({ selectedFiles: state.selectedFiles }));
+    console.log("selectedFiles", selectedFiles, "Object.keys(selectedFiles).length", Object.keys(selectedFiles).length);
     const [disableSubmitBtn, setDisableSubmitBtn] = useState(false);
     const checkData = async () => {
         console.log("inputs", inputs);
         // disable the button with disableSubmitBtn
+        setDisableSubmitBtn(true);
+        if (Object.keys(selectedFiles).length < 1) {
+            toast.info("attachments are required before you can submit")
+            setDisableSubmitBtn(false);
+            return;
+        }
+        else { onUploadFiles(inputs); }
+
+    }
+
+    //  call api to store images or pdf
+    const onUploadFiles = (serverData) => {
+        const url = `${env.file_upload}/cosimageibm/multipartupload`;
+        const reqList = [];
+        Object.values(selectedFiles).forEach((file, index) => {
+            const fd = new FormData();
+            fd.append('image', file, file.name)
+            fd.append('bucketName', 'maja-bucket')
+            const req = axios.post(url, fd)
+            reqList.push(req);
+        })
+        axios.all([...reqList]).then(response => {
+            const data = response.map((res, index) => {
+                return ({ fileUrl: res.data.data.createdFileURL })
+            });
+
+            // setDocuments([]);
+            // setSelectedFiles({});
+            // setDisableAddBtn(false);
+            console.log("data", data);
+
+            if (data) {
+                const fileDetail = data.map((info, index) => `<p  style="font-size: 0.8rem;" id=${index}>${info.fileUrl}</p>`)
+                // const modifyData ={ ...inputs,  attachments}
+                const serverData = {
+                    token: 1234,
+                    subject: "Customer subscription",
+                    message: `</html><div>
+                    <p style="font-size: 1rem;">Full name: ${inputs.fullname}</p>
+                    <p style="font-size: 1rem;">Trading Name: ${inputs.tradingName}</p>
+                    <p style="font-size: 1rem;">Contact Address: ${inputs.address}</p>
+                    <p style="font-size: 1rem;">post: ${inputs.post}</p>
+                    <p style="font-size: 1rem;">Phone: ${inputs.phone}</p>
+                    <p style="font-size: 1rem;">Email: ${inputs.email}</p>
+                    <p style="font-size: 1rem;">Shop Address: ${inputs.shopAddress}</p>
+                    <p style="font-size: 1rem;">Type of Supplier: ${inputs.supplierType}</p>
+                    <p style="font-size: 1rem;">Years of Expeience in Supplying: ${inputs.supplierExperience}</p>
+                   
+                    <p style="font-size: 1rem;">Attachments url below: </p> 
+                    ${fileDetail}
+                    <p style="font-size: 1rem;">Turnover: ${inputs.turnover}</p>
+                    <p style="font-size: 1rem;">More detail about the enquiry: ${inputs.detailReason}</p>
+                    </div></html>`,
+                    name: inputs.fullname,
+                    email: "temitopealabi@josla.com.ng",
+                    email2: inputs.email
+                };
+                postDistInfo(serverData);
+            }
+
+        }).catch(err => {
+            console.log(err);
+        })
+
+    }
+
+    // call API to initiate email to admin with detail sent  to us
+    const postDistInfo = (serverData) => {
+        axios
+            .post(`${env.api_mail}/mail/ladgroup`, qs.stringify(serverData), {
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+            })
+            .then(
+                (response) => {
+                    if (response) {
+                        toast.success(`Success, check your mail for confirmation`);
+                        setInputs({
+                            fullname: '', tradingName: '', address: '', post: '', phone: '', email: '',
+                            shopAddress: '', shopSize: '', productList: '', intention: '', packageType: '',
+                            attachments: '', turnover: '', salesExperience: '', detailReason: ''
+                        });
+                        dispatch(updateAttachmentsData({}));
+                        setDisableSubmitBtn(false);
+                    }
+                },
+                (error) => {
+                    toast.error("Distributor Info. was not sent");
+                    setDisableSubmitBtn(false);
+                    console.log(error);
+                }
+            )
+            .catch((error) => {
+                // toast.error("Enquiry was not sent");
+            });
     }
 
     const schemaH = {
@@ -133,7 +238,7 @@ const SupplierModal = (props) => {
                                             errors, '', true, 'years of experience  required')}
                                     </div>
 
-                                    {renderMultipleUploadFile('attachments', 'Upload relevant documents (e.g farmers association documents, etc)', 'Upload document(s)',
+                                    {renderMultipleUploadFile('attachments', 'Upload relevant documents (e.g farmers association documents, etc)', `${Object.keys(selectedFiles).length < 1 ? 'Upload document(s)' : Object.keys(selectedFiles).length + 'file(s) added'}`,
                                         'file', <span className="text-danger pl-2">*</span>, `custom-file-input`, 'image/*, application/pdf', '', '', inputs, errors,
                                         'required file should be image or pdf', true, `${formInput} `, 'checkM')}
 
@@ -147,7 +252,7 @@ const SupplierModal = (props) => {
                                         inputs, errors, <span className="text-danger pl-2">*</span>, labeltextL, true, 'briefly explain'
                                     )}
 
-                                    <div className="text-center">{renderButtonH("", "Enquire", `${formSubmitButton} mb-4`, disableSubmitBtn, "submit", {})}</div>
+                                    <div className="text-center">{renderButtonH("", "Register", `${formSubmitButton} mb-4`, disableSubmitBtn, "submit", {})}</div>
                                 </form>
                             </div>
                         </div>

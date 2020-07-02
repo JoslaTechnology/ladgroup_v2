@@ -12,7 +12,10 @@ import logo from "assets/logo.png";
 import grid1 from "assets/grid_img.svg";
 import Button from "components/Button";
 import ContactForm from "../ContactForm";
-import { main, contact, contactform, footer, items, hero_text, grid, countDown, countDownSup } from "./style.module.css";
+import {
+  main, contact, contactform, footer, items, hero_text, grid, countDown, countDownSup,
+  companyDetail, requestBody, homeBorder
+} from "./style.module.css";
 
 
 const Home = () => {
@@ -49,14 +52,33 @@ const Home = () => {
           <div className={contact}>
             <div>
               <Phone />
-              <p>08130302400</p>
+              {/* <p>08130302400</p> */}
+              <div>
+                <a target="_blank" style={{ fontSize: '12px' }} rel="noopener noreferrer" className="text-white " href="tel:234-813-030-2400">08130302400</a>
+              </div>
             </div>
             <div>
               <Mail />
-              <p>shea-sales@ladgroup.org</p>
+              {/* <p>shea-sales@ladgroup.org</p> */}
+              <div><a target="_blank" style={{ fontSize: '12px' }} rel="noopener noreferrer" className="text-white " href="mailto: shea-sales@ladgroup.org">shea-sales@ladgroup.org</a>
+              </div>
             </div>
           </div>
+
+
+
         </nav>
+        {/* for mobile view */}
+        <div className={companyDetail}>
+          <div className="pr-2">
+            <Phone />
+            <p>08130302400</p>
+          </div>
+          <div>
+            <Mail />
+            <p>shea-sales@ladgroup.org</p>
+          </div>
+        </div>
         <div className={hero_text}>
           <h1 className="text-light">Pioneering in oil-seed processing in Nigeria</h1>
           <p className="text-light">
@@ -95,14 +117,14 @@ const Home = () => {
       </section> */}
 
       <main>
-        <h1 className="my-4">LadShea</h1>
-        <p className="pb-2">100% natural, organic, refined shea butter with no smoky smell</p>
+        <h1 className="my-5" style={{ color: '#DCA438' }}><b>Lad Shea</b></h1>
+        <p className="pb-5 h2">100% natural, organic, refined shea butter with no smoky smell</p>
 
         <section className={grid}>
           <img src={butter} alt="bowl of butter" />
           <aside>
             <h2>General Enquiry</h2>
-            <p>
+            <p className={requestBody}>
               Want to make an enquiry about our different range of products and services? Feel free
               to reach out to us.
             </p>
@@ -113,7 +135,7 @@ const Home = () => {
         <section className={grid}>
           <aside>
             <h2>Distributor Registration</h2>
-            <p>
+            <p className={requestBody}>
               Are you a distributor in the shea butter sector? Kindly click on the link below to
               register as one of our distributors.
             </p>
@@ -126,9 +148,9 @@ const Home = () => {
           <img src={grid1} alt="nuts" />
           <aside>
             <h2>Supplier Registration</h2>
-            <p>
+            <p className={requestBody}>
               Do you deal in supplying of resources and equipments (e.g sheanut, diesel, spare
-              parts, etc) Why not join our list of suppliers? .
+              parts, etc)? Why not join our list of suppliers .
             </p>
             <Button onClick={() => handleSupplier(true)} label="Register" />
           </aside>
@@ -140,19 +162,20 @@ const Home = () => {
       {activeModal === 2 && <DistributorModal showModal={showDistModal} closeModal={hideDistModal} />}
       {activeModal === 3 && <SupplierModal showModal={showSupModal} closeModal={hideSupModal} />}
       <footer className={`text-center py-5 ${footer}`}>
-        <h2>LadGroup</h2>
-        <img src={logo} alt="ladgroup logo" />
+        {/* <h2>LadGroup</h2> */}
+        <hr className="px-2" id={homeBorder} />
+        <img src={logo} alt="ladgroup logo" className="mt-2" />
         <div className={`${items}`}>
-          <div>
+          <div className="pt-3">
             <Location />
-            <p>
+            <p style={{ color: '#525E59' }}>
               Factory address - Kilometer 4, Sagamu Benin Expressway, Ikenne-Remo, Ogun State,
               Nigeria.
             </p>
           </div>
-          <div>
+          <div className="py-3">
             <Location />
-            <p>Office address - 24, Abimbola street, Ilasamaja Isolo, Lagos, Nigeria</p>
+            <p style={{ color: '#525E59' }}>Office address - 24, Abimbola street, Ilasamaja Isolo, Lagos, Nigeria.</p>
           </div>
         </div>
       </footer>

@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
+import { updateAttachmentsData } from '../../../../store/actions/index'
 import Joi from 'joi-browser';
 
 export const UseForm = callback => {
     const schemaH = useSelector(state => state.schemaDetail);
+    const disptach = useDispatch();
     const [inputs, setInputs] = useState({});
     const [errors, setErrors] = useState({});
     const [disabledButtonH, setDisabledButtonH] = useState(false);
@@ -54,6 +56,15 @@ export const UseForm = callback => {
         else delete errorsH[event.target.name];
         const inputsH = { ...inputs };
         inputsH[event.target.name] = event.target.value;
+        let reqList = [];
+        if (event.target.name === 'attachments') {
+            const fileList = event.target?.files;
+            // create a store for this
+            console.log("event.target.value", event.target.value);
+
+            disptach(updateAttachmentsData(fileList))
+
+        }
         setErrors(errorsH);
         setInputs(inputs => ({ ...inputs, [event.target.name]: event.target.value }));
 
@@ -62,7 +73,6 @@ export const UseForm = callback => {
     const validateProperty = ({ name, value },) => {
         const obj = { [name]: value };
         const schema = { [name]: schemaH[name] }
-        console.log("schema", schema);
 
         const { error } = Joi.validate(obj, schema);
         return error ? error.details[0].message : null;
@@ -112,6 +122,7 @@ export const UseForm = callback => {
         else delete errorsJobH[event.target.name];
         const inputsJobH = { ...inputJob };
         inputsJobH[event.target.name] = event.target.value;
+
         setErrorsJob(errorsJobH);
         setInputs(inputJob => ({ ...inputJob, [event.target.name]: event.target.value }));
     };

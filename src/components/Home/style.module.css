@@ -1,8 +1,10 @@
 header {
   width: 100vw;
   height: 450px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("../../assets/banner.png");
+  /* background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../../assets/banner.png"); */
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url(/images/headerImg.svg);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -14,6 +16,12 @@ header {
   padding: 3rem 1rem;
 }
 
+#homeBorder {
+  background: rgb(196, 196, 196);
+  height: 1px;
+  margin: 0 6rem;
+} 
+
 .countDownSup {
   font-family: Roboto;
   font-style: normal;
@@ -21,8 +29,10 @@ header {
   font-size: 30px;
   line-height: 35px;
   
-  color: #0D6797;
+  color: #FFFFFF;
   }
+
+  .requestBody { color: #534F4F;}
   .countDown{
     font-family: Roboto;
 font-style: normal;
@@ -30,7 +40,7 @@ font-weight: 500;
 font-size: 60px;
 line-height: 70px;
 
-color: #0D6797;
+color: #FFFFFF;
   }
 
 nav {
@@ -75,9 +85,13 @@ nav > svg {
   font-size: 4rem;
 }
 
+
+
 main > h1,
 main > p {
   text-align: center;
+  font-family: Helvetica;
+font-style: normal;
   /* padding: 4rem 2rem; */
 }
 
@@ -126,7 +140,13 @@ footer img {
   width: 25rem;
 }
 
+@media screen and (min-width: 900px) {
+.companyDetail{display: none}
+}
 @media screen and (max-width: 900px) {
+ .companyDetail{display: inline-flex;
+  padding-top: .5rem!important;
+  justify-self: flex-end;}
 
   .countDownSup {
     font-family: Roboto;
@@ -135,7 +155,7 @@ footer img {
     font-size: 15px;
     line-height: 35px;
     
-    color: #0D6797;
+    color: #FFFFFF;
     }
     .countDown{
       font-family: Roboto;
@@ -144,12 +164,14 @@ footer img {
   font-size: 30px;
   line-height: 70px;
   
-  color: #0D6797;
+  color: #FFFFFF;
     }
   .contact {
     display: none;
   }
-  .hero_text h1 {
-    font-size: 3rem;
+  .hero_text h1 { font-size: 3rem; }
+
+  .hero_text {
+    margin: 2rem 0;
   }
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import {btn} from "./style.module.css";
+import { btn } from "./style.module.css";
 
 const Button = ({ type = "button", label, ...props }) => {
   return (
@@ -7,7 +7,7 @@ const Button = ({ type = "button", label, ...props }) => {
       className={btn}
     >
       <button type={type} {...props}>
-        {label}
+        <b> {label}</b>
       </button>
     </span>
   );

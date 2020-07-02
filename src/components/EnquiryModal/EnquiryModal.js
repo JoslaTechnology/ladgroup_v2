@@ -1,15 +1,17 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Joi from 'joi-browser';
-// import { Formik, Form } from "formik";
+import axios from "axios";
+import { toast } from "react-toastify";
 import { HookForm } from '../Template/Form/HookForm/HookForm';
-// import { TextInputTop, SelectDisco, SelectLabelTop } from "components/Input";
-// import { enquiryFormSchema } from "validationSchema";
 import { updateSchemaData } from '../../store/actions/index';
+import env from "env";
 import Modal from 'components/Template/Modal';
 import enquiryCss from './enquiry.module.css';
 import generalCss from '../general.module.css';
+
 const useList = [{ id: 1, title: 'YES' }, { id: 2, title: 'NO' }]
+const qs = require("querystring");
 
 const EnquiryModal = (props) => {
     const { dIcon, dIcon_feedback, formSubmitButton, formInput, centerModalTitle } = generalCss;
@@ -18,7 +20,46 @@ const EnquiryModal = (props) => {
     const [disableSubmitBtn, setDisableSubmitBtn] = useState(false);
     const checkData = async () => {
         console.log("inputs", inputs);
-
+        setDisableSubmitBtn(true);
+        const serverData = {
+            token: 1234,
+            subject: "Customer subscription",
+            message: `</html><div>
+            <p style="font-size: 1rem;">Full name: ${inputs.fullname}</p>
+            <p style="font-size: 1rem;">Email: ${inputs.email}</p>
+            <p style="font-size: 1rem;">Contact Number: ${inputs.phone}</p>
+            <p style="font-size: 1rem;">Address: ${inputs.address}</p>
+            <p style="font-size: 1rem;">Do you make use of our product: ${inputs.makeUse}</p>
+            <p style="font-size: 1rem;">Product Name: ${inputs.productName}</p>
+            <p style="font-size: 1rem;">Nature of Enquiry: ${inputs.description}</p>
+            </div></html>`,
+            name: inputs.fullname,
+            email: "temitopealabi@josla.com.ng",
+            email2: inputs.email
+        };
+        axios
+            .post(`${env.api_mail}/mail/ladgroup`, qs.stringify(serverData), {
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                }
+            })
+            .then(
+                (response) => {
+                    if (response) {
+                        toast.success(`Success, check your mail for confirmation`);
+                        setInputs({ fullname: '', email: '', phone: '', address: '', makeUse: '', productName: '', description: '' });
+                        setDisableSubmitBtn(false);
+                    }
+                },
+                (error) => {
+                    toast.error("Enquiry was not sent");
+                    setDisableSubmitBtn(false);
+                    console.log(error);
+                }
+            )
+            .catch((error) => {
+                // toast.error("Enquiry was not sent");
+            });
         // disable the button with disableSubmitBtn
     }
 
