@@ -34,7 +34,7 @@ const EnquiryModal = (props) => {
             <p style="font-size: 1rem;">Nature of Enquiry: ${inputs.description}</p>
             </div></html>`,
             name: inputs.fullname,
-            email: "temitopealabi@josla.com.ng",
+            email: "info@ladgroup.org",
             email2: inputs.email
         };
         axios
@@ -46,9 +46,10 @@ const EnquiryModal = (props) => {
             .then(
                 (response) => {
                     if (response) {
-                        toast.success(`Success, check your mail for confirmation`);
+                        toast.success(`Enquiry sent, ${inputs.fullname}`);
                         setInputs({ fullname: '', email: '', phone: '', address: '', makeUse: '', productName: '', description: '' });
                         setDisableSubmitBtn(false);
+                        props.closeModal(false);
                     }
                 },
                 (error) => {
@@ -94,7 +95,7 @@ const EnquiryModal = (props) => {
                         <div className="float-right  w-100" style={{ position: 'absolute', top: '15px' }}>
                             {/* image here */}
                             <button type="button" style={{ borderRadius: '50%' }} className="close bg-white mr-2  " data-dismiss="modal">
-                                <span className="h4" onClick={() => props.closeModal(false)}>×</span>
+                                <span className="h4" onClick={() => props.closeModal(false)}><b>X</b></span>
                             </button>
                         </div>
                         <div className="clearfix"></div>

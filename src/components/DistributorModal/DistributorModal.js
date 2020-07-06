@@ -21,7 +21,6 @@ const DistributorModal = (props) => {
     const dispatch = useDispatch();
     const [disableSubmitBtn, setDisableSubmitBtn] = useState(false);
     const { selectedFiles } = useSelector(state => ({ selectedFiles: state.selectedFiles }));
-    console.log("selectedFiles", selectedFiles);
 
     const checkData = async () => {
         console.log("inputs", inputs);
@@ -82,7 +81,7 @@ const DistributorModal = (props) => {
                     <p style="font-size: 1rem;">More detail about the enquiry: ${inputs.detailReason}</p>
                     </div></html>`,
                     name: inputs.fullname,
-                    email: "temitopealabi@josla.com.ng",
+                    email: "shea-sales@ladgroup.org",
                     email2: inputs.email
                 };
                 postDistInfo(serverData)
@@ -104,7 +103,7 @@ const DistributorModal = (props) => {
             .then(
                 (response) => {
                     if (response) {
-                        toast.success(`Success, check your mail for confirmation`);
+                        toast.success(`Registration successful, ${inputs.fullname}`);
                         setInputs({
                             fullname: '', tradingName: '', address: '', post: '', phone: '', email: '',
                             shopAddress: '', shopSize: '', productList: '', intention: '', packageType: '',
@@ -112,6 +111,7 @@ const DistributorModal = (props) => {
                         });
                         dispatch(updateAttachmentsData({}));
                         setDisableSubmitBtn(false);
+                        props.closeModal(false);
                     }
                 },
                 (error) => {
@@ -150,6 +150,7 @@ const DistributorModal = (props) => {
     useEffect(() => {
         dispatch(updateSchemaData({}));
         dispatch(updateSchemaData(schemaH));
+        dispatch(updateAttachmentsData({}))
         setInputs({
             fullname: '', tradingName: '', address: '', post: '', phone: '', email: '',
             shopAddress: '', shopSize: '', productList: '', intention: '', packageType: '',
@@ -170,7 +171,7 @@ const DistributorModal = (props) => {
                         <div className="float-right  w-100" style={{ position: 'absolute', top: '15px' }}>
                             {/* image here */}
                             <button type="button" style={{ borderRadius: '50%' }} className="close bg-white mr-2 " data-dismiss="modal">
-                                <span className="h4" onClick={() => props.closeModal(false)}>×</span>
+                                <span className="h4" onClick={() => props.closeModal(false)}><b>X</b></span>
                             </button>
                         </div>
                         <div className="clearfix"></div>

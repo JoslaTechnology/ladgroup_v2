@@ -1,4 +1,8 @@
 header {
+  
+}
+
+.bgLanding {
   width: 100vw;
   height: 450px;
   /* background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
@@ -13,7 +17,7 @@ header {
   align-items: center;
   text-align: center;
   color: #fff;
-  padding: 3rem 1rem;
+  padding: 3rem 2rem;
 }
 
 #homeBorder {
@@ -70,7 +74,7 @@ nav > svg {
 }
 
 .contact svg {
-  width: 15px;
+  width: 18px;
 }
 
 .contact p {
@@ -78,7 +82,7 @@ nav > svg {
 }
 
 .hero_text {
-  margin: 5rem 0;
+  margin: 6rem 0;
 }
 
 .hero_text h1 {
@@ -141,15 +145,24 @@ footer img {
 }
 
 @media screen and (min-width: 900px) {
-.companyDetail{display: none}
+.companyDetail{display: none};
+#mobilAdd { display: none };
 }
 @media screen and (max-width: 900px) {
- .companyDetail{display: inline-flex;
+ .companyDetail {display: inline-flex;
   padding-top: .5rem!important;
+
+  padding-bottom: 1rem!important;
   justify-self: flex-end;}
 
+  .bgLanding {
+    width: 100vw;
+    height: 350px !important;
+  }
+  .companyDetail svg { width: 15px;}
+
   .countDownSup {
-    font-family: Roboto;
+    /* font-family: Roboto; */
     font-style: normal;
     font-weight: 500;
     font-size: 15px;
@@ -158,7 +171,7 @@ footer img {
     color: #FFFFFF;
     }
     .countDown{
-      font-family: Roboto;
+      /* font-family: Roboto; */
   font-style: normal;
   font-weight: 500;
   font-size: 30px;
@@ -175,3 +188,4 @@ footer img {
     margin: 2rem 0;
   }
 }
+

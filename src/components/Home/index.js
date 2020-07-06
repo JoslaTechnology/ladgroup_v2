@@ -1,21 +1,25 @@
 import React, { Fragment, useState, USEeFF } from "react";
+import MetaTags from 'react-meta-tags';
 import EnquiryModal from "components/EnquiryModal/EnquiryModal";
 import SupplierModal from "components/SupplierModal/SupplierModal";
 import DistributorModal from "components/DistributorModal/DistributorModal";
-import { ReactComponent as Logo2 } from "assets/logo2.svg";
-import { ReactComponent as Mail } from "assets/mail.svg";
-import { ReactComponent as Phone } from "assets/phone.svg";
+import { ReactComponent as Logo2 } from "assets/logoNew.svg";
+import { ReactComponent as Mail } from "assets/mailboxNew.svg";
+import { ReactComponent as Phone } from "assets/phoneNew.svg";
 import { ReactComponent as Location } from "assets/location.svg";
 import bags from "assets/bags.svg";
 import butter from "assets/plate.svg";
 import logo from "assets/logo.png";
-import grid1 from "assets/grid_img.svg";
+import grid1 from "assets/productPack.svg";
 import Button from "components/Button";
 import ContactForm from "../ContactForm";
+import MaintenanceTimer from "components/timer/MaintenanceTimer";
+
 import {
   main, contact, contactform, footer, items, hero_text, grid, countDown, countDownSup,
-  companyDetail, requestBody, homeBorder
+  companyDetail, requestBody, homeBorder, bgLanding, mobilAdd
 } from "./style.module.css";
+
 
 
 const Home = () => {
@@ -46,49 +50,74 @@ const Home = () => {
   const hideSupModal = (data) => { setShowSupModal(data); }
   return (
     <Fragment>
+      <MetaTags>
+        <title>LadGroup: Pioneer in oil-seed processing in Nigeria</title>
+        <meta name="description" content="At Ladgroup, we are pioneer in oil-seed processing in Nigeria, products ranging from ladshea " />
+        <meta property="og:title" content="LadGroup" />
+        <meta property="keywords" content="sheabutter, ladshea" />
+      </MetaTags>
       <header>
         <nav>
           <Logo2 />
           <div className={contact}>
             <div>
-              <Phone />
-              {/* <p>08130302400</p> */}
-              <div>
-                <a target="_blank" style={{ fontSize: '12px' }} rel="noopener noreferrer" className="text-white " href="tel:234-813-030-2400">08130302400</a>
+              <div className="text-center"><Phone /></div>
+              <div className="pt-2">
+                <a target="_blank" style={{ fontSize: '14px', color: '#0D6797' }} rel="noopener noreferrer" className=" " href="tel:234-813-030-2400">08130302400</a>
               </div>
             </div>
             <div>
-              <Mail />
-              {/* <p>shea-sales@ladgroup.org</p> */}
-              <div><a target="_blank" style={{ fontSize: '12px' }} rel="noopener noreferrer" className="text-white " href="mailto: shea-sales@ladgroup.org">shea-sales@ladgroup.org</a>
+
+              <div className="text-center"><Mail /></div>
+              <div className="pt-2"><a target="_blank" style={{ fontSize: '14px', color: '#0D6797' }} rel="noopener noreferrer" className="" href="mailto: shea-sales@ladgroup.org">shea-sales@ladgroup.org</a>
               </div>
             </div>
           </div>
+
+
 
 
 
         </nav>
+
         {/* for mobile view */}
-        <div className={companyDetail}>
-          <div className="pr-2">
-            <Phone />
-            <p>08130302400</p>
-          </div>
-          <div>
-            <Mail />
-            <p>shea-sales@ladgroup.org</p>
+        <div id={mobilAdd} className="text-center">
+
+          <div className={companyDetail}>
+            <div className="pr-3">
+              <Phone />
+              <div className="pt-2">
+                <a target="_blank" style={{ fontSize: '12px', color: '#0D6797' }} rel="noopener noreferrer" className=" " href="tel:234-813-030-2400">08130302400</a>
+              </div>
+            </div>
+            <div>
+              <Mail />
+              <div className="pt-2"><a target="_blank" style={{ fontSize: '13px', color: '#0D6797' }} rel="noopener noreferrer" className="" href="mailto: shea-sales@ladgroup.org">shea-sales@ladgroup.org</a>
+              </div>
+            </div>
           </div>
         </div>
-        <div className={hero_text}>
-          <h1 className="text-light">Pioneering in oil-seed processing in Nigeria</h1>
-          <p className="text-light">
-            Welcome, kindly note that our website is currently under development
+
+
+
+        <div className={bgLanding}>
+          <div className="pt-5"></div>
+          <div className={hero_text}>
+            <h1 className="text-light">Pioneering in oil-seed processing in Nigeria</h1>
+            <p className="text-light mt-5">
+              Welcome... Kindly note that our website is currently under development Kindly check back in....
           </p>
-        </div>
-        <div className="duration text-light">
-          <span ><sup className={countDownSup}>DAYS</sup> <span className={countDown}>8</span></span>
-          <span className="px-3"><sup className={countDownSup}>HOURS</sup> <span className={countDown}>9</span></span>
-          <span ><sup className={countDownSup}>MINUTES</sup> <span className={countDown}>30</span> </span>
+            {/* Practice Timer */}
+            <MaintenanceTimer />
+          </div>
+
+
+          {/* dummy timer */}
+          {/* <div className="duration text-light">
+            <span ><sup className={countDownSup}>DAYS</sup> <span className={countDown}>8</span></span>
+            <span className="px-3"><sup className={countDownSup}>HOURS</sup> <span className={countDown}>9</span></span>
+            <span ><sup className={countDownSup}>MINUTES</sup> <span className={countDown}>30</span> </span> 
+          </div> */}
           {/* <span>
             <sup>DAYS</sup>
             <h1>10</h1>
@@ -101,6 +130,7 @@ const Home = () => {
             <sup>MINUTES</sup>
             <h1>10</h1>
           </span> */}
+
         </div>
         {/* </div> */}
       </header>
@@ -118,7 +148,7 @@ const Home = () => {
 
       <main>
         <h1 className="my-5" style={{ color: '#DCA438' }}><b>Lad Shea</b></h1>
-        <p className="pb-5 h2">100% natural, organic, refined shea butter with no smoky smell</p>
+        <p className="pb-5 h2">100% natural, organic shea butter with no smoky smell</p>
 
         <section className={grid}>
           <img src={butter} alt="bowl of butter" />
@@ -169,13 +199,12 @@ const Home = () => {
           <div className="pt-3">
             <Location />
             <p style={{ color: '#525E59' }}>
-              Factory address - Kilometer 4, Sagamu Benin Expressway, Ikenne-Remo, Ogun State,
-              Nigeria.
+              Factory/office address - Kilometer 4, Sagamu Benin Expressway, Ikenne-Remo, Ogun State, Nigeria.
             </p>
           </div>
           <div className="py-3">
             <Location />
-            <p style={{ color: '#525E59' }}>Office address - 24, Abimbola street, Ilasamaja Isolo, Lagos, Nigeria.</p>
+            <p style={{ color: '#525E59' }}>Office address - 24, Abimbola Street, Ilasamaja Isolo, Lagos, Nigeria.</p>
           </div>
         </div>
       </footer>
