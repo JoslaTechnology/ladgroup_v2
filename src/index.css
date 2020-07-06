@@ -9,12 +9,10 @@
 }
 
 :root {
-  --body-font: "Poppins", sans-serif;
-  --font-color-dark: #2b303f;
-  --font-color-light: #525e59;
-  --light-green: #009051;
-  --light-pink-bg: #f9f4f4;
-  --redborder: 1px solid red;
+  --body-font: Helvetica, Poppins, sans-serif;
+  --light-blue: #4eb8f0;
+  --dark-blue: #0d6797;
+  --light-grey: #525e59;
 }
 
 /* templates */
@@ -53,6 +51,26 @@ ul {
   list-style-type: none;
 }
 
+img {
+  width: 100%;
+}
+4
 .slider {
   color: green;
 }
+
+section {
+  padding: 4rem 0;
+}
+
+.opacity_effect img:hover {
+  opacity: 0.7;
+}
+
+.container {
+  width: 100%;
+  max-width: 124.5rem;
+  padding: 0 3rem;
+  margin: 0 auto;
+}
+

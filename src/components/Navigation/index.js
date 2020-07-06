@@ -38,9 +38,9 @@ const Navigation = () => {
             <li className={`${nav_item} ${flag}`}>
               <Flag />
             </li>
-            <li className={nav_item}>
+            {/* <li className={nav_item}>
               <i className="fa fa-search"></i>
-            </li>
+            </li> */}
             <li className={nav_item}>
               <IoIosGlobe />
             </li>
