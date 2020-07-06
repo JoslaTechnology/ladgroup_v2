@@ -54,7 +54,7 @@ ul {
 img {
   width: 100%;
 }
-4
+
 .slider {
   color: green;
 }
@@ -66,7 +66,7 @@ section {
 .opacity_effect img:hover {
   opacity: 0.7;
 }
-
+`
 .container {
   width: 100%;
   max-width: 124.5rem;

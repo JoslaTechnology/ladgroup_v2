@@ -5,6 +5,7 @@ import ErrorBoundary from "./components/errorBoundary";
 import "./App.css";
 import Home from "pages/Home";
 import Navigation from "components/Navigation";
+import Footer from "components/Footer";
 
 const About = lazy(() => import("./pages/About"));
 const Products = lazy(() => import("./pages/Products"));
@@ -25,6 +26,7 @@ function App() {
               <Route component={() => <Redirect to="/" />} />
             </Switch>
           </Suspense>
+          <Footer />
         </ErrorBoundary>
       </Router>
     </Fragment>
