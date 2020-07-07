@@ -3,7 +3,7 @@ import Countdown from "./Countdown.jsx";
 import Maintenance from "../maintenance/Maintenance.js";
 const MaintenanceTimer = () => {
   // var someDate = new Date();
-  var someDate = new Date("Tue, 14 Jul 2020 00:00:00 GMT");
+  var someDate = new Date("Mon, 20 Jul 2020 00:00:00 GMT");
   var numberOfDaysToAdd = 8;
   // someDate.setDate(someDate.getDate() + numberOfDaysToAdd);
   someDate.setDate(someDate.getDate());
