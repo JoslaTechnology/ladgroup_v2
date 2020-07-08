@@ -14,9 +14,19 @@ import indicator5 from "assets/indicator5.svg";
 import gallery1 from "assets/gallery1.svg";
 import gallery2 from "assets/gallery2.svg";
 import banner from "assets/banner.png";
-import contact_us from "assets/contact_us.png";
 
-import { main, flex_2, grid_2x2, body, grid_1x5, indicator_group, contact, contact_text } from "./style.module.css";
+import {
+  main,
+  commitment_container,
+  commitment_text,
+  grid_2x2,
+  body,
+  grid_1x5,
+  indicator_group,
+  contact,
+  contact_text,
+  product
+} from "./style.module.css";
 import Button from "components/Button";
 
 const Home = () => {
@@ -26,12 +36,12 @@ const Home = () => {
         <img src={banner} alt="" />
         <h1>Pioneering in oil-seed processing in Nigeria</h1>
       </main>
-
+      
       <section className="commitment">
         <div className="container">
           <h2>Our commitment to you</h2>
-          <div className={flex_2}>
-            <div>
+          <div className={commitment_container}>
+            <div className={commitment_text}>
               <h3>
                 To be the foremost company in Agro Commodities Marketing and Processing in Nigeria and West africa
               </h3>
@@ -47,23 +57,47 @@ const Home = () => {
       </section>
 
       <section className="our_products">
-        <div className="container">
+        {/* <div className="container"> */}
           <h2>Our products</h2>
-          <div className={`${grid_2x2} opacity_effect`}>
-            <img src={product1} alt="Raw shea butter" />
-            <img src={product2} alt="Organic shea butter" />
-            <img src={product3} alt="De oiled cake" />
-            <img src={product4} alt="Refined shea butter" />
-          </div>
+          <div className={`${grid_2x2} scale_effect`}>
+            <div className={product}>
+              <img src={product1} alt="Raw shea butter" />
+              <p>For distributors</p>
+              <h3>Raw shea butter</h3>
+            </div>
+            <div className={product}>
+              <img src={product2} alt="Organic shea butter" />
+              <p>Available on order</p>
+              <h3>Organic shea butter</h3>
+            </div>
+            <div className={product}>
+              <img src={product3} alt="De oiled cake" />
+              <p>Well processed</p>
+              <h3>De oiled cake</h3>
+            </div>
+            <div className={`${product} unavailable`}>
+              <img src={product4} alt="Refined shea butter" />
+              <p>Available soon</p>
+              <h3>Refined shea butter</h3>
+            </div>
+          {/* </div> */}
         </div>
       </section>
 
       <section className="distributors">
         <div className="container">
           <h2>Join Our Growing List of Distributors/Suppliers</h2>
-          <div className={grid_2x2}>
-            <img src={supplier1} alt="Raw shea butter" />
-            <img src={supplier2} alt="Organic shea butter" />
+          <div className={`${grid_2x2} scale_effect`}>
+            <div className={product}>
+              <img src={supplier1} alt="Raw shea butter" />
+              <p>Register as a distributor</p>
+              <h3>Distributor registration</h3>
+            </div>
+            <div className={product}>
+              <img src={supplier2} alt="Organic shea butter" />
+              <p>Register as a supplier</p>
+              <h3>Supplier registration</h3>
+            </div>
           </div>
         </div>
       </section>
@@ -103,16 +137,23 @@ const Home = () => {
 
       <section className="gallery">
         <div className="container">
-          <div className={grid_2x2}>
-            <img src={gallery1} alt="Raw shea butter" />
-            <img src={gallery2} alt="Organic shea butter" />
+          <div className={`${grid_2x2} scale_effect`}>
+            <div className={product}>
+              <img src={gallery1} alt="Raw shea butter" />
+              <p>CEO message</p>
+              <h3>Leading for others to follow</h3>
+            </div>
+            <div className={product}>
+              <img src={gallery2} alt="Organic shea butter" />
+              <p>News</p>
+              <h3>Sahel Capital to Invest in Ladgroup - Nipc</h3>
+            </div>
           </div>
         </div>
       </section>
 
       <section className="contact-us">
         <div className={contact}>
-          <img src={contact_us} alt="contact us" />
           <div className={contact_text}>
             <p>Leading for others to follow</p>
             <Button label="Contact us" />

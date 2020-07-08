@@ -35,33 +35,60 @@
 }
 
 /* commitment section */
-.flex_2 {
+.commitment_container {
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: var(--dark-blue);
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
-.flex_2 div:first-of-type {
+.commitment_container div:first-of-type {
   padding: 2rem;
 }
 
-.flex_2 p,
-.flex_2 h3 {
+.commitment_container p,
+.commitment_container h3 {
   width: 78%;
   margin: 0 auto;
 }
 
-.flex_2 img {
+.commitment_container img {
   max-width: 45rem;
   height: auto;
 }
 
 /* products section */
+.product {
+  position: relative;
+}
+
+.product p,
+.product h3 {
+  color: #fff;
+  position: absolute;
+}
+
+.product p {
+  top: 5px;
+  left: 8px;
+  font-size: 1.2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.2rem 3rem 0.2rem 0.8rem;
+}
+
+.product h3 {
+  bottom: 10px;
+  left: 10px;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
 .grid_2x2 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 40rem));
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 58rem));
   gap: 3rem;
   justify-content: center;
 }
@@ -94,7 +121,7 @@
 .indicator_group p {
   font-size: 1rem;
   text-align: center;
-  padding-top: 0.5rem;
+  padding: 0.5rem 0;
 }
 
 .indicator_group h4 {
@@ -103,26 +130,21 @@
 
 /* contact section */
 .contact {
+  min-height: 28rem;
   max-height: 35rem;
-  display: flex;
   position: relative;
-}
-.contact img::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.9);
-  border: 1px solid red;
+  background-image: url(../../assets/contact_us.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.6);
+  background-blend-mode: multiply;
 }
 
 .contact_text {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 10%;
+  left: 15%;
 }
 
 .contact_text p {
@@ -130,3 +152,32 @@
   font-size: 3.2rem;
 }
 
+@media screen and (max-width: 900px) {
+  .commitment_container {
+    flex-direction: column;
+    max-width: 75%;
+    margin: 0 auto;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: initial;
+  }
+  .commitment_container img {
+    order: 1;
+    width: 100%;
+    max-width: initial;
+  }
+
+  .commitment_text {
+    order: 2;
+    margin: 2rem;
+  }
+
+  .commitment_container p,
+  .commitment_container h3 {
+    width: initial;
+  }
+
+  .commitment_container h3{
+    text-align: center;
+  }
+}

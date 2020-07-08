@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import Dropd from "react-dropd";
 import { ReactComponent as Logo } from "assets/logo2.svg";
 import { ReactComponent as Location } from "assets/location.svg";
 
-import { footer, items, item_icon, item_text, footer_links, social_icons } from "./style.module.css";
+import {
+  footer,
+  items,
+  item_icon,
+  item_text,
+  footer_links,
+  social_icons,
+  language_box,
+  legal,
+  legal_links
+} from "./style.module.css";
 
 const Footer = () => {
+  const languageList = [{ label: "English", value: "english" }];
+
+  const [language, setLanguage] = useState(languageList[0]);
+
   return (
     <footer className={footer}>
       <div className="container">
@@ -105,15 +119,36 @@ const Footer = () => {
           </div>
         </div>
 
-        <hr />
-        {/* <div className="language">
+        <div className={language_box}>
           <p>Language</p>
           <Dropd
             placeholder="Choose a language"
-            onOpen={(currentItem, event) => console.log(event.target)}
-            list={["English"]}
+            value={language.label}
+            onItemChange={(currentItem, event) => setLanguage(currentItem)}
+            list={languageList}
           />
-        </div> */}
+        </div>
+
+        <hr />
+
+        <div className={legal}>
+          <p>
+            <i className="fa fa-copyright"></i> Copyright Ladgroup
+          </p>
+          <div className={legal_links}>
+            <ul>
+              <li>
+                <a href="#!">Terms and conditions</a>
+              </li>
+              <li>
+                <a href="#!">Privacy statement</a>
+              </li>
+              <li>
+                <a href="#!">Policy</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </footer>
   );
