@@ -1,9 +1,10 @@
 .header {
   width: 100vw;
-  height: 6rem;
+  height: 8rem;
   background-color: #000;
   color: #fff;
   font-size: 1.6rem;
+  padding: 1rem 0;
 }
 
 .header a {
@@ -17,12 +18,25 @@
   justify-content: space-between;
   align-items: center;
 }
+
 .header ul {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  width: 20%;
   margin: 0;
+}
+
+.header ul:nth-of-type(1) {
+  width: 25%;
+}
+
+.header ul:nth-of-type(2) {
+  width: 25%;
+  justify-content: flex-end;
+}
+
+.header ul:nth-of-type(2) li{
+  margin-right: 2rem;
 }
 
 .header svg {
@@ -35,6 +49,11 @@
 
 .envelope i {
   background-color: #fff;
-  padding: .7rem;
+  padding: 0.7rem;
   border-radius: 50%;
+}
+
+.nav_brand svg {
+  max-width: 18rem;
+  margin: 0 auto;
 }

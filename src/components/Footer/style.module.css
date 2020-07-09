@@ -19,6 +19,10 @@
   vertical-align: middle;
 }
 
+.footer_logo {
+  max-width: 20rem;
+}
+
 .footer_links {
   display: flex;
   justify-content: space-between;

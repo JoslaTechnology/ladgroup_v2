@@ -16,17 +16,17 @@ function App() {
     <Fragment>
       <Router>
         <ErrorBoundary>
-          <Suspense fallback={FullPageSpinner}>
+          <Suspense fallback={<FullPageSpinner />}>
           <Navigation />
             <Switch>
-              <Route exact path="/" component={Home} />
               <Route exact path="/about" component={About} />
-              <Route exact path="/products" component={Products} />
+              <Route  path="/products" component={Products} />
               <Route exact path="/support" component={Support} />
+              <Route exact path="/" component={Home} />
               <Route component={() => <Redirect to="/" />} />
             </Switch>
           </Suspense>
-          <Footer />
+          {/* <Footer /> */}
         </ErrorBoundary>
       </Router>
     </Fragment>

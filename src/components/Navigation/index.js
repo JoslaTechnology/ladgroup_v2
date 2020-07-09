@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { IoIosGlobe } from "react-icons/io";
-// import { ReactComponent as Logo } from "assets/logo.svg";
+import { ReactComponent as Logo } from "assets/logo.svg";
 import { ReactComponent as Flag } from "assets/nigerian_flag.svg";
-import { header, nav_item, flag, envelope } from "./style.module.css";
+import { header, nav_item, flag, envelope, nav_brand } from "./style.module.css";
 
 const Navigation = () => {
   return (
@@ -12,7 +12,7 @@ const Navigation = () => {
         <nav>
           <ul>
             <li className={nav_item}>
-              <NavLink exact to="/products" activeClassName="selected">
+              <NavLink exact to="/products/raw-shea" activeClassName="selected">
                 Products
               </NavLink>
             </li>
@@ -28,12 +28,13 @@ const Navigation = () => {
               </span>
             </li>
           </ul>
-          <span className="nav-brand">
-            {/* <Logo /> */}
+
+          <span className={`${nav_brand}`}>
             <Link to="/">
-              <h1>LOGO</h1>
+              <Logo />
             </Link>
           </span>
+
           <ul>
             <li className={`${nav_item} ${flag}`}>
               <Flag />

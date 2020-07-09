@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "components/Button";
 import videoClip from "assets/video.svg";
 import product1 from "assets/product1.svg";
 import product2 from "assets/product2.svg";
@@ -27,7 +28,6 @@ import {
   contact_text,
   product
 } from "./style.module.css";
-import Button from "components/Button";
 
 const Home = () => {
   return (
@@ -108,7 +108,7 @@ const Home = () => {
           <div className={grid_1x5}>
             <div className={indicator_group}>
               <img src={indicator1} alt="Raw shea butter" />
-              <p>Experience</p>
+              <p>Track record</p>
               <h4>45 years</h4>
             </div>
             <div className={indicator_group}>
@@ -119,17 +119,17 @@ const Home = () => {
             <div className={indicator_group}>
               <img src={indicator3} alt="Raw shea butter" />
               <p>Products</p>
-              <h4>4+</h4>
+              <h4>3</h4>
             </div>
             <div className={indicator_group}>
               <img src={indicator4} alt="Raw shea butter" />
-              <p>Products</p>
+              <p>Quality check</p>
               <h4>A+</h4>
             </div>
             <div className={indicator_group}>
               <img src={indicator5} alt="Raw shea butter" />
-              <p>Plant capability</p>
-              <h4>Oil seeds</h4>
+              <p>Packaging</p>
+              <h4>A+</h4>
             </div>
           </div>
         </div>

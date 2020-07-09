@@ -12,6 +12,7 @@
   --body-font: Helvetica, Poppins, sans-serif;
   --light-blue: #4eb8f0;
   --dark-blue: #0d6797;
+  --pale-blue: #EBF8FF;
   --light-grey: #525e59;
 }
 
@@ -83,7 +84,7 @@ section {
 
 .container {
   width: 100%;
-  max-width: 144rem;
+  max-width: 125.5rem;
   padding: 0 3rem;
   margin: 0 auto;
 }
@@ -91,6 +92,6 @@ section {
 @media screen and (max-width: 600px) {
   html,
   body {
-    font-size: 8px;
+    font-size: 50%;
   }
 }

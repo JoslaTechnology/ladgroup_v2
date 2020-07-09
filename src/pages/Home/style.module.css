@@ -1,3 +1,11 @@
+.body h2 {
+  position: relative;
+  text-align: center;
+  font-size: 2.4rem;
+  letter-spacing: 0.8px;
+  margin-bottom: 4.5rem;
+}
+
 .body h2::after {
   position: absolute;
   bottom: -10px;
@@ -7,14 +15,6 @@
   width: 8rem;
   height: 3px;
   background-color: var(--light-blue);
-}
-
-.body h2 {
-  position: relative;
-  text-align: center;
-  font-size: 2.4rem;
-  letter-spacing: 0.8px;
-  margin-bottom: 4.5rem;
 }
 
 /* main section  */
@@ -63,8 +63,15 @@
 /* products section */
 .product {
   position: relative;
+  box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.2);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
+.product {
+  box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.2);
+
+}
 .product p,
 .product h3 {
   color: #fff;
@@ -155,12 +162,13 @@
 @media screen and (max-width: 900px) {
   .commitment_container {
     flex-direction: column;
-    max-width: 75%;
+    max-width: 80%;
     margin: 0 auto;
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50%;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
     border-bottom-right-radius: initial;
   }
+
   .commitment_container img {
     order: 1;
     width: 100%;
@@ -177,7 +185,7 @@
     width: initial;
   }
 
-  .commitment_container h3{
+  .commitment_container h3 {
     text-align: center;
   }
 }

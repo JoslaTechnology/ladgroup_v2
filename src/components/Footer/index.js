@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Dropd from "react-dropd";
-import { ReactComponent as Logo } from "assets/logo2.svg";
+import logo2 from "assets/logo2.png";
 import { ReactComponent as Location } from "assets/location.svg";
 
 import {
   footer,
   items,
   item_icon,
+  footer_logo,
   item_text,
   footer_links,
   social_icons,
@@ -25,7 +26,7 @@ const Footer = () => {
       <div className="container">
         <div className={`${items}`}>
           <div>
-            <Logo />
+            <img className={footer_logo} src={logo2} alt="lad group logo" />
             <p>
               <span className={item_icon}>
                 <Location />
