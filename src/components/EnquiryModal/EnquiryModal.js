@@ -19,7 +19,6 @@ const EnquiryModal = (props) => {
     const dispatch = useDispatch();
     const [disableSubmitBtn, setDisableSubmitBtn] = useState(false);
     const checkData = async () => {
-        console.log("inputs", inputs);
         setDisableSubmitBtn(true);
         const serverData = {
             token: 1234,

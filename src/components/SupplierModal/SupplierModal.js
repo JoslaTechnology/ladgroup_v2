@@ -26,10 +26,8 @@ const SupplierModal = (props) => {
     const dispatch = useDispatch();
 
     const { selectedFiles } = useSelector(state => ({ selectedFiles: state.selectedFiles }));
-    console.log("selectedFiles", selectedFiles, "Object.keys(selectedFiles).length", Object.keys(selectedFiles).length);
     const [disableSubmitBtn, setDisableSubmitBtn] = useState(false);
     const checkData = async () => {
-        console.log("inputs", inputs);
         // disable the button with disableSubmitBtn
         setDisableSubmitBtn(true);
         if (Object.keys(selectedFiles).length < 1) {
@@ -60,7 +58,6 @@ const SupplierModal = (props) => {
             // setDocuments([]);
             // setSelectedFiles({});
             // setDisableAddBtn(false);
-            console.log("data", data);
 
             if (data) {
                 const fileDetail = data.map((info, index) => `<p  style="font-size: 0.8rem;" id=${index}>${info.fileUrl}</p>`)
