@@ -56,6 +56,13 @@
 
 .product_image {
   position: relative;
+  box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.2);
+  border-radius: 50px;
+
+}
+
+.product_image:hover {
+  box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.2);
 }
 
 .product_image p {
@@ -118,7 +125,6 @@
 
 .process h2 {
   text-align: center;
-
 }
 
 .process_group {
@@ -171,7 +177,7 @@
 @media screen and (max-width: 600px) {
   .order_text {
     left: 0%;
-   text-align: center;
-   padding: 1rem;
+    text-align: center;
+    padding: 1rem;
   }
 }

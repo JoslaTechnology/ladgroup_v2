@@ -68,10 +68,10 @@
   border-bottom-right-radius: 10px;
 }
 
-.product {
+.product:hover {
   box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.2);
-
 }
+
 .product p,
 .product h3 {
   color: #fff;
