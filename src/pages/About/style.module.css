@@ -1,0 +1,113 @@
+.main {
+  padding: 10rem 1rem;
+  background-color: var(--pale-blue);
+}
+
+.main h1 {
+  font-size: 4.5rem;
+  font-weight: bold;
+  position: relative;
+  text-align: center;
+  letter-spacing: 1px;
+  color: var(--dark-blue);
+}
+
+.main h1::after {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  content: "";
+  width: 8rem;
+  height: 3px;
+  background-color: var(--dark-blue);
+}
+
+.about h2 {
+  position: relative;
+  text-align: center;
+  font-size: 2.4rem;
+  letter-spacing: 0.8px;
+  margin-bottom: 4.5rem;
+}
+
+.about h2::after {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  content: "";
+  width: 8rem;
+  height: 3px;
+  background-color: var(--dark-blue);
+}
+
+/* ceo message section */
+.ceo_grid1 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 58rem));
+  gap: 3rem;
+  justify-content: center;
+}
+
+.ceo_grid1 .ceo_text {
+  margin-top: 10rem;
+}
+
+.ceo_text h3 {
+  font-size: 2.5rem;
+  font-weight: bolder;
+}
+.ceo_text p {
+  font-size: 2.5rem;
+}
+
+.ceo_image {
+  position: relative;
+  box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.2);
+  border-radius: 50px;
+}
+
+.ceo_image:hover {
+  box-shadow: 0 1.5rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.ceo_image p {
+  position: absolute;
+  top: 0px;
+  right: -7%;
+  padding: 1rem 2rem;
+  background-color: var(--pale-blue);
+}
+
+#left p {
+  right: initial;
+  left: -7%;
+}
+/* board members section */
+.board_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 22rem);
+  justify-content: center;
+  width: 85%;
+  gap: 7rem;
+  margin: 0 auto;
+}
+
+.member {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--pale-blue);
+  padding: 1.8rem;
+  text-align: center;
+}
+
+.member p {
+  font-size: 1.2rem;
+}
+
+
+.tab_content a {
+  font-size: 1.6rem;
+  color: var(--dark-blue);
+}

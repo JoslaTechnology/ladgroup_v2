@@ -26,7 +26,7 @@ function App() {
               <Route component={() => <Redirect to="/" />} />
             </Switch>
           </Suspense>
-          {/* <Footer /> */}
+          <Footer />
         </ErrorBoundary>
       </Router>
     </Fragment>
