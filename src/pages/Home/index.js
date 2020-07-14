@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "components/Button";
 import videoClip from "assets/video.svg";
 import product1 from "assets/product1.svg";
 import product2 from "assets/product2.svg";
@@ -24,10 +23,9 @@ import {
   body,
   grid_1x5,
   indicator_group,
-  contact,
-  contact_text,
   product
 } from "./style.module.css";
+import Leading from "components/leading";
 
 const Home = () => {
   return (
@@ -36,7 +34,7 @@ const Home = () => {
         <img src={banner} alt="" />
         <h1>Pioneering in oil-seed processing in Nigeria</h1>
       </main>
-      
+
       <section className="commitment">
         <div className="container">
           <h2>Our commitment to you</h2>
@@ -57,29 +55,28 @@ const Home = () => {
       </section>
 
       <section className="our_products">
-        {/* <div className="container"> */}
-          <h2>Our products</h2>
-          <div className={`${grid_2x2} scale_effect`}>
-            <div className={product}>
-              <img src={product1} alt="Raw shea butter" />
-              <p>For distributors</p>
-              <h3>Raw shea butter</h3>
-            </div>
-            <div className={product}>
-              <img src={product2} alt="Organic shea butter" />
-              <p>Available on order</p>
-              <h3>Organic shea butter</h3>
-            </div>
-            <div className={product}>
-              <img src={product3} alt="De oiled cake" />
-              <p>Well processed</p>
-              <h3>De oiled cake</h3>
-            </div>
-            <div className={`${product} unavailable`}>
-              <img src={product4} alt="Refined shea butter" />
-              <p>Available soon</p>
-              <h3>Refined shea butter</h3>
-            </div>
+        <h2>Our products</h2>
+        <div className={`${grid_2x2} scale_effect`}>
+          <div className={product}>
+            <img src={product1} alt="Raw shea butter" />
+            <p>For distributors</p>
+            <h3>Raw shea butter</h3>
+          </div>
+          <div className={product}>
+            <img src={product2} alt="Organic shea butter" />
+            <p>Available on order</p>
+            <h3>Organic shea butter</h3>
+          </div>
+          <div className={product}>
+            <img src={product3} alt="De oiled cake" />
+            <p>Well processed</p>
+            <h3>De oiled cake</h3>
+          </div>
+          <div className={`${product} unavailable`}>
+            <img src={product4} alt="Refined shea butter" />
+            <p>Available soon</p>
+            <h3>Refined shea butter</h3>
+          </div>
           {/* </div> */}
         </div>
       </section>
@@ -152,14 +149,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="contact-us">
-        <div className={contact}>
-          <div className={contact_text}>
-            <p>Leading for others to follow</p>
-            <Button label="Contact us" />
-          </div>
-        </div>
-      </section>
+      <Leading />
     </div>
   );
 };

@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import product1 from "assets/product1copy.svg";
 import product2 from "assets/product2copy.svg";
 import product4 from "assets/product4copy.svg";
 

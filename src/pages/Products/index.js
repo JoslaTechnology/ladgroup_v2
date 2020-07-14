@@ -1,4 +1,4 @@
-import React, { Fragment, Suspense, lazy } from "react";
+import React, { Suspense, lazy } from "react";
 import { Switch, Route, Redirect, useRouteMatch } from "react-router-dom";
 import { Spinner } from "components/loader/FullPageSpinner";
 import Button from "components/Button";

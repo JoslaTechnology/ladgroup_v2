@@ -36,7 +36,7 @@
   font-size: 1.4rem;
 }
 
-.footer_links dd a:link {
+.footer_links dd a {
   color: var(--light-grey);
   font-size: 1.2rem;
 }

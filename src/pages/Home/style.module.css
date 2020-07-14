@@ -100,10 +100,10 @@
   justify-content: center;
 }
 
-.flex_1 {
+/* .flex_1 {
   display: flex;
   justify-content: space-between;
-}
+} */
 
 /* indicators section  */
 .grid_1x5 {
@@ -133,30 +133,6 @@
 
 .indicator_group h4 {
   font-size: 1.4rem;
-}
-
-/* contact section */
-.contact {
-  min-height: 28rem;
-  max-height: 35rem;
-  position: relative;
-  background-image: url(../../assets/contact_us.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: rgba(0, 0, 0, 0.6);
-  background-blend-mode: multiply;
-}
-
-.contact_text {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 15%;
-}
-
-.contact_text p {
-  color: #fff;
-  font-size: 3.2rem;
 }
 
 @media screen and (max-width: 900px) {

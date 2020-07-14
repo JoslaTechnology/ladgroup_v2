@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+
+import { Link } from "react-router-dom";
 import Dropd from "react-dropd";
 import logo2 from "assets/logo2.png";
 import { ReactComponent as Location } from "assets/location.svg";
@@ -52,44 +54,44 @@ const Footer = () => {
           <dl>
             <dt>Products</dt>
             <dd>
-              <a href="#!">Raw shea butter</a>
+              <Link to="/products/raw-shea">Raw shea butter</Link>
             </dd>
             <dd>
-              <a href="#!">Organic shea butter</a>
+              <Link to="/products/organic-shea">Organic shea butter</Link>
             </dd>
             <dd>
-              <a href="#!">De oiled cake</a>
+              <Link to="/products/de-oiled-cake">De oiled cake</Link>
             </dd>
           </dl>
 
           <dl>
             <dt>Company</dt>
             <dd>
-              <a href="#!">About Us</a>
+              <Link to="/about">About Us</Link>
             </dd>
             <dd>
-              <a href="#!">Board members</a>
+              <a href="/about#board">Board members</a>
             </dd>
           </dl>
 
           <dl>
             <dt>Join us</dt>
             <dd>
-              <a href="#!">Careers</a>
+              <Link to="/careers">Careers</Link>
             </dd>
           </dl>
 
           <dl>
             <dt>Support</dt>
             <dd>
-              <a href="#!">Contact us</a>
+              <Link to="/contact">Contact us</Link>
             </dd>
           </dl>
 
           <dl>
             <dt>Media</dt>
             <dd>
-              <a href="#!">News</a>
+              <Link to="/media">News</Link>
             </dd>
           </dl>
 

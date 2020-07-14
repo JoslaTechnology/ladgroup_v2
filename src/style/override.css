@@ -1,0 +1,19 @@
+/* overide react-bootstrap styles for tabs on about and career page */
+.nav-link {
+  border: 1px solid var(--dark-blue) !important;
+  border-top-left-radius: 1.5rem !important;
+  border-top-right-radius: 1.5rem !important;
+}
+
+.nav-link:active {
+  outline-color: var(--dark-blue);
+}
+
+.active.nav-link {
+  background-color: var(--dark-blue) !important;
+  color: #fff !important;
+}
+
+.nav-link:active {
+  outline: none;
+}

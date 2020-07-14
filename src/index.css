@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+@import "./style/override.css";
 
 *,
 *::before,
@@ -12,7 +13,7 @@
   --body-font: Helvetica, Poppins, sans-serif;
   --light-blue: #4eb8f0;
   --dark-blue: #0d6797;
-  --pale-blue: #EBF8FF;
+  --pale-blue: #ebf8ff;
   --light-grey: #525e59;
 }
 

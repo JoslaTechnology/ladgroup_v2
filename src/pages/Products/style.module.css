@@ -179,4 +179,16 @@
     text-align: center;
     padding: 1rem;
   }
+
+  .product_image p {
+    position: absolute;
+    right: 0;
+    border-top-right-radius: 10px;
+  }
+
+  #left p {
+    right: initial;
+    border-top-left-radius: 10px;
+    left: 0;
+  }
 }

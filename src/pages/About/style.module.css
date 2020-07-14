@@ -84,6 +84,7 @@
   right: initial;
   left: -7%;
 }
+
 /* board members section */
 .board_grid {
   display: grid;
@@ -100,14 +101,125 @@
   background-color: var(--pale-blue);
   padding: 1.8rem;
   text-align: center;
+  box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.member:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 
 .member p {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: bold;
 }
 
 
-.tab_content a {
+/* tab section  */
+.tab_image {
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+a.tab_content {
   font-size: 1.6rem;
   color: var(--dark-blue);
+}
+
+.tab_group p {
+  color: #726868;
+  font-size: 1.8rem;
+}
+
+/* vision section */
+.vision_content {
+  display: flex;
+}
+
+.vertical_text {
+  flex: 0.02;
+  align-self: center;
+}
+
+.vertical_text p {
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  text-transform: uppercase;
+  display: inline-block;
+  letter-spacing: 5px;
+}
+
+.vision_mission {
+  background-color: #2f2f2f;
+  border: 1.5rem solid #a3a3a3;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+}
+
+.vision_mission h3 {
+  color: #8c8181;
+  font-weight: bold;
+  position: relative;
+  padding: 5px;
+  margin-bottom: 1.5rem;
+}
+
+.vision_mission h3::after {
+  content: "";
+  background-color: #8c8181;
+  position: absolute;
+  width: 40%;
+  height: 3px;
+  bottom: 0;
+  right: 0;
+}
+
+.vision_mission h3:first-of-type {
+  align-self: flex-start;
+}
+
+.vision_mission h3:not(:first-of-type) {
+  align-self: flex-end;
+}
+
+.vision_mission p {
+  color: #fff;
+}
+
+.vision_mission p:first-of-type {
+  margin-bottom: 4rem;
+}
+
+@media screen and (max-width: 600px) {
+  /* ceo message section */
+  #left p {
+    right: initial;
+    left: 0;
+    border-top-left-radius: 10px;
+  }
+
+  /* vision section */
+  .vertical_text {
+    display: none;
+  }
+
+  /* board members section */
+  .board_grid {
+    grid-template-columns: repeat(auto-fit, 30rem);
+    width: 90%;
+    gap: 3.5rem;
+  }
+
+  .member {
+    padding: 4rem;
+    text-align: center;
+  }
+
+  .member p {
+    font-size: 1.4rem;
+  }
 }
