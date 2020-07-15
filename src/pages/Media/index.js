@@ -10,8 +10,7 @@ import Leading from "components/leading";
 
 import media1 from "assets/media1.svg";
 
-import { grid_1x2, grid_1x2_image, left, main } from "style/layout.module.css";
-import { tab_content, content_group } from "./style.module.css";
+import { grid_1x2, grid_1x2_image, left, main,  content_group  } from "style/layout.module.css";
 
 const Media = () => {
   return (

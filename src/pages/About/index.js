@@ -13,7 +13,6 @@ import { grid_1x2, grid_1x2_image, grid_1x2_text, left, main, sub_heading } from
 import {
   board_grid,
   member,
-  tab_content,
   tab_image,
   tab_group,
   vision_content,

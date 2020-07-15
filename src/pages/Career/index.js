@@ -1,12 +1,15 @@
 import React, { Fragment } from "react";
-import experience from "assets/experience.svg";
+import { openings } from "./careerData";
+
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
-import { grid_1x2, grid_1x2_image, left, main } from "style/layout.module.css";
-import { tab_content, general_application } from "./style.module.css";
+import experience from "assets/experience.svg";
+
+import { grid_1x2, grid_1x2_image, left, main, content_group } from "style/layout.module.css";
+import { applications_content, content_group2 } from "./style.module.css";
 
 const Career = () => {
   return (
@@ -49,33 +52,42 @@ const Career = () => {
             </Col>
 
             <Tab.Content>
-              {/* <Tab.Pane eventKey={tabContent[0].eventKey}>
-                <Row className="py-3 px-1">
-                  <Col className="my-auto" sm={6}>
-                    <div className={content_group}>
-                      <img src={tabContent[0].image} alt="" />
-                      <p>{tabContent[0].source}</p>
-                      <h3>{tabContent[0].headline}</h3>
+              <Tab.Pane
+                eventKey="one"
+                className={`
+  
+                ${content_group2}
+              `}
+              >
+            <Col>
+                {openings.length > 0 ? (
+                  // <Row className="py-3 px-1">
+                  //   <Col className="my-auto" sm={6}>
+                  openings.map((opening, index) => (
+                    <div className={`${content_group} `} key={index}>
+                      <img src={opening.image} alt="" />
+                      <p>{opening.department}</p>
+                      <h3>{opening.position}</h3>
                     </div>
-                    <p>{tabContent[0].text}</p>
-                  </Col>
-                  <Col className="my-auto" sm={6}>
-                    <div className={content_group}>
-                      <img src={tabContent[1].image} alt="" />
-                      <p>{tabContent[1].source}</p>
-                      <h3>{tabContent[1].headline}</h3>
-                    </div>
-                    <p>{tabContent[1].text}</p>
-                  </Col>
-                </Row>
-              </Tab.Pane> */}
-              <Tab.Pane eventKey="two" className={general_application}>
+                  ))
+                ) : (
+                  // </Col>
+                  // <Col className="my-auto" sm={6}>
+                  // </Col>
+                  // </Row>
+                  <p>Hello there, sorry there are no vacancy at the moment. Kindly check back some other time</p>
+                )}
+            </Col>
+
+              </Tab.Pane>
+              <Tab.Pane eventKey="two" className={applications_content}>
                 <p>
                   At Ladgroup, we are always looking for innovative, highly skilled, well educated, committed, and
                   caring employees to join us. If you are interested in what we do and what we stand for, then we would
                   love to hear from you.
                 </p>
                 <p>Submit CV</p>
+                
               </Tab.Pane>
             </Tab.Content>
           </Tab.Container>

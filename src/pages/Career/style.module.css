@@ -1,12 +1,18 @@
 /* tab section */
-.general_application {
+.applications_content {
   margin: 0 auto;
   width: 90%;
   padding: 2rem 0;
 }
 
-.general_application p:nth-child(2) {
+.applications_content p:nth-child(2) {
   color: var(--dark-blue);
   font-weight: bold;
   cursor: pointer;
+}
+
+.content_group2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
