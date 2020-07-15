@@ -18,10 +18,10 @@ function App() {
       <Router>
         <ErrorBoundary>
           <Suspense fallback={<FullPageSpinner />}>
-          <Navigation />
+            <Navigation />
             <Switch>
               <Route exact path="/about" component={About} />
-              <Route  path="/products" component={Products} />
+              <Route path="/products" component={Products} />
               <Route exact path="/support" component={Support} />
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/media" component={Media} />

@@ -21,14 +21,12 @@ const ContactForm = () => {
     { value: "yes", text: "Yes" },
     { value: "no", text: "No" }
   ];
-
   const supplyArr = [
     { value: "1.3KG SAMPLE PACK", text: "1.3KG (simple pack)" },
     { value: "25KG CARTON", text: "25KG (carton)" },
     { value: "18KG PACK", text: "18KG (pack)" },
     { value: "BULK PURCHASE", text: "Bulk Purchase" }
   ];
-
   const initialValues = {
     fullname: "",
     company: "",
@@ -101,7 +99,6 @@ const ContactForm = () => {
         // toast.error("Enquiry was not sent");
       });
   };
-
   return (
     <Fragment>
       <Formik
