@@ -1,8 +1,14 @@
 header {
+  
+}
+
+.bgLanding {
   width: 100vw;
   height: 450px;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("../../assets/banner.png");
+  /* background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../../assets/banner.png"); */
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url(/images/headerImg.svg);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -11,8 +17,35 @@ header {
   align-items: center;
   text-align: center;
   color: #fff;
-  padding: 3rem 1rem;
+  padding: 3rem 2rem;
 }
+
+#homeBorder {
+  background: rgb(196, 196, 196);
+  height: 1px;
+  margin: 0 6rem;
+} 
+
+.countDownSup {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 35px;
+  
+  color: #FFFFFF;
+  }
+
+  .requestBody { color: #534F4F;}
+  .countDown{
+    font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 60px;
+line-height: 70px;
+
+color: #FFFFFF;
+  }
 
 nav {
   display: flex;
@@ -41,7 +74,7 @@ nav > svg {
 }
 
 .contact svg {
-  width: 15px;
+  width: 18px;
 }
 
 .contact p {
@@ -49,16 +82,20 @@ nav > svg {
 }
 
 .hero_text {
-  margin: 5rem 0;
+  margin: 6rem 0;
 }
 
 .hero_text h1 {
   font-size: 4rem;
 }
 
+
+
 main > h1,
 main > p {
   text-align: center;
+  font-family: Helvetica;
+font-style: normal;
   /* padding: 4rem 2rem; */
 }
 
@@ -80,9 +117,9 @@ main .grid {
   align-items: center;
 }
 
-.grid aside p {
+/* .grid aside p {
   width: 50%;
-}
+} */
 
 .grid img {
   width: 100%;
@@ -107,11 +144,48 @@ footer img {
   width: 25rem;
 }
 
+@media screen and (min-width: 900px) {
+.companyDetail{display: none};
+#mobilAdd { display: none };
+}
 @media screen and (max-width: 900px) {
+ .companyDetail {display: inline-flex;
+  padding-top: .5rem!important;
+
+  padding-bottom: 1rem!important;
+  justify-self: flex-end;}
+
+  .bgLanding {
+    width: 100vw;
+    height: 350px !important;
+  }
+  .companyDetail svg { width: 15px;}
+
+  .countDownSup {
+    /* font-family: Roboto; */
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 35px;
+    
+    color: #FFFFFF;
+    }
+    .countDown{
+      /* font-family: Roboto; */
+  font-style: normal;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 70px;
+  
+  color: #FFFFFF;
+    }
   .contact {
     display: none;
   }
-  .hero_text h1 {
-    font-size: 3rem;
+  .hero_text h1 { font-size: 3rem; }
+
+  .hero_text {
+    margin: 2rem 0;
   }
 }
+

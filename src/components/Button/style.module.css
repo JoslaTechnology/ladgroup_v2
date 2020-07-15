@@ -6,12 +6,16 @@
   transition: 0.5s;
   margin: 0 3px;
   border-radius: 4px;
-  opacity: 0.8;
-  background: #0D6797;
-  border: 1px solid #0D6797;
+  background: var(--dark-blue);
+  border: 1px solid var(--dark-blue);
   color: #fff;
 }
 
 .btn button:hover {
-  opacity: 1;
+  background-color: #025d8a;
+  transform: translateY(2px);
+}
+
+.btn button:focus, .btn button:active  {
+  outline-color: var(--dark-blue);
 }
