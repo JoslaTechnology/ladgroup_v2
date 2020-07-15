@@ -1,0 +1,21 @@
+.btn button {
+  width: 150px;
+  color: #fff;
+  padding: 8px 0;
+  font-size: 13px;
+  transition: 0.5s;
+  margin: 0 3px;
+  border-radius: 4px;
+  background: var(--dark-blue);
+  border: 1px solid var(--dark-blue);
+  color: #fff;
+}
+
+.btn button:hover {
+  background-color: #025d8a;
+  transform: translateY(2px);
+}
+
+.btn button:focus, .btn button:active  {
+  outline-color: var(--dark-blue);
+}
