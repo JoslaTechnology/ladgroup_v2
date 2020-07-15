@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Fragment, Suspense, lazy } from "react";
 import { Switch, Route, Redirect, useRouteMatch } from "react-router-dom";
 import { Spinner } from "components/loader/FullPageSpinner";
 import Button from "components/Button";
@@ -12,7 +12,6 @@ import process4 from "assets/process4.svg";
 import process5 from "assets/process5.svg";
 
 import {
-  products,
   product_grid1,
   product_image,
   product_text2,
@@ -24,6 +23,7 @@ import {
   order,
   order_text
 } from "./style.module.css";
+import { sub_heading } from "style/layout.module.css";
 
 const DeOiledCake = lazy(() => import("./DeOiledCake"));
 const OrganicShea = lazy(() => import("./OrganicShea"));
@@ -33,7 +33,7 @@ const Products = () => {
   let { path } = useRouteMatch();
 
   return (
-    <div className={products}>
+    <Fragment>
       <Suspense fallback={<Spinner />}>
         <Switch>
           <Route exact path={`${path}/de-oiled-cake`} component={DeOiledCake} />
@@ -92,7 +92,7 @@ const Products = () => {
 
       <section className="process">
         <div className="container">
-          <h2>Our raw shea butter production</h2>
+          <h2 className={sub_heading}>Our raw shea butter production</h2>
           <div className={process}>
             <div className={process_group}>
               <img src={process1} alt="Raw shea butter" />
@@ -126,14 +126,12 @@ const Products = () => {
       <section className="order-now">
         <div className={order}>
           <div className={order_text}>
-            <p>
-              We manufacture and deliver essential raw shea butter to you
-            </p>
+            <p>We manufacture and deliver essential raw shea butter to you</p>
             <Button label="Order now" />
           </div>
         </div>
       </section>
-    </div>
+    </Fragment>
   );
 };
 

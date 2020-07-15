@@ -2,7 +2,8 @@ import React, { Fragment } from "react";
 import product3 from "assets/product3copy.svg";
 import product5 from "assets/product5.svg";
 
-import { main, product_grid1, product_image, product_text, product_grid2, number, left } from "./style.module.css";
+import {  product_grid1, product_image, product_text, product_grid2, number } from "./style.module.css";
+import {left, main } from "style/layout.module.css";
 
 const DeOiledCake = () => {
   return (

@@ -1,5 +1,8 @@
 import React, { Fragment } from "react";
 import { NavLink, Link } from "react-router-dom";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
 import { IoIosGlobe } from "react-icons/io";
 import { ReactComponent as Logo } from "assets/logo.svg";
 import { ReactComponent as Flag } from "assets/nigerian_flag.svg";
@@ -26,6 +29,12 @@ const Navigation = () => {
               <span className="pl-2">
                 <i className="fa fa-caret-down"></i>
               </span>
+              {/* <NavDropdown title="More" id="nav-dropdown">
+                <NavDropdown.Item  href="/about">Action</NavDropdown.Item>
+                <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
+                <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>
+                <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
+              </NavDropdown> */}
             </li>
           </ul>
 

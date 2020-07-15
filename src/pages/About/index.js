@@ -9,15 +9,10 @@ import member1 from "assets/member1.svg";
 import member2 from "assets/member2.svg";
 import ceo from "assets/ceo.svg";
 
+import { grid_1x2, grid_1x2_image, grid_1x2_text, left, main, sub_heading } from "style/layout.module.css";
 import {
-  main,
-  about,
   board_grid,
   member,
-  ceo_image,
-  ceo_grid1,
-  ceo_text,
-  left,
   tab_content,
   tab_image,
   tab_group,
@@ -25,22 +20,23 @@ import {
   vertical_text,
   vision_mission
 } from "./style.module.css";
+import { Fragment } from "react";
 
 const About = () => {
   return (
-    <div className={about}>
+    <Fragment>
       <div className={main}>
         <h1>About Ladgroup</h1>
       </div>
 
       <section>
         <div className="container">
-          <div className={`${ceo_grid1} scale_effect`}>
-            <div className={ceo_text}>
+          <div className={`${grid_1x2} scale_effect`}>
+            <div className={grid_1x2_text}>
               <h3>Leading for others to follow</h3>
               <p>Brief message from the CEO</p>
             </div>
-            <div id={left} className={ceo_image}>
+            <div id={left} className={grid_1x2_image}>
               <img src={ceo} alt="message from ceo" />
               <p>CEO message</p>
             </div>
@@ -56,7 +52,7 @@ const About = () => {
                 {tabContent.map((content, index) => {
                   return (
                     <Nav.Item key={index}>
-                      <Nav.Link eventKey={content.eventKey} className={`mx-1 py-3 ${tab_content}`}>
+                      <Nav.Link eventKey={content.eventKey} className={`mx-1 py-3 nav-content`}>
                         {content.title}
                       </Nav.Link>
                     </Nav.Item>
@@ -89,7 +85,7 @@ const About = () => {
 
       <section>
         <div className="container">
-          <h2>Vision and Mission</h2>
+          <h2 className={sub_heading}>Vision and Mission</h2>
           <div className={vision_content}>
             <div className={vertical_text}>
               <p>vision</p>
@@ -118,7 +114,7 @@ const About = () => {
 
       <section className="board-members" id="board">
         <div className="container">
-          <h2>Board Members</h2>
+          <h2 className={sub_heading}>Board Members</h2>
           <div className={`${board_grid} scale_effect`}>
             <div className={`${member}`}>
               <img src={member1} alt="board member" />
@@ -148,7 +144,7 @@ const About = () => {
           </div>
         </div>
       </section>
-    </div>
+    </Fragment>
   );
 };
 

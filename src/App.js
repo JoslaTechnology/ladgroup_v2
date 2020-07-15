@@ -8,9 +8,9 @@ import Footer from "components/Footer";
 
 const About = lazy(() => import("./pages/About"));
 const Products = lazy(() => import("./pages/Products"));
-const Support = lazy(() => import("./pages/Support"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Media = lazy(() => import("./pages/Media"));
+const Career = lazy(() => import("./pages/Career"));
 
 function App() {
   return (
@@ -22,9 +22,9 @@ function App() {
             <Switch>
               <Route exact path="/about" component={About} />
               <Route  path="/products" component={Products} />
-              <Route exact path="/support" component={Support} />
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/media" component={Media} />
+              <Route exact path="/careers" component={Career} />
               <Route exact path="/" component={Home} />
               <Route component={() => <Redirect to="/" />} />
             </Switch>

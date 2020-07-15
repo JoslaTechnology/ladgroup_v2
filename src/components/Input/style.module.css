@@ -50,5 +50,4 @@ p.has_error {
   display: flex;
   cursor: pointer !important;
   margin: 0;
-  /* border: 1px solid red; */
 }

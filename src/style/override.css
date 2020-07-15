@@ -1,19 +1,22 @@
-/* overide react-bootstrap styles for tabs on about and career page */
-.nav-link {
+a.nav-content {
+  font-size: 1.6rem;
+  color: var(--dark-blue);
+}
+
+.nav-content {
+  font-size: 1.6rem;
+  color: var(--dark-blue);
   border: 1px solid var(--dark-blue) !important;
   border-top-left-radius: 1.5rem !important;
   border-top-right-radius: 1.5rem !important;
 }
 
-.nav-link:active {
-  outline-color: var(--dark-blue);
-}
-
-.active.nav-link {
-  background-color: var(--dark-blue) !important;
-  color: #fff !important;
-}
-
-.nav-link:active {
+.nav-content.nav-link:active {
+  /* outline-color: var(--dark-blue); */
   outline: none;
+}
+
+.active.nav-content {
+  color: #fff !important;
+  background-color: var(--dark-blue) !important;
 }

@@ -77,7 +77,7 @@ const Footer = () => {
           <dl>
             <dt>Join us</dt>
             <dd>
-              {/* <Link to="/careers">Careers</Link> */}
+              <Link to="/careers">Careers</Link>
             </dd>
           </dl>
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import videoClip from "assets/video.svg";
 import product1 from "assets/product1.svg";
 import product2 from "assets/product2.svg";
@@ -20,16 +20,17 @@ import {
   commitment_container,
   commitment_text,
   grid_2x2,
-  body,
   grid_1x5,
   indicator_group,
   product
 } from "./style.module.css";
+import { sub_heading } from "style/layout.module.css";
+
 import Leading from "components/leading";
 
 const Home = () => {
   return (
-    <div className={body}>
+    <Fragment>
       <main className={main}>
         <img src={banner} alt="" />
         <h1>Pioneering in oil-seed processing in Nigeria</h1>
@@ -37,7 +38,7 @@ const Home = () => {
 
       <section className="commitment">
         <div className="container">
-          <h2>Our commitment to you</h2>
+          <h2 className={sub_heading}>Our commitment to you</h2>
           <div className={commitment_container}>
             <div className={commitment_text}>
               <h3>
@@ -55,7 +56,7 @@ const Home = () => {
       </section>
 
       <section className="our_products">
-        <h2>Our products</h2>
+        <h2 className={sub_heading}>Our products</h2>
         <div className={`${grid_2x2} scale_effect`}>
           <div className={product}>
             <img src={product1} alt="Raw shea butter" />
@@ -83,7 +84,7 @@ const Home = () => {
 
       <section className="distributors">
         <div className="container">
-          <h2>Join Our Growing List of Distributors/Suppliers</h2>
+          <h2 className={sub_heading}>Join Our Growing List of Distributors/Suppliers</h2>
           <div className={`${grid_2x2} scale_effect`}>
             <div className={product}>
               <img src={supplier1} alt="Raw shea butter" />
@@ -101,7 +102,7 @@ const Home = () => {
 
       <section className="indicators">
         <div className="container">
-          <h2>Key Indicators</h2>
+          <h2 className={sub_heading}>Key Indicators</h2>
           <div className={grid_1x5}>
             <div className={indicator_group}>
               <img src={indicator1} alt="Raw shea butter" />
@@ -150,7 +151,7 @@ const Home = () => {
       </section>
 
       <Leading />
-    </div>
+    </Fragment>
   );
 };
 
