@@ -17,8 +17,8 @@ const Navigation = () => {
               </NavLink>
             </li>
             <li className={nav_item}>
-              <NavLink exact to="/support" activeClassName="selected">
-                Support
+              <NavLink exact to="/about" activeClassName="selected">
+                About
               </NavLink>
             </li>
             <li className={nav_item}>

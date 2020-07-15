@@ -77,14 +77,14 @@ const Footer = () => {
           <dl>
             <dt>Join us</dt>
             <dd>
-              <Link to="/careers">Careers</Link>
+              {/* <Link to="/careers">Careers</Link> */}
             </dd>
           </dl>
 
           <dl>
             <dt>Support</dt>
             <dd>
-              <Link to="/contact">Contact us</Link>
+              {/* <Link to="/contact">Contact us</Link> */}
             </dd>
           </dl>
 
