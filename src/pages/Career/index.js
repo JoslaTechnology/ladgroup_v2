@@ -9,7 +9,7 @@ import Row from "react-bootstrap/Row";
 import experience from "assets/experience.svg";
 
 import { grid_1x2, grid_1x2_image, left, main, content_group } from "style/layout.module.css";
-import { applications_content, content_group2 } from "./style.module.css";
+import { applications_content, cv } from "./style.module.css";
 
 const Career = () => {
   return (
@@ -52,33 +52,46 @@ const Career = () => {
             </Col>
 
             <Tab.Content>
-              <Tab.Pane
-                eventKey="one"
-                className={`
-  
-                ${content_group2}
-              `}
-              >
-            <Col>
+              <Tab.Pane eventKey="one" className={applications_content}>
                 {openings.length > 0 ? (
-                  // <Row className="py-3 px-1">
-                  //   <Col className="my-auto" sm={6}>
-                  openings.map((opening, index) => (
-                    <div className={`${content_group} `} key={index}>
-                      <img src={opening.image} alt="" />
-                      <p>{opening.department}</p>
-                      <h3>{opening.position}</h3>
-                    </div>
-                  ))
+                  <>
+                  <p className="text-center my-3">Ladgroup is an equal opportunity employer</p>
+                  <Row className="py-3 px-1">
+                    <Col className="my-auto" sm={6}>
+                      <div className={content_group}>
+                        <img src={openings[0].image} alt="" />
+                        <p>{openings[0].department}</p>
+                        <h3>{openings[0].position}</h3>
+                      </div>
+                    </Col>
+                    <Col className="my-auto" sm={6}>
+                      <div className={content_group}>
+                        <img src={openings[1].image} alt="" />
+                        <p>{openings[1].department}</p>
+                        <h3>{openings[1].position}</h3>
+                      </div>
+                    </Col>
+                  </Row>
+                  <Row className="py-3 px-1">
+                    <Col className="my-auto" sm={6}>
+                      <div className={content_group}>
+                        <img src={openings[2].image} alt="" />
+                        <p>{openings[2].department}</p>
+                        <h3>{openings[2].position}</h3>
+                      </div>
+                    </Col>
+                    <Col className="my-auto" sm={6}>
+                      <div className={content_group}>
+                        <img src={openings[3].image} alt="" />
+                        <p>{openings[3].department}</p>
+                        <h3>{openings[3].position}</h3>
+                      </div>
+                    </Col>
+                  </Row>
+                  </>
                 ) : (
-                  // </Col>
-                  // <Col className="my-auto" sm={6}>
-                  // </Col>
-                  // </Row>
                   <p>Hello there, sorry there are no vacancy at the moment. Kindly check back some other time</p>
                 )}
-            </Col>
-
               </Tab.Pane>
               <Tab.Pane eventKey="two" className={applications_content}>
                 <p>
@@ -86,8 +99,7 @@ const Career = () => {
                   caring employees to join us. If you are interested in what we do and what we stand for, then we would
                   love to hear from you.
                 </p>
-                <p>Submit CV</p>
-                
+                <p className={cv}>Submit CV</p>
               </Tab.Pane>
             </Tab.Content>
           </Tab.Container>

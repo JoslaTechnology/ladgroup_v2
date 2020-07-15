@@ -5,14 +5,8 @@
   padding: 2rem 0;
 }
 
-.applications_content p:nth-child(2) {
+.cv {
   color: var(--dark-blue);
   font-weight: bold;
   cursor: pointer;
-}
-
-.content_group2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
 }
