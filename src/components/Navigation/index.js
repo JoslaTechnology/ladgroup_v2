@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { IoIosGlobe } from "react-icons/io";
-import { ReactComponent as Logo } from "assets/logo.svg";
+import { ReactComponent as Logo } from "assets/logoNewL.svg";
 import { ReactComponent as Flag } from "assets/nigerian_flag.svg";
 import { header, nav_item, flag, envelope, nav_brand } from "./style.module.css";
 
