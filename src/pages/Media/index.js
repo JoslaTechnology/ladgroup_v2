@@ -98,6 +98,26 @@ const Media = () => {
                     </Col>
                   </Row>
                 </Tab.Pane>
+                <Tab.Pane eventKey={tabContent[4].eventKey}>
+                  <Row className="py-3 px-1">
+                    <Col className="my-auto" sm={6}>
+                      <div className={content_group}>
+                        <img src={tabContent[4].image} alt="" />
+                        <p>{tabContent[4].source}</p>
+                        <h3>{tabContent[4].headline}</h3>
+                      </div>
+                      <p>{tabContent[5].text}</p>
+                    </Col>
+                    <Col className="my-auto" sm={6}>
+                      <div className={content_group}>
+                        <img src={tabContent[5].image} alt="" />
+                        <p>{tabContent[5].source}</p>
+                        <h3>{tabContent[5].headline}</h3>
+                      </div>
+                      <p>{tabContent[5].text}</p>
+                    </Col>
+                  </Row>
+                  </Tab.Pane>
               </Tab.Content>
             </Col>
           </Tab.Container>

@@ -44,4 +44,16 @@ export const tabContent = [
     source: "Business journal",
     headline: "Ladgroup company shea butter factory"
   },
+  {
+    eventKey: "videos",
+    image: videoClip,
+    source: "Business journal",
+    headline: "Reps Commend NEXIM over Ladgroup Shea Butter Initiative"
+  },
+  {
+    eventKey: "videos",
+    image: factory,
+    source: "Business journal",
+    headline: "Ladgroup company shea butter factory"
+  },
 ];
