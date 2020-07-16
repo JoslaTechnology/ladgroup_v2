@@ -35,3 +35,10 @@ export const contactFormSchema = Yup.object().shape({
   experience: Yup.number("must be a number").min(0).required("kindly fill all fields"),
   reason: Yup.string().required("kindly fill all fields")
 });
+
+
+export const contactPageForm = Yup.object().shape({
+  name: Yup.string().required("Name is required"),
+  email: Yup.string().email("enter a valid email").required("email is required"),
+
+})
