@@ -15,7 +15,7 @@ const Career = () => {
   return (
     <Fragment>
       <div className={main}>
-        <h1>Career</h1>
+        <h1>Careers</h1>
       </div>
 
       <section>

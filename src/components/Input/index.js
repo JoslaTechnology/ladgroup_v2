@@ -3,6 +3,7 @@ import styles from "components/Input/style.module.css";
 import { useField } from "formik";
 
 const { has_error, input, labeltext, selected } = styles;
+
 export const TextInput = ({ label, type = "text", ...props }) => {
   const [field, meta] = useField(props);
 
