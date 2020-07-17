@@ -20,7 +20,6 @@ import {
 } from "./style.module.css";
 import { item_icon, item_text } from "components/Footer/style.module.css";
 
-import { ReactComponent as Location } from "assets/location.svg";
 
 const handleSubmit = (values) => {
   console.log(values);

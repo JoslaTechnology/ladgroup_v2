@@ -15,7 +15,9 @@ import {
   social_icons,
   language_box,
   legal,
-  legal_links
+  legal_links,
+  social_media1,
+  social_media2
 } from "./style.module.css";
 
 const Footer = () => {
@@ -51,6 +53,30 @@ const Footer = () => {
         <hr />
 
         <div className={footer_links}>
+          <div className={social_media1}>
+            <ul className={social_icons}>
+              <li>
+                <a href="#!">
+                  <i className="fa fa-linkedin"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#!">
+                  <i className="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#!">
+                  <i className="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#!">
+                  <i className="fa fa-instagram"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
           <dl>
             <dt>Products</dt>
             <dd>
@@ -95,7 +121,7 @@ const Footer = () => {
             </dd>
           </dl>
 
-          <div className="social-media">
+          <div className={social_media2}>
             <h5>Follow Us</h5>
             <ul className={social_icons}>
               <li>
