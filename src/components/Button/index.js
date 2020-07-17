@@ -1,11 +1,11 @@
 import React from "react";
 import { btn, btn_lg} from "./style.module.css";
 
-const Button = ({ type = "button", label, ...props }) => {
+const Button = ({ type = "button", size="small", label, ...props }) => {
 
 
   return (
-    <span className={props.large ? `${btn} ${btn_lg}` : `${btn}`}>
+    <span className={size==="large" ? `${btn} ${btn_lg}` : `${btn}`}>
       <button type={type} {...props}>
         {label}
       </button>

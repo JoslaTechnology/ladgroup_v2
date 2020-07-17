@@ -33,7 +33,7 @@ const Home = () => {
     <Fragment>
       <main className={main}>
         <img src={banner} alt="" />
-        <h1>Pioneering in oil-seed processing in Nigeria</h1>
+        <h1>Pioneering shea nut processing in Nigeria</h1>
       </main>
 
       <section className="commitment">

@@ -15,7 +15,8 @@
 }
 
 .item_icon svg {
-  height: 10px;
+  height: 12px;
+  margin-right: 15px;
   vertical-align: middle;
 }
 
