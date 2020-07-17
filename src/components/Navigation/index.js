@@ -15,9 +15,12 @@ const Navigation = () => {
         <nav>
           <ul>
             <li className={nav_item}>
-              <NavLink exact to="/products/raw-shea" activeClassName="selected">
-                Products
-              </NavLink>
+              <NavDropdown title="Products" className="nav-dropdown">
+                <NavDropdown.Item href="/products/raw-shea">Raw shea butter</NavDropdown.Item>
+                <NavDropdown.Item href="/products/organic-shea">Organic shea butter</NavDropdown.Item>
+                <NavDropdown.Item href="/products/de-oiled-cake">De oiled cake</NavDropdown.Item>
+              </NavDropdown>
+
             </li>
             <li className={nav_item}>
               <NavLink exact to="/about" activeClassName="selected">
@@ -25,16 +28,11 @@ const Navigation = () => {
               </NavLink>
             </li>
             <li className={nav_item}>
-              More
-              <span className="pl-2">
-                <i className="fa fa-caret-down"></i>
-              </span>
-              {/* <NavDropdown title="More" id="nav-dropdown">
-                <NavDropdown.Item  href="/about">Action</NavDropdown.Item>
-                <NavDropdown.Item eventKey="4.2">Another action</NavDropdown.Item>
-                <NavDropdown.Item eventKey="4.3">Something else here</NavDropdown.Item>
-                <NavDropdown.Item eventKey="4.4">Separated link</NavDropdown.Item>
-              </NavDropdown> */}
+              <NavDropdown title="More" className="nav-dropdown">
+                <NavDropdown.Item href="/contact">Contact Us</NavDropdown.Item>
+                <NavDropdown.Item href="/careers">Careers</NavDropdown.Item>
+                <NavDropdown.Item href="/media">Media</NavDropdown.Item>
+              </NavDropdown>
             </li>
           </ul>
 
@@ -48,9 +46,6 @@ const Navigation = () => {
             <li className={`${nav_item} ${flag}`}>
               <Flag />
             </li>
-            {/* <li className={nav_item}>
-              <i className="fa fa-search"></i>
-            </li> */}
             <li className={nav_item}>
               <IoIosGlobe />
             </li>

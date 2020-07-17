@@ -20,7 +20,6 @@ import {
 } from "./style.module.css";
 import { item_icon, item_text } from "components/Footer/style.module.css";
 
-
 const handleSubmit = (values) => {
   console.log(values);
 };
@@ -42,7 +41,7 @@ const Contact = () => {
   return (
     <Fragment>
       <div className={main}>
-        <h1>Careers</h1>
+        <h1>Contact Us</h1>
       </div>
 
       <div className={contact_container}>

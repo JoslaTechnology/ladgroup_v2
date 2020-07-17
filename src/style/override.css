@@ -1,3 +1,4 @@
+/* override for react bootstrap for tabs on about, career, media pages */
 a.nav-content {
   font-size: 1.6rem;
   color: var(--dark-blue);
@@ -12,11 +13,30 @@ a.nav-content {
 }
 
 .nav-content.nav-link:active {
-  /* outline-color: var(--dark-blue); */
   outline: none;
 }
 
 .active.nav-content {
   color: #fff !important;
   background-color: var(--dark-blue) !important;
+}
+
+
+
+/* override for general navbar */
+.nav-dropdown > div:nth-child(2){
+  margin-top: 2.3rem;
+  padding: 2rem;
+}
+
+.nav-dropdown > div:nth-child(2) a {
+  color: #000;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.nav-dropdown > div:nth-child(2) a:hover {
+  background-color: var(--dark-blue);
+
 }
