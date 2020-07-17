@@ -38,7 +38,8 @@ export const contactFormSchema = Yup.object().shape({
 
 
 export const contactPageForm = Yup.object().shape({
-  name: Yup.string().required("Name is required"),
+  name: Yup.string().required("name is required"),
   email: Yup.string().email("enter a valid email").required("email is required"),
-
+  category: Yup.string().required("choose a message category"),
+  messageBody: Yup.string().max(700, "cannot exceed 700 characters").required("input a message")
 })

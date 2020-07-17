@@ -19,6 +19,10 @@
   vertical-align: middle;
 }
 
+.item_text, .item_icon svg {
+  display: inline-block;
+}
+
 .footer_logo {
   max-width: 20rem;
 }

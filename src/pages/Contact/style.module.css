@@ -1,0 +1,38 @@
+.contact_container {
+  padding: 5rem 2rem;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  justify-content: center;
+}
+
+.input_section > p {
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.conact_details_group {
+  max-width: 40rem;
+  background-color: #000;
+  color: #fff;
+  margin-top: 3rem;
+  padding: 2rem;
+}
+
+.conact_details {
+  height: 40rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  /* margin: 0 auto; */
+}
+
+.contact_form {
+  max-width: 45rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.group {
+  display: flex;
+}
