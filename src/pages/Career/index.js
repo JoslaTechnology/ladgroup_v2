@@ -1,5 +1,7 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { openings } from "./careerData";
+import CareerForm from "./CareerForm";
+import Modal from "components/Modal";
 
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
@@ -12,8 +14,18 @@ import { grid_1x2, grid_1x2_image, left, main, content_group } from "style/layou
 import { applications_content, cv } from "./style.module.css";
 
 const Career = () => {
+  const [showModal, setShowModal] = useState(false);
+  const toggleModal = () => setShowModal(!showModal);
+
   return (
     <Fragment>
+      {showModal ? (
+        <Modal close={toggleModal} color="#fff">
+          <CareerForm />
+        </Modal>
+      ) : (
+        ""
+      )}
       <div className={main}>
         <h1>Careers</h1>
       </div>
@@ -55,39 +67,39 @@ const Career = () => {
               <Tab.Pane eventKey="one" className={applications_content}>
                 {openings.length > 0 ? (
                   <>
-                  <p className="text-center my-3">Ladgroup is an equal opportunity employer</p>
-                  <Row className="py-3 px-1">
-                    <Col className="my-auto" sm={6}>
-                      <div className={content_group}>
-                        <img src={openings[0].image} alt="" />
-                        <p>{openings[0].department}</p>
-                        <h3>{openings[0].position}</h3>
-                      </div>
-                    </Col>
-                    <Col className="my-auto" sm={6}>
-                      <div className={content_group}>
-                        <img src={openings[1].image} alt="" />
-                        <p>{openings[1].department}</p>
-                        <h3>{openings[1].position}</h3>
-                      </div>
-                    </Col>
-                  </Row>
-                  <Row className="py-3 px-1">
-                    <Col className="my-auto" sm={6}>
-                      <div className={content_group}>
-                        <img src={openings[2].image} alt="" />
-                        <p>{openings[2].department}</p>
-                        <h3>{openings[2].position}</h3>
-                      </div>
-                    </Col>
-                    <Col className="my-auto" sm={6}>
-                      <div className={content_group}>
-                        <img src={openings[3].image} alt="" />
-                        <p>{openings[3].department}</p>
-                        <h3>{openings[3].position}</h3>
-                      </div>
-                    </Col>
-                  </Row>
+                    <p className="text-center my-3">Ladgroup is an equal opportunity employer</p>
+                    <Row className="py-3 px-1">
+                      <Col className="my-auto" sm={6}>
+                        <div className={content_group}>
+                          <img src={openings[0].image} alt="" />
+                          <p>{openings[0].department}</p>
+                          <h3>{openings[0].position}</h3>
+                        </div>
+                      </Col>
+                      <Col className="my-auto" sm={6}>
+                        <div className={content_group}>
+                          <img src={openings[1].image} alt="" />
+                          <p>{openings[1].department}</p>
+                          <h3>{openings[1].position}</h3>
+                        </div>
+                      </Col>
+                    </Row>
+                    <Row className="py-3 px-1">
+                      <Col className="my-auto" sm={6}>
+                        <div className={content_group}>
+                          <img src={openings[2].image} alt="" />
+                          <p>{openings[2].department}</p>
+                          <h3>{openings[2].position}</h3>
+                        </div>
+                      </Col>
+                      <Col className="my-auto" sm={6}>
+                        <div className={content_group}>
+                          <img src={openings[3].image} alt="" />
+                          <p>{openings[3].department}</p>
+                          <h3>{openings[3].position}</h3>
+                        </div>
+                      </Col>
+                    </Row>
                   </>
                 ) : (
                   <p>Hello there, sorry there are no vacancy at the moment. Kindly check back some other time</p>
@@ -99,7 +111,9 @@ const Career = () => {
                   caring employees to join us. If you are interested in what we do and what we stand for, then we would
                   love to hear from you.
                 </p>
-                <p className={cv}>Submit CV</p>
+                <p className={cv} onClick={toggleModal}>
+                  Submit CV
+                </p>
               </Tab.Pane>
             </Tab.Content>
           </Tab.Container>

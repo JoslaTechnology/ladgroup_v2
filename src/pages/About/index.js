@@ -32,7 +32,7 @@ const About = () => {
         <div className="container">
           <div className={`${grid_1x2} scale_effect`}>
             <div className={grid_1x2_text}>
-              <h3>Leading for others to follow</h3>
+              <h3>Pioneering in shea nut production</h3>
               <p>Brief message from the CEO</p>
             </div>
             <div id={left} className={grid_1x2_image}>

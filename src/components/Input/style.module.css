@@ -17,6 +17,7 @@ p.has_error {
 .input {
   margin-bottom: 2rem;
 }
+
 .input input {
   height: 4rem;
   padding: 5px;
@@ -31,7 +32,7 @@ p.has_error {
 }
 
 /* textarea */
-.input_large textarea {
+.textarea_container textarea {
   height: 12rem;
   padding: 5px;
   /* text-indent: 3px; */
@@ -47,7 +48,8 @@ p.has_error {
 /* shared styles */
 .input,
 .select_input_container,
-.input_large {
+.textarea_container,
+.number_input_container {
   margin-bottom: 1.5rem;
 }
 

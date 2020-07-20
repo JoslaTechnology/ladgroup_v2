@@ -1,9 +1,10 @@
 import React from "react";
+import NumberFormat from "react-number-format";
 import styles from "components/Input/style.module.css";
 import Form from "react-bootstrap/Form";
 import { useField } from "formik";
 
-const { has_error, input, labeltext, select_input_container, input_large } = styles;
+const { has_error, input, labeltext, select_input_container, textarea_container } = styles;
 
 export const TextInput = ({ label, type = "text", ...props }) => {
   const [field, meta] = useField(props);
@@ -19,11 +20,35 @@ export const TextInput = ({ label, type = "text", ...props }) => {
   );
 };
 
+export const NumberInput = ({ label = "", hash, placeholder, ...props }) => {
+  const [field, meta] = useField(props);
+
+  return (
+    <div className={meta.touched && meta.error ? `${has_error} ${input}` : `${input}`}>
+      <div>
+        <label className={`text-dark ${labeltext}`}>{label}</label>
+          <NumberFormat
+            {...field}
+            {...props}
+            mask=""
+            allowNegative={false}
+            allowLeadingZeros={false}
+            isNumericString={false}
+            format={hash}
+            placeholder={placeholder}
+            // decimalSeparator={"."}
+          />
+        {meta.touched && meta.error ? <div className={`${has_error}`}>{meta.error}</div> : null}
+      </div>
+    </div>
+  );
+};
+
 export const TextAreaInput = ({ label, type = "text", ...props }) => {
   const [field, meta] = useField(props);
 
   return (
-    <div className={meta.touched && meta.error ? `${has_error} ${input_large}` : `${input_large}`}>
+    <div className={meta.touched && meta.error ? `${has_error} ${textarea_container}` : `${textarea_container}`}>
       <div>
         <label className={`text-dark ${labeltext}`}>{label}</label>
         <textarea type={type} {...field} {...props} />

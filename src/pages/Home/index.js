@@ -139,7 +139,7 @@ const Home = () => {
             <div className={product}>
               <img src={gallery1} alt="Raw shea butter" />
               <p>CEO message</p>
-              <h3>Leading for others to follow</h3>
+              <h3>Pioneering in shea nut production</h3>
             </div>
             <div className={product}>
               <img src={gallery2} alt="Organic shea butter" />
