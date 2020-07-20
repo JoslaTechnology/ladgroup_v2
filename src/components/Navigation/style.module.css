@@ -1,6 +1,6 @@
 .header {
   width: 100vw;
-  height: 8rem;
+  height: 80px;
   background-color: #000;
   color: #fff;
   font-size: 1.6rem;
@@ -17,26 +17,39 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
+}
+
+.header .nav_toggle {
+  /* display: none; */
+  z-index: 1500;
+}
+
+.nav_toggle svg:first-child {
+  display: initial;
+}
+
+.nav_toggle {
+  display: none;
+}
+
+.header .nav_list2 {
+  display: none;
 }
 
 .header ul {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   margin: 0;
 }
 
-.header ul:nth-of-type(1) {
-  width: 25%;
+.header ul > *:not(:first-child) {
+  margin: 0 1.5rem;
 }
 
-.header ul:nth-of-type(2) {
-  width: 25%;
-  justify-content: flex-end;
-}
-
-.header ul:nth-of-type(2) li{
-  margin-right: 2rem;
+.header nav-list li:first-child {
+  margin-left: 2rem;
 }
 
 .header svg {
@@ -56,4 +69,94 @@
 .nav_brand svg {
   max-width: 18rem;
   margin: 0 auto;
+}
+
+.active {
+  color: var(--dark-blue) !important;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .header ul:nth-of-type(1) {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .header nav {
+    justify-content: center;
+  }
+
+  .nav_toggle {
+    display: initial;
+    position: absolute;
+    left: 1rem;
+  }
+
+  .nav_toggle svg {
+    width: 30px;
+    cursor: pointer;
+  }
+
+  .nav_toggle svg:nth-child(2) {
+    display: none;
+  }
+
+  .open .nav_toggle svg:first-child {
+    display: none;
+  }
+
+  .open .nav_toggle svg:nth-child(2) {
+    display: initial;
+  }
+
+  .open .nav_list2 {
+    opacity: 1;
+  }
+
+  .header ul:last-of-type,
+  .header .nav_list {
+    display: none;
+  }
+
+  .header .open .nav_list2 {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: initial;
+    margin: 0;
+    background: rgba(255, 255, 255);
+    height: calc(100vh - 70px);
+    top: 70px;
+    font-size: 20px;
+    z-index: 1500;
+    width: 100vw;
+    backface-visibility: hidden;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .nav_list2 a {
+    color: #000;
+  }
+
+  .nav_list2 li {
+    padding: 2rem 0;
+  }
+
+  .nav_list2 a:hover {
+    text-decoration: none;
+    color: var(--dark-blue);
+  }
 }

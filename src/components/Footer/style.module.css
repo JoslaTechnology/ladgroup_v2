@@ -1,5 +1,6 @@
 .footer {
   padding-bottom: 8rem;
+  overflow: hidden;
 }
 
 .items {
