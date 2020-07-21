@@ -17,7 +17,8 @@
   background-color: #fff;
   width: 80vw;
   max-width: 60rem;
-  height: 95vh;
+  padding-bottom: 3rem;
+  max-height: 95vh;
   display: flex;
   border-radius: 5px;
   align-items: center;
@@ -28,8 +29,8 @@
 
 .modal_close {
   position: absolute;
-  top: 7px;
-  right: 7px;
+  top: 3px;
+  right: 3px;
   cursor: pointer;
   padding: 2px;
   color: var(--dark-blue);
@@ -56,6 +57,6 @@
 @media screen and (max-width: 768px) {
   .modal {
     width: 90vw;
-    height: 95vh;
+    /* height: 95vh; */
   }
 }

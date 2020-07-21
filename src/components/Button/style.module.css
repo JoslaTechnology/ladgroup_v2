@@ -4,7 +4,7 @@
   padding: 8px 0;
   font-size: 13px;
   transition: 0.5s;
-  margin: 0 3px;
+  /* margin: 0 3px; */
   border-radius: 4px;
   background: var(--dark-blue);
   border: 1px solid var(--dark-blue);

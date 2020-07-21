@@ -20,10 +20,11 @@
 
 
 .contact_form {
-  padding: 2rem 0;
-  width: 70%;
+  padding: 3rem;
+  width: 75%;
   overflow-y: scroll;
   overflow-x: hidden;
+  /* border: 1px solid red; */
 }
 
 @media screen and (max-width: 768px) {
@@ -32,7 +33,7 @@
   }
 
   .contact_form {
-    padding: 4rem 0; 
+    padding: 1.8rem 0; 
     overflow-y: scroll;
   }
 }

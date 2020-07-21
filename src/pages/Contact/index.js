@@ -61,7 +61,7 @@ const Contact = () => {
                   <TextInput name="email" label="Email" placeholder="Enter your email addres" />
                   <SelectInput name="category" label="Message category" options={selectOptions} selected={""} />
                   <TextAreaInput name="messageBody" label="Message" placeholder="Your message here" />
-                  <Button label="Send" size="large" />
+                  <Button label="Send" size="large" type="submit" />
                 </Form>
               )}
             </Formik>

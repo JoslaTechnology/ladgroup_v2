@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { openings } from "./careerData";
-import CareerForm from "./CareerForm";
+import CareerForm from "components/CareerForm";
 import Modal from "components/Modal";
 
 import Nav from "react-bootstrap/Nav";
