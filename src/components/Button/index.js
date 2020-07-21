@@ -6,7 +6,7 @@ const Button = ({ type = "button", size="small", label, ...props }) => {
 
   return (
     <span className={size==="large" ? `${btn} ${btn_lg}` : `${btn}`}>
-      <button type={type} {...props}>
+      <button type={type} {...props} >
         {label}
       </button>
     </span>

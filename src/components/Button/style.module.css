@@ -28,3 +28,8 @@
 .btn.btn_lg button:active {
   outline-color: var(--dark-blue);
 }
+
+.btn button:disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
