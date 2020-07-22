@@ -6,6 +6,7 @@ import { TextInput, SelectInput, TextAreaInput, NumberInput } from "components/I
 import Button from "components/Button";
 
 import { contact_form } from "./style.module.css";
+import CustomToast from "components/CustomToast";
 
 const CareerForm = () => {
   const initialValues = {
@@ -20,6 +21,7 @@ const CareerForm = () => {
 
   const handleSubmit = (values) => {
     console.log(values);
+    return <CustomToast title="hello" body="world" />;
   };
 
   const selectOptions = [
