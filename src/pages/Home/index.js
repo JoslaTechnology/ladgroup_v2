@@ -1,4 +1,8 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
+import DistributorForm from "components/Forms/DistributorForm";
+import SupplierForm from "components/Forms/SupplierForm";
+import Modal from "components/Modal";
+
 import videoClip from "assets/video.svg";
 import product1 from "assets/product1.svg";
 import product2 from "assets/product2.svg";
@@ -29,8 +33,27 @@ import { sub_heading } from "style/layout.module.css";
 import Leading from "components/leading";
 
 const Home = () => {
+  const [showDistributorModal, setShowDistributorModal] = useState(false);
+  const [showSupplierModal, setShowSupplierModal] = useState(false);
+  // const toggleModal = () => setShowModal(!showModal);
+
   return (
     <Fragment>
+      {showDistributorModal ? (
+        <Modal close={setShowDistributorModal} color="#fff">
+          <DistributorForm setShowDistributorModal={setShowDistributorModal} />
+        </Modal>
+      ) : (
+        ""
+      )}
+
+      {showSupplierModal ? (
+        <Modal close={setShowSupplierModal} color="#fff">
+          <SupplierForm setShowSupplierModal={setShowSupplierModal} />
+        </Modal>
+      ) : (
+        ""
+      )}
       <main className={main}>
         <img src={banner} alt="" />
         <h1>Pioneering shea nut processing in Nigeria</h1>
@@ -86,12 +109,12 @@ const Home = () => {
         <div className="container">
           <h2 className={sub_heading}>Join Our Growing List of Distributors/Suppliers</h2>
           <div className={`${grid_2x2} scale_effect`}>
-            <div className={product}>
+            <div className={`${product} cursor`} onClick={() => setShowDistributorModal(true)}>
               <img src={supplier1} alt="Raw shea butter" />
               <p>Register as a distributor</p>
               <h3>Distributor registration</h3>
             </div>
-            <div className={product}>
+            <div className={`${product} cursor`} onClick={() => setShowSupplierModal(true)}>
               <img src={supplier2} alt="Organic shea butter" />
               <p>Register as a supplier</p>
               <h3>Supplier registration</h3>

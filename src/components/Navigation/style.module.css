@@ -1,7 +1,7 @@
 .header {
   width: 100vw;
   height: 80px;
-  background-color: #000;
+  background-color: var(--dark-blue);
   color: #fff;
   font-size: 1.6rem;
   padding: 1rem 0;

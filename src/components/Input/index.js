@@ -4,6 +4,8 @@ import styles from "components/Input/style.module.css";
 import Form from "react-bootstrap/Form";
 import { useField } from "formik";
 
+export { default as FileInput } from "./FileInput"
+
 const { has_error, input, labeltext, select_input_container, textarea_container } = styles;
 
 export const TextInput = ({ label, type = "text", ...props }) => {
@@ -27,17 +29,17 @@ export const NumberInput = ({ label = "", hash, placeholder, ...props }) => {
     <div className={meta.touched && meta.error ? `${has_error} ${input}` : `${input}`}>
       <div>
         <label className={`text-dark ${labeltext}`}>{label}</label>
-          <NumberFormat
-            {...field}
-            {...props}
-            mask=""
-            allowNegative={false}
-            allowLeadingZeros={false}
-            isNumericString={false}
-            format={hash}
-            placeholder={placeholder}
-            // decimalSeparator={"."}
-          />
+        <NumberFormat
+          {...field}
+          {...props}
+          mask=""
+          allowNegative={false}
+          allowLeadingZeros={false}
+          isNumericString={false}
+          format={hash}
+          placeholder={placeholder}
+          // decimalSeparator={"."}
+        />
         {meta.touched && meta.error ? <div className={`${has_error}`}>{meta.error}</div> : null}
       </div>
     </div>
@@ -64,7 +66,7 @@ export const SelectInput = ({ label, options, ...props }) => {
   return (
     <div className={select_input_container}>
       <div className={meta.touched && meta.error ? `${has_error} ${input}` : `${input}`}>
-        <Form.Group controlId="exampleForm.SelectCustom">
+        <Form.Group controlId={`CustomSelect-${props.name}`}>
           <Form.Label className={`text-dark ${labeltext}`}>{label}</Form.Label>
           <Form.Control as="select" custom {...field} {...props}>
             {options.map(({ value, title }, key) => (

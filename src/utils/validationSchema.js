@@ -5,6 +5,10 @@ const validateName = () => Yup.string().required("name is required");
 const validateEmail = () => Yup.string().email("enter a valid email").required("email is required");
 const validateUrl = () => Yup.string().url("enter a valid url").required("url is required");
 const validateMessage = () => Yup.string().trim().max(700, "cannot exceed 700 characters").required("input a message");
+const validateFile = () =>
+  Yup.mixed()
+    .required("choose a file")
+    .test("fileSize", "file is too large (max: 80kb)", (value) => value && value.size <= 80000);
 const validatePhone = () => {
   return Yup.string()
     .required("Phone number is required")
@@ -38,8 +42,8 @@ export const careerPageForm = Yup.object().shape({
   email: validateEmail(),
   phoneNumber: validatePhone(),
   nationality: Yup.string().required("choose a message category"),
-  cv: validateUrl(),
-  coverLetter: validateUrl(),
+  cv: validateFile(),
+  coverLetter: validateFile(),
   messageBody: validateMessage()
 });
 
@@ -61,4 +65,3 @@ export const careerPageForm = Yup.object().shape({
 //   experience: Yup.number("must be a number").min(0).required("kindly fill all fields"),
 //   reason: Yup.string().required("kindly fill all fields")
 // });
-

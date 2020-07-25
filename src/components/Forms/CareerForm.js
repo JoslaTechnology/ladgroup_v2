@@ -1,32 +1,42 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import { Formik, Form } from "formik";
+import doAlert from "utils/doAlert";
 import { careerPageForm } from "utils/validationSchema";
 import { header } from "./style.module.css";
-import { TextInput, SelectInput, TextAreaInput, NumberInput } from "components/Input";
+import { TextInput, SelectInput, TextAreaInput, NumberInput, FileInput } from "components/Input";
 import Button from "components/Button";
 
 import { contact_form } from "./style.module.css";
-import CustomToast from "components/CustomToast";
+import { ButtonSpinner } from "components/loader";
 
-const CareerForm = () => {
+const CareerForm = ({ setShowModal }) => {
+  // const [loading, setLoading] = useState(false);
+
   const initialValues = {
     name: "",
     email: "",
     phoneNumber: "",
     nationality: "",
-    cv: "",
-    coverLetter: "",
+    cv: null,
+    coverLetter: null,
     messageBody: ""
   };
 
-  const handleSubmit = (values) => {
+  const handleSubmit = (values, setSubmitting) => {
+    setSubmitting(true);
     console.log(values);
-    return <CustomToast title="hello" body="world" />;
+    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+    sleep(3000).then(() => {
+      setSubmitting(false);
+      doAlert("Submitted successfully", "success");
+      setShowModal(false);
+    });
   };
 
   const selectOptions = [
     { value: "", title: "Select nationality" },
-    { value: "nigeria", title: "Nigeria" }
+    { value: "nigerian", title: "Nigerian" }
   ];
 
   return (
@@ -39,21 +49,22 @@ const CareerForm = () => {
         <Formik
           initialValues={initialValues}
           validationSchema={careerPageForm}
-          onSubmit={(value) => {
-            handleSubmit(value);
+          onSubmit={(values, { setSubmitting }) => {
+            handleSubmit(values, setSubmitting);
           }}
         >
-          {({ isValid, dirty }) => (
+          {({ isSubmitting, setFieldValue }) => (
             <Form>
               <TextInput name="name" label="Full Name" placeholder="Enter your full name" />
               <TextInput name="email" label="Email" placeholder="Enter your email addres" />
               <NumberInput name="phoneNumber" label="Phone Number" placeholder="Enter your phone number" />
               <SelectInput name="nationality" label="Select nationality" options={selectOptions} selected={""} />
-              <TextInput name="cv" label="CV" placeholder="provide url to CV (eg. google drive, dropbox)" />
-              <TextInput
+              <FileInput name="cv" label="CV (max: 80kb)" setFieldValue={setFieldValue} placeholder="upload your CV" multiple/>
+              <FileInput
                 name="coverLetter"
-                label="Cover letter"
-                placeholder="provide url to cover letter (eg. google drive, dropbox)"
+                label="Cover Letter (max: 80kb)"
+                setFieldValue={setFieldValue}
+                placeholder="upload your cover letter"
               />
               <TextAreaInput
                 name="messageBody"
@@ -61,7 +72,15 @@ const CareerForm = () => {
                 placeholder="Why whould you like to work with us?"
               />
 
-              <Button label="Send" size="large" type="submit" disabled={!(isValid && dirty)} />
+              <Button size="large" type="submit" disabled={isSubmitting}>
+                {isSubmitting ? (
+                  <p>
+                    <ButtonSpinner />
+                  </p>
+                ) : (
+                  "Send"
+                )}
+              </Button>
             </Form>
           )}
         </Formik>

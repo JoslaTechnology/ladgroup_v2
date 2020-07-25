@@ -70,7 +70,7 @@ const Contact = () => {
 
         <section>
           <div className={social_contacts}>
-            <p>contact us</p>
+            <p>Contact us</p>
             <div className={conact_details_group}>
               {/* <p>Info</p> */}
               <div className={conact_details}>

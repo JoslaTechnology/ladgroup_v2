@@ -1,6 +1,6 @@
 import React, { Fragment, Suspense, lazy } from "react";
 import { Switch, Route, Redirect, useRouteMatch } from "react-router-dom";
-import { Spinner } from "components/loader/FullPageSpinner";
+import { Spinner } from "components/loader";
 import Button from "components/Button";
 
 import product6 from "assets/product6.svg";

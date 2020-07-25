@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { openings } from "./careerData";
-import CareerForm from "components/CareerForm";
+import CareerForm from "components/Forms/CareerForm";
 import Modal from "components/Modal";
 
 import Nav from "react-bootstrap/Nav";
@@ -15,17 +15,17 @@ import { applications_content, cv } from "./style.module.css";
 
 const Career = () => {
   const [showModal, setShowModal] = useState(false);
-  const toggleModal = () => setShowModal(!showModal);
 
   return (
     <Fragment>
       {showModal ? (
-        <Modal close={toggleModal} color="#fff">
-          <CareerForm />
+        <Modal close={setShowModal} color="#fff">
+          <CareerForm setShowModal={setShowModal}/>
         </Modal>
       ) : (
         ""
       )}
+
       <div className={main}>
         <h1>Careers</h1>
       </div>
@@ -111,7 +111,7 @@ const Career = () => {
                   caring employees to join us. If you are interested in what we do and what we stand for, then we would
                   love to hear from you.
                 </p>
-                <p className={cv} onClick={toggleModal}>
+                <p className={cv} onClick={() => setShowModal(true)}>
                   Submit CV
                 </p>
               </Tab.Pane>

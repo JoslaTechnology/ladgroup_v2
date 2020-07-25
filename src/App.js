@@ -1,6 +1,6 @@
 import React, { Fragment, Suspense, lazy } from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-import { FullPageSpinner } from "./components/loader/FullPageSpinner";
+import { FullPageSpinner } from "./components/loader";
 import ErrorBoundary from "./components/errorBoundary";
 import Home from "pages/Home";
 import Navigation from "components/Navigation";

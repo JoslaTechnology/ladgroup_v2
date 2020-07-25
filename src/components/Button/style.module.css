@@ -1,5 +1,6 @@
 .btn button {
   width: 150px;
+  height: 37px;
   color: #fff;
   padding: 8px 0;
   font-size: 13px;
@@ -12,6 +13,7 @@
 }
 
 .btn.btn_lg button {
+  height: 55px;
   width: 100%;
   font-size: 1.4rem;
   padding: 14px 0;
@@ -31,5 +33,5 @@
 
 .btn button:disabled {
   cursor: not-allowed;
-  opacity: 0.8;
+  opacity: .6;
 }
