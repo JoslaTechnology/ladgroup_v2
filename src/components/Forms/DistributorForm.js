@@ -1,7 +1,7 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { Formik, Form } from "formik";
 import doAlert from "utils/doAlert";
-import { careerPageForm } from "utils/validationSchema";
+import { DistributorFormSchema } from "utils/validationSchema";
 import { header, required_flag, header_distributor } from "./style.module.css";
 import { TextInput, SelectInput, TextAreaInput, NumberInput, FileInput } from "components/Input";
 import Button from "components/Button";
@@ -14,24 +14,33 @@ const DistributorForm = ({ setShowDistributorModal }) => {
 
   const initialValues = {
     name: "",
-    email: "",
+    companyName: "",
+    address: "",
+    designation: "",
     phoneNumber: "",
-    nationality: "",
-    cv: "",
-    coverLetter: "",
-    messageBody: "",
-    bankReferences: null
+    email: "",
+    warehouseAddress: "",
+    warehouseSize: "",
+    productRange: "",
+    exclusive: "",
+    quantity: "",
+    bankReference: null,
+    turnover: "",
+    experience: "",
+    messageBody: ""
   };
 
   const handleSubmit = (values, setSubmitting) => {
-    setSubmitting(true);
-    // console.log(values);
+    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-    setTimeout(() => {
+    setSubmitting(true);
+    console.log(values);
+
+    sleep(3000).then(() => {
       setSubmitting(false);
       doAlert("Submitted successfully", "success");
       setShowDistributorModal(false);
-    }, 3000);
+    });
   };
 
   const selectOptions1 = [
@@ -56,7 +65,7 @@ const DistributorForm = ({ setShowDistributorModal }) => {
       <div className={contact_form}>
         <Formik
           initialValues={initialValues}
-          validationSchema={careerPageForm}
+          validationSchema={DistributorFormSchema}
           onSubmit={(values, { setSubmitting }) => {
             handleSubmit(values, setSubmitting);
           }}
@@ -80,12 +89,12 @@ const DistributorForm = ({ setShowDistributorModal }) => {
                 label="Shop address/warehouse location *"
                 placeholder="Enter shop address/warehouse location"
               />
-              <NumberInput
+              <TextInput
                 name="warehouseSize"
                 label="Existing shop/warehouse size "
                 placeholder="Enter existing shop/warehouse"
               />
-              <NumberInput
+              <TextInput
                 name="productRange"
                 label="Range of products sold/stocked *"
                 placeholder="Enter the range of products you sell/stocked"
@@ -98,8 +107,8 @@ const DistributorForm = ({ setShowDistributorModal }) => {
               />
               <SelectInput name="quantity" label="Quantity required monthly *" options={selectOptions2} selected={""} />
               <FileInput
-                name="bankReferences"
-                label="Upload your bank reference CV (max: 80kb)*"
+                name="bankReference"
+                label="Upload your bank reference(max: 80kb)*"
                 setFieldValue={setFieldValue}
                 placeholder="Bankers reference"
               />

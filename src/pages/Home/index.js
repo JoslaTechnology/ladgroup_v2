@@ -1,9 +1,10 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState } from "react";
+import Carousel from "react-bootstrap/Carousel";
+
 import DistributorForm from "components/Forms/DistributorForm";
 import SupplierForm from "components/Forms/SupplierForm";
 import Modal from "components/Modal";
 
-import videoClip from "assets/video.svg";
 import product1 from "assets/product1.svg";
 import product2 from "assets/product2.svg";
 import product3 from "assets/product3.svg";
@@ -17,7 +18,10 @@ import indicator4 from "assets/indicator4.svg";
 import indicator5 from "assets/indicator5.svg";
 import gallery1 from "assets/gallery1.svg";
 import gallery2 from "assets/gallery2.svg";
-import banner from "assets/banner.png";
+import carousel1 from "assets/carousel1.png";
+import carousel2 from "assets/carousel2.png";
+import carousel3 from "assets/carousel3.png";
+import carousel4 from "assets/carousel4.png";
 
 import {
   main,
@@ -46,7 +50,6 @@ const Home = () => {
       ) : (
         ""
       )}
-
       {showSupplierModal ? (
         <Modal close={setShowSupplierModal} color="#fff">
           <SupplierForm setShowSupplierModal={setShowSupplierModal} />
@@ -55,8 +58,32 @@ const Home = () => {
         ""
       )}
       <main className={main}>
-        <img src={banner} alt="" />
-        <h1>Pioneering shea nut processing in Nigeria</h1>
+        <Carousel fluid>
+          <Carousel.Item>
+            <img src={carousel1} alt="First slide" />
+            <Carousel.Caption>
+              <h1>Pioneering shea nut processing in Nigeria</h1>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img src={carousel2} alt="Third slide" />
+            <Carousel.Caption>
+              <h1>Pioneering shea nut processing in Nigeria</h1>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img src={carousel3} alt="Third slide" />
+            <Carousel.Caption>
+              <h1>Pioneering shea nut processing in Nigeria</h1>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img src={carousel4} alt="Third slide" />
+            <Carousel.Caption>
+              <h1>Pioneering shea nut processing in Nigeria</h1>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
       </main>
 
       <section className="commitment">
@@ -73,38 +100,43 @@ const Home = () => {
                 earnings. Generating capacity and provision of employment opportunities to Nigerian citizens.
               </p>
             </div>
-            <img src={videoClip} alt="clip of product packaging " />
+            <iframe
+              src="https://www.youtube.com/embed/T5MZnykBSMg"
+              frameBorder="0"
+              allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              title="ladgroup promo"
+            ></iframe>
           </div>
         </div>
       </section>
-
       <section className="our_products">
-        <h2 className={sub_heading}>Our products</h2>
-        <div className={`${grid_2x2} scale_effect`}>
-          <div className={product}>
-            <img src={product1} alt="Raw shea butter" />
-            <p>For distributors</p>
-            <h3>Raw shea butter</h3>
+        <div className="container">
+          <h2 className={sub_heading}>Our products</h2>
+          <div className={`${grid_2x2} scale_effect`}>
+            <div className={product}>
+              {/* <img src={product1} alt="Raw shea butter" /> */}
+              <p>For distributors</p>
+              <h3>Raw shea butter</h3>
+            </div>
+            <div className={product}>
+              {/* <img src={product2} alt="Organic shea butter" /> */}
+              <p>Available on order</p>
+              <h3>Organic shea butter</h3>
+            </div>
+            <div className={product}>
+              {/* <img src={product3} alt="De oiled cake" /> */}
+              <p>Well processed</p>
+              <h3>De oiled cake</h3>
+            </div>
+            <div className={`${product} unavailable`}>
+              {/* <img src={product4} alt="Refined shea butter" /> */}
+              <p>Available soon</p>
+              <h3>Refined shea butter</h3>
+            </div>
           </div>
-          <div className={product}>
-            <img src={product2} alt="Organic shea butter" />
-            <p>Available on order</p>
-            <h3>Organic shea butter</h3>
-          </div>
-          <div className={product}>
-            <img src={product3} alt="De oiled cake" />
-            <p>Well processed</p>
-            <h3>De oiled cake</h3>
-          </div>
-          <div className={`${product} unavailable`}>
-            <img src={product4} alt="Refined shea butter" />
-            <p>Available soon</p>
-            <h3>Refined shea butter</h3>
-          </div>
-          {/* </div> */}
         </div>
       </section>
-
       <section className="distributors">
         <div className="container">
           <h2 className={sub_heading}>Join Our Growing List of Distributors/Suppliers</h2>
@@ -122,7 +154,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       <section className="indicators">
         <div className="container">
           <h2 className={sub_heading}>Key Indicators</h2>
@@ -155,7 +186,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       <section className="gallery">
         <div className="container">
           <div className={`${grid_2x2} scale_effect`}>
@@ -172,7 +202,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       <Leading />
     </Fragment>
   );

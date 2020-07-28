@@ -3,7 +3,7 @@ import achievement from "assets/achievement.svg";
 import experience from "assets/experience.svg";
 import investment from "assets/investment.svg";
 
-export default [
+export const tabContent = [
   {
     title: "History",
     eventKey: "first",
@@ -33,3 +33,5 @@ export default [
       "Ladgroup has invested in a facility to process Sheanuts to Shea Butter and De-oiled Sheanut cake. This facility consists of expeller presses and a Solvent Extraction Plant which can process 150 metric tons per day of raw material. The plant is flexible to process other oil seeds such as soya beans, palm kernel and groundnuts."
   }
 ];
+
+// const popover1

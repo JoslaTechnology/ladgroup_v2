@@ -5,6 +5,7 @@ import { has_error, input, labeltext } from "components/Input/style.module.css";
 
 const FileInput = ({ accept, label, setFieldValue, ...props }) => {
   const [field, meta] = useField(props);
+
   const [fileName, setFileName] = useState(null);
 
   const defaultFormats =
@@ -12,11 +13,12 @@ const FileInput = ({ accept, label, setFieldValue, ...props }) => {
 
   const handleChange = (e) => {
     e.preventDefault();
-    console.log(e.target.files.length)
+
+    let file = e.target.files[0];
+
     let reader = new FileReader();
-    let file = e.target.files;
     if (file) {
-      // reader.onloadend = () => setFileName(file.name);
+      reader.onloadend = () => setFileName(file.name);
       reader.readAsDataURL(file);
       setFieldValue(props.name, file);
     }
@@ -32,8 +34,9 @@ const FileInput = ({ accept, label, setFieldValue, ...props }) => {
           onChange={handleChange}
           accept={accept ?? defaultFormats}
           label={fileName ?? props.placeholder}
-          multiple={props.multiple?? false}
+          multiple={props.multiple ?? false}
           custom
+          className="form-upload"
         />
         {meta.touched && meta.error ? <div className={`${has_error}`}>{meta.error}</div> : null}
       </div>
@@ -42,3 +45,29 @@ const FileInput = ({ accept, label, setFieldValue, ...props }) => {
 };
 
 export default FileInput;
+
+
+    // const fileList = e.target.files;
+    // if (fileList.length > 1) {
+    //   let values = [];
+    //   for (let i = 0; i < fileList.length; i++) {
+    //     (function (currentFile) {
+    //       let reader = new FileReader();
+    //       reader.readAsDataURL(currentFile);
+    //       reader.onloadend = () => setFileName(currentFile.name);
+    //       values.push(currentFile);
+    //     })(fileList[i]);
+    //     // let file = fileList[i];
+    //   }
+    //   console.log(typeof values);
+    //   setFieldValue(props.name, [...values]);
+    // } else if (fileList.length === 1) {
+    //   let reader = new FileReader();
+
+    //   let file = e.target.files[0];
+    //   if (file) {
+    //     reader.onloadend = () => setFileName(file.name);
+    //     reader.readAsDataURL(file);
+    //     setFieldValue(props.name, Array.from(file));
+    //   }
+    // }

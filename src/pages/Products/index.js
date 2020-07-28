@@ -3,26 +3,13 @@ import { Switch, Route, Redirect, useRouteMatch } from "react-router-dom";
 import { Spinner } from "components/loader";
 import Button from "components/Button";
 
-import product6 from "assets/product6.svg";
-import product7 from "assets/product7.svg";
 import process1 from "assets/process1.svg";
 import process2 from "assets/process2.svg";
 import process3 from "assets/process3.svg";
 import process4 from "assets/process4.svg";
 import process5 from "assets/process5.svg";
 
-import {
-  product_grid1,
-  product_image,
-  product_text2,
-  product_grid2,
-  process,
-  process_group,
-  number,
-  left,
-  order,
-  order_text
-} from "./style.module.css";
+import { process, process_group, order, order_text } from "./style.module.css";
 import { sub_heading } from "style/layout.module.css";
 
 const DeOiledCake = lazy(() => import("./DeOiledCake"));
@@ -42,53 +29,6 @@ const Products = () => {
           <Route component={() => <Redirect to="/" />} />
         </Switch>
       </Suspense>
-
-      <section>
-        <div className="container">
-          <div className={`${product_grid1} scale_effect`}>
-            <p>
-              Shea Butter, an all natural product, comes from the nuts of the Shea Tree and is the darling of the
-              cosmetics industry. It is a skin nourishing emollient applied to the skin either in its pure form, or
-              mixed in soaps, lotions, creams or shampoos.
-            </p>
-            <div id={left} className={product_image}>
-              <img src={product6} alt="raw shea" />
-              <p>Shea butter</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <div className="container">
-          <div className={`${product_grid2} scale_effect`}>
-            <div className={product_image}>
-              <img src={product7} alt="refined shea" />
-              <p>Why choose us</p>
-            </div>
-            <div className={product_text2}>
-              <p>
-                <span className={number}>1</span>100% natural
-              </p>
-              <p>
-                <span className={number}>2</span>Pure
-              </p>
-              <p>
-                <span className={number}>3</span>Fine (particles) free
-              </p>
-              <p>
-                <span className={number}>4</span>No smoky smell
-              </p>
-              <p>
-                <span className={number}>5</span>Varying quantitiy
-              </p>
-              <p>
-                <span className={number}>6</span>Safe and fast delivery method
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <section className="process">
         <div className="container">

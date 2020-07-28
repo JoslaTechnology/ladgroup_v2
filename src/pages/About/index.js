@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import tabContent from "./aboutData";
+import {tabContent} from "./aboutData";
 
 import member1 from "assets/member1.svg";
 import member2 from "assets/member2.svg";

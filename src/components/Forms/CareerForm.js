@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { Formik, Form } from "formik";
 import doAlert from "utils/doAlert";
 import { careerPageForm } from "utils/validationSchema";
@@ -18,7 +18,7 @@ const CareerForm = ({ setShowModal }) => {
     phoneNumber: "",
     nationality: "",
     cv: null,
-    coverLetter: null,
+    coverLetter:  null,
     messageBody: ""
   };
 

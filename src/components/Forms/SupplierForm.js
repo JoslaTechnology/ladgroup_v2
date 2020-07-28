@@ -1,7 +1,7 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { Formik, Form } from "formik";
 import doAlert from "utils/doAlert";
-import { careerPageForm } from "utils/validationSchema";
+import { SupplierFormSchema } from "utils/validationSchema";
 import { header, required_flag, header_supplier } from "./style.module.css";
 import { TextInput, SelectInput, TextAreaInput, NumberInput, FileInput } from "components/Input";
 import Button from "components/Button";
@@ -14,11 +14,16 @@ const SupplierForm = ({ setShowSupplierModal }) => {
 
   const initialValues = {
     name: "",
-    email: "",
+    companyName: "",
+    address: "",
+    designation: "",
     phoneNumber: "",
-    nationality: "",
-    cv: "",
-    coverLetter: "",
+    email: "",
+    warehouseAddress: "",
+    category: "",
+    experience: "",
+    document: null,
+    turnover: "",
     messageBody: ""
   };
 
@@ -33,12 +38,13 @@ const SupplierForm = ({ setShowSupplierModal }) => {
     }, 3000);
   };
 
-  const selectOptions2 = [
+  const selectOptions = [
     { value: "", title: "supplier category" },
-    { value: "1.3kg sample pack", title: "1.3KG SAMPLE PACK" },
-    { value: "18kg pack", title: "18KG PACK" },
-    { value: "25kg carton", title: "25KG CARTON" },
-    { value: "bulk purchase", title: "BULK PURCHASE" }
+    { value: "shea nut", title: "SHEA NUT" },
+    { value: "diesel", title: "DIESEL" },
+    { value: "spare parts", title: "SPARE PARTS" },
+    { value: "logistics", title: "LOGISTICS" },
+    { value: "office equipment", title: "OFFICE EQUIPMENT" }
   ];
 
   return (
@@ -50,7 +56,7 @@ const SupplierForm = ({ setShowSupplierModal }) => {
       <div className={contact_form}>
         <Formik
           initialValues={initialValues}
-          validationSchema={careerPageForm}
+          validationSchema={SupplierFormSchema}
           onSubmit={(values, { setSubmitting }) => {
             handleSubmit(values, setSubmitting);
           }}
@@ -73,23 +79,23 @@ const SupplierForm = ({ setShowSupplierModal }) => {
                 label="Shop address/warehouse location *"
                 placeholder="Enter farm/site/shop address/warehouse location"
               />
-              <SelectInput name="quantity" label="Supplier category *" options={selectOptions2} selected={""} />
+              <SelectInput name="category" label="Supplier category *" options={selectOptions} selected={""} />
               <NumberInput
                 name="experience"
                 label="Experience *"
                 placeholder="How many year(s) have you been a supplier of this product?"
               />
               <FileInput
-                name="bankReferences"
-                label="Upload your bank reference CV (max: 80kb)*"
+                name="document"
+                label="Upload document *"
                 setFieldValue={setFieldValue}
-                placeholder="Bankers reference"
+                placeholder="Upload any relevant document(e.g farmers association documents, etc)"
               />
 
               <TextInput name="turnover" label="Turnover" placeholder="Enter your company/trade turnover" />
               <TextAreaInput
                 name="messageBody"
-                label="Reason for interest"
+                label="Reason for interest *"
                 placeholder="Why whould you like to work with us?"
               />
 

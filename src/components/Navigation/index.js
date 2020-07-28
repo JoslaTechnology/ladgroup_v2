@@ -4,7 +4,18 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { IoIosGlobe, IoMdMenu, IoMdClose } from "react-icons/io";
 import { ReactComponent as Logo } from "assets/newLogo.svg";
 import { ReactComponent as Flag } from "assets/nigerian_flag.svg";
-import { header, nav_item, flag, envelope, nav_brand, nav_toggle, nav_list, nav_list2, open, active } from "./style.module.css";
+import {
+  header,
+  nav_item,
+  flag,
+  envelope,
+  nav_brand,
+  nav_toggle,
+  nav_list,
+  nav_list2,
+  open,
+  active
+} from "./style.module.css";
 
 const Navigation = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -23,6 +34,11 @@ const Navigation = () => {
 
           <ul className={nav_list}>
             <li className={nav_item}>
+              <NavLink activeClassName="activeNav" exact to="/">
+                Home
+              </NavLink>
+            </li>
+            <li className={nav_item}>
               <NavDropdown title="Products" className="nav-dropdown">
                 <NavDropdown.Item href="/products/raw-shea">Raw shea butter</NavDropdown.Item>
                 <NavDropdown.Item href="/products/organic-shea">Organic shea butter</NavDropdown.Item>
@@ -30,9 +46,9 @@ const Navigation = () => {
               </NavDropdown>
             </li>
             <li className={nav_item}>
-              <Link  to="/about">
+              <NavLink activeClassName="activeNav" to="/about">
                 About
-              </Link>
+              </NavLink>
             </li>
             <li className={nav_item}>
               <NavDropdown title="More" className="nav-dropdown">
@@ -45,26 +61,40 @@ const Navigation = () => {
 
           <ul className={nav_list2}>
             <li className={nav_item}>
-              <NavLink activeClassName={active} to="/about">About</NavLink>
+              <NavLink activeClassName={active} to="/about">
+                About
+              </NavLink>
             </li>
             <li className={nav_item}>
-              <NavLink activeClassName={active} to="/products/raw-shea">Raw shea butter</NavLink>
+              <NavLink activeClassName={active} to="/products/raw-shea">
+                Raw shea butter
+              </NavLink>
             </li>
             <li className={nav_item}>
-              <NavLink activeClassName={active} to="/products/organic-shea">Organic shea butter</NavLink>
+              <NavLink activeClassName={active} to="/products/organic-shea">
+                Organic shea butter
+              </NavLink>
             </li>
             <li className={nav_item}>
-              <NavLink activeClassName={active} to="/products/de-oiled-cake">De oiled cake</NavLink>
+              <NavLink activeClassName={active} to="/products/de-oiled-cake">
+                De oiled cake
+              </NavLink>
             </li>
 
             <li className={nav_item}>
-              <NavLink activeClassName={active} to="/careers">Careers</NavLink>
+              <NavLink activeClassName={active} to="/careers">
+                Careers
+              </NavLink>
             </li>
             <li className={nav_item}>
-              <NavLink activeClassName={active} to="/Media">Media</NavLink>
+              <NavLink activeClassName={active} to="/Media">
+                Media
+              </NavLink>
             </li>
             <li className={nav_item}>
-              <NavLink activeClassName={active} to="/contact">Contact Us</NavLink>
+              <NavLink activeClassName={active} to="/contact">
+                Contact Us
+              </NavLink>
             </li>
           </ul>
 
