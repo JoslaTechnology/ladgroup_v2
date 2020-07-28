@@ -23,7 +23,7 @@ a.nav-content {
 
 /* override for general navbar */
 .nav-dropdown > div:nth-child(2) {
-  margin-top: 2.3rem;
+  margin-top: 1.4rem;
   width: 23rem;
   letter-spacing: 1px;
   text-align: center;
@@ -33,20 +33,14 @@ a.nav-content {
 .nav-dropdown > div:nth-child(2) a {
   color: #000;
   font-size: 1.6rem;
-  /* margin-bottom: 20px; */
   display:  block;
   letter-spacing: 1.2px;
   padding: 1.2rem 3rem;
-  /* border: 1px solid red; */
 }
 
 .nav-dropdown > div:nth-child(2) a:hover {
   background-color: var(--dark-blue);
   color: #fff;
-}
-
-.accordion {
-  /* position: relative; */
 }
 
 .accordion .show a,

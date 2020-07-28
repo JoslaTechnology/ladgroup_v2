@@ -4,6 +4,7 @@
   gap: 3rem;
   justify-content: center;
   align-items: center;
+  border: 1px solid red;
 }
 
 .product_grid1 > p {
