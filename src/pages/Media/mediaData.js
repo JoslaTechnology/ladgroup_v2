@@ -22,26 +22,26 @@ export const tabsTitle = [
 export const tabContent = [
   {
     eventKey: "news",
-    image: videoClip,
+    image: "https://www.youtube.com/embed/T5MZnykBSMg",
     source: "Business journal",
     headline: "Reps Commend NEXIM over Ladgroup Shea Butter Initiative"
   },
   {
     eventKey: "news",
     image: gallery2,
-    source: "Business journal",
+    source: "Nipc",
     headline: "Sahel Capital to Invest in Ladgroup "
   },
   {
     eventKey: "news",
     image: prince,
-    source: "Business journal",
+    source: "Punchng",
     headline: "At 95, I still swim in the morning - Onafowokan"
   },
   {
     eventKey: "news",
     image: factory,
-    source: "Business journal",
+    source: "Twitter",
     headline: "Ladgroup company shea butter factory"
   },
   {

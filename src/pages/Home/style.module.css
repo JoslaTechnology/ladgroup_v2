@@ -51,9 +51,8 @@
 /* products section */
 .product {
   position: relative;
-  box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.2);
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
 }
 
 .product:hover {
@@ -83,7 +82,7 @@
 
 .grid_2x2 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 58rem));
+  grid-template-columns: repeat(2, minmax(20rem, 58rem));
   gap: 3rem;
   justify-content: center;
 }
@@ -146,4 +145,10 @@
   .commitment_container h3 {
     text-align: center;
   }
+
+  .grid_2x2 {
+    grid-template-columns: minmax(20rem, 50rem);
+    gap: 2rem;
+  }
+  
 }

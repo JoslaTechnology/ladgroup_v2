@@ -5,10 +5,10 @@ import DistributorForm from "components/Forms/DistributorForm";
 import SupplierForm from "components/Forms/SupplierForm";
 import Modal from "components/Modal";
 
-import product1 from "assets/product1.svg";
-import product2 from "assets/product2.svg";
-import product3 from "assets/product3.svg";
-import product4 from "assets/product4.svg";
+import product11 from "assets/product1.svg";
+import product12 from "assets/product2.svg";
+import product13 from "assets/product3.svg";
+import product14 from "assets/product4.svg";
 import supplier1 from "assets/supplier1.png";
 import supplier2 from "assets/supplier2.png";
 import indicator1 from "assets/indicator1.svg";
@@ -104,7 +104,6 @@ const Home = () => {
               src="https://www.youtube.com/embed/T5MZnykBSMg"
               frameBorder="0"
               allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
               title="ladgroup promo"
             ></iframe>
           </div>
@@ -115,22 +114,22 @@ const Home = () => {
           <h2 className={sub_heading}>Our products</h2>
           <div className={`${grid_2x2} scale_effect`}>
             <div className={product}>
-              {/* <img src={product1} alt="Raw shea butter" /> */}
+              <img src={product11} alt="Raw shea butter" />
               <p>For distributors</p>
               <h3>Raw shea butter</h3>
             </div>
             <div className={product}>
-              {/* <img src={product2} alt="Organic shea butter" /> */}
+              <img src={product12} alt="Organic shea butter" />
               <p>Available on order</p>
               <h3>Organic shea butter</h3>
             </div>
             <div className={product}>
-              {/* <img src={product3} alt="De oiled cake" /> */}
+              <img src={product13} alt="De oiled cake" />
               <p>Well processed</p>
               <h3>De oiled cake</h3>
             </div>
             <div className={`${product} unavailable`}>
-              {/* <img src={product4} alt="Refined shea butter" /> */}
+              <img src={product14} alt="Refined shea butter" />
               <p>Available soon</p>
               <h3>Refined shea butter</h3>
             </div>

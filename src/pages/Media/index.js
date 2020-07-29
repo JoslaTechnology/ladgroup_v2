@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
 import Col from "react-bootstrap/Col";
@@ -10,7 +11,15 @@ import Leading from "components/leading";
 
 import media1 from "assets/media1.svg";
 
-import { grid_1x2, grid_1x2_image, left, main,  content_group  } from "style/layout.module.css";
+import {
+  grid_1x2,
+  grid_1x2_image,
+  left,
+  main,
+  content_group,
+  content_group1,
+  responsive_iframe
+} from "style/layout.module.css";
 
 const Media = () => {
   return (
@@ -52,66 +61,82 @@ const Media = () => {
             </Col>
 
             <Col>
-            <Tab.Content>
-              <Tab.Pane eventKey={tabContent[0].eventKey}>
-                <Row className="py-3 px-1">
-                  <Col className="my-auto" sm={6}>
-                    <div className={content_group}>
-                      <img src={tabContent[0].image} alt="" />
-                      <p>{tabContent[0].source}</p>
-                      <h3>{tabContent[0].headline}</h3>
-                    </div>
-                    <p>{tabContent[0].text}</p>
-                  </Col>
-                  <Col className="my-auto" sm={6}>
-                    <div className={content_group}>
-                      <img src={tabContent[1].image} alt="" />
-                      <p>{tabContent[1].source}</p>
-                      <h3>{tabContent[1].headline}</h3>
-                    </div>
-                    <p>{tabContent[1].text}</p>
-                  </Col>
-                </Row>
-                <Row className="py-3 px-1">
-                  <Col className="my-auto" sm={6}>
-                    <div className={content_group}>
-                      <img src={tabContent[2].image} alt="" />
-                      <p>{tabContent[2].source}</p>
-                      <h3>{tabContent[2].headline}</h3>
-                    </div>
-                    <p>{tabContent[2].text}</p>
-                  </Col>
-                  <Col className="my-auto" sm={6}>
-                    <div className={content_group}>
-                      <img src={tabContent[3].image} alt="" />
-                      <p>{tabContent[3].source}</p>
-                      <h3>{tabContent[3].headline}</h3>
-                    </div>
-                    <p>{tabContent[3].text}</p>
-                  </Col>
-                </Row>
-              </Tab.Pane>
-              <Tab.Pane eventKey={tabContent[4].eventKey}>
-                <Row className="py-3 px-1">
-                  <Col className="my-auto" sm={6}>
-                    <div className={content_group}>
-                      <img src={tabContent[4].image} alt="" />
-                      <p>{tabContent[4].source}</p>
-                      <h3>{tabContent[4].headline}</h3>
-                    </div>
-                    <p>{tabContent[5].text}</p>
-                  </Col>
-                  <Col className="my-auto" sm={6}>
-                    <div className={content_group}>
-                      <img src={tabContent[5].image} alt="" />
-                      <p>{tabContent[5].source}</p>
-                      <h3>{tabContent[5].headline}</h3>
-                    </div>
-                    <p>{tabContent[5].text}</p>
-                  </Col>
-                </Row>
-              </Tab.Pane>
-            </Tab.Content>
+              <Tab.Content>
+                <Tab.Pane eventKey="news">
+                  <Row className="py-3 px-1">
+                    <Col className="my-auto" sm={6}>
+                      <div className={content_group1}>
+                        <iframe
+                          src={tabContent[0].image}
+                          frameBorder="0"
+                          allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                          title="ladgroup promo"
+                          className={responsive_iframe}
+                        ></iframe>
+                        <p>{tabContent[0].source}</p>
+                        <h3>{tabContent[0].headline}</h3>
+                      </div>
+                      <p>{tabContent[0].text}</p>
+                    </Col>
+                    <Col className="my-auto" sm={6}>
+                      <div className={content_group}>
+                        <img src={tabContent[1].image} alt="Sahel capital invests in ladgroup " />
+                        <p>{tabContent[1].source}</p>
+                        <h3>{tabContent[1].headline}</h3>
+                      </div>
+                      <p>{tabContent[1].text}</p>
+                    </Col>
+                  </Row>
+                  <Row className="py-3 px-1">
+                    <Col className="my-auto" sm={6}>
+                      <div className={content_group}>
+                        <img src={tabContent[2].image} alt="ceo story from punch nigeria" />
+                        <p>{tabContent[2].source}</p>
+                        <h3>{tabContent[2].headline}</h3>
+                      </div>
+                      <p>{tabContent[2].text}</p>
+                    </Col>
+                    <Col className="my-auto" sm={6}>
+                      <a href="https://twitter.com/toluogunlesi/status/1230438639550771202?s=20" target="blank">
+                        <div className={content_group}>
+                          <img src={tabContent[3].image} alt="ladgroup twitter promo video" />
+                          <p>{tabContent[3].source}</p>
+                          <h3>{tabContent[3].headline}</h3>
+                        </div>
+                        <p>{tabContent[3].text}</p>
+                      </a>
+                    </Col>
+                  </Row>
+                </Tab.Pane>
+                <Tab.Pane eventKey="videos">
+                  <Row className="py-3 px-1">
+                    <Col className="my-auto" sm={6}>
+                      <div className={content_group1}>
+                        <iframe
+                          src={tabContent[0].image}
+                          frameBorder="0"
+                          allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                          title="ladgroup promo"
+                          className={responsive_iframe}
+                        ></iframe>
+                        <p>{tabContent[0].source}</p>
+                        <h3>{tabContent[0].headline}</h3>
+                      </div>
+                      <p>{tabContent[0].text}</p>
+                    </Col>
+                    <Col className="my-auto" sm={6}>
+                      <a href="https://twitter.com/toluogunlesi/status/1230438639550771202?s=20" target="blank">
+                        <div className={content_group}>
+                          <img src={tabContent[3].image} alt="ladgroup twitter promo video" />
+                          <p>{tabContent[3].source}</p>
+                          <h3>{tabContent[3].headline}</h3>
+                        </div>
+                        <p>{tabContent[3].text}</p>
+                      </a>
+                    </Col>
+                  </Row>
+                </Tab.Pane>
+              </Tab.Content>
             </Col>
           </Tab.Container>
         </div>

@@ -3,6 +3,10 @@ import achievement from "assets/achievement.svg";
 import experience from "assets/experience.svg";
 import investment from "assets/investment.svg";
 
+import founder from "assets/founder.svg";
+import male from "assets/member1.svg";
+import female from "assets/member2.svg";
+
 export const tabContent = [
   {
     title: "History",
@@ -35,3 +39,64 @@ export const tabContent = [
 ];
 
 // const popover1
+export const memberList = [
+  {
+    image: founder,
+    name: "Prince (Dr) B. A. Onafowokan",
+    position: "Founder",
+    caption:
+      "Prince (Dr) B. A. Onafowokan is the Chairman of the Board of Directors and the founder of the company is a 1954 graduate of the University of Ibadan with B. Sc. (London) Mathematics. After a brief stint as a teacher with Ogbomosho Grammar School and Kings College, Lagos, he joined Shell Company of West Africa (now Conoil Plc) in 1956 from where he retired as retail Sales Manager in 1972 to form Ladgroup Limited."
+  },
+  {
+    image: male,
+    name: "Mr. Adebisi Sanda",
+    position: "Chairman"
+  },
+
+  {
+    image: male,
+    name: "Mr. Adekunle O. Onafowokan",
+    position: "Managing Director",
+    caption:
+      "Mr. Adekunle O. Onafowokan earned a BSc in Mechanical Engineering from University of Birmingham, United Kingdom, MSc in Food Process Engineering from University of Reading, United Kingdom and Master of Business Administration (MBA) from Yale University, New Haven CT, United States of America. Mr Kunle is a Member of the Institution of Mechanical Engineers, United Kingdom. With Ladgroup, Kunle has gained extensive experience in all aspects of the commodity supply chain and understands the intricacies of the export and import trade."
+  },
+  {
+    image: female,
+    name: "Mrs. Afolake A. Oladitan",
+    position: " Non-Executive Director",
+    caption:
+      "Mrs. Afolake A. Oladitan is a graduate with honours in Policymaking and Administration from University of Essex and LLB from the University of Southampton, UK, and was called to Bar at the Nigerian Law School in 1987. She worked with the prestigious Law Firms of Chris Ogunbanjo & Co. and with Ajumogobia, Okeke & Oyebode and as a Senior Associate with Oyebode & Aluko before joining Ladgroup Limited. She is also the Managing Director of Pinky Blue Limited (with exclusive franchise for Mothercare in Nigeria)"
+  },
+  {
+    image: female,
+    name: "Mrs. Adepeju Adebajo",
+    position: "Non-Executive Director",
+    caption:
+      "Mrs. Adepeju O. Adebajo holds a Masters Degree in Chemical Engineering and Chemical Technology from the Imperial College of Science & Technology, University of London. She was awarded MBA of the Harvard Graduate School, Boston, USA (1993).She has industrial Research Experience at Intern Philips (UK), Lever Brothers, UK, and was Manager, Investment banking Citicorp, London, for two years before proceeding to Harvard for her MBA. She is currently the Honourable Commissioner for Agriculture in Ogun State of Nigeria"
+  },
+  {
+    image: male,
+    name: "Mr. Mezuo Nwuneli",
+    position: "Non-Executive Director"
+  },
+  {
+    image: male,
+    name: "Mr. Olumide Lawson",
+    position: "Non-Executive Director"
+  },
+  {
+    image: male,
+    name: "Mr. Oluremi Bodunrin",
+    position: "Non-Executive Director"
+  },
+  {
+    image: male,
+    name: "Mr. Abayomi Awobokun",
+    position: "Non-Executive Director"
+  },
+  {
+    image: male,
+    name: "Dr. Nadu Denloye",
+    position: "Non-Executive Director"
+  }
+];

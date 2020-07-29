@@ -45,8 +45,9 @@
 }
 
 svg.group {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
+
 .social_contacts > p {
   display: inline-block;
   font-weight: bold;

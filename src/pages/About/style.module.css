@@ -16,6 +16,33 @@
   text-align: center;
   box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.2);
   border-radius: 5px;
+  position: relative;
+}
+
+.member figcaption {
+  position: absolute;
+  top: 50%;
+  left: -10%;
+  height: 100%;
+  opacity: 0;
+  font-size: 1rem;
+  background-color: var(--dark-blue);
+  transform: translateY(-50%);
+  transition: all 0.8s;
+  color: #fff;
+  backface-visibility: hidden;
+  padding: 1rem;
+  display: flex;
+  border-radius: 5px;
+}
+
+.member:hover figcaption {
+  opacity: 1;
+  align-items: center;
+}
+
+.member figure:hover img {
+  filter: blur(3px) brightness(80%);
 }
 
 .member:hover {
@@ -27,10 +54,9 @@
   font-weight: bold;
 }
 
-
 /* tab section  */
 .tab_image {
-  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
 
@@ -102,25 +128,29 @@
   margin-bottom: 4rem;
 }
 
-@media screen and (max-width: 600px) {
-  /* vision section */
-  .vertical_text {
-    display: none;
-  }
-
-  /* board members section */
+@media screen and (max-width: 700px) {
   .board_grid {
-    grid-template-columns: repeat(auto-fit, 30rem);
-    width: 90%;
-    gap: 3.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 18rem);
+    justify-content: center;
+    width: 95%;
+    gap: 3rem;
+    margin: 0 auto;
   }
 
   .member {
-    padding: 4rem;
+    padding: 2rem;
     text-align: center;
   }
 
   .member p {
     font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  /* vision section */
+  .vertical_text {
+    display: none;
   }
 }
