@@ -5,10 +5,10 @@ import DistributorForm from "components/Forms/DistributorForm";
 import SupplierForm from "components/Forms/SupplierForm";
 import Modal from "components/Modal";
 
-import product11 from "assets/product1.svg";
-import product12 from "assets/product2.svg";
-import product13 from "assets/product3.svg";
-import product14 from "assets/product4.svg";
+import product11 from "assets/product11.svg";
+import product12 from "assets/product12.svg";
+import product13 from "assets/product13.svg";
+import product14 from "assets/product14.svg";
 import supplier1 from "assets/supplier1.png";
 import supplier2 from "assets/supplier2.png";
 import indicator1 from "assets/indicator1.svg";
@@ -58,7 +58,7 @@ const Home = () => {
         ""
       )}
       <main className={main}>
-        <Carousel fluid>
+        <Carousel>
           <Carousel.Item>
             <img src={carousel1} alt="First slide" />
             <Carousel.Caption>

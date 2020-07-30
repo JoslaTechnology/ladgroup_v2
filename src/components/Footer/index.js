@@ -1,9 +1,16 @@
 import React, { useState } from "react";
-
 import { Link } from "react-router-dom";
+import { FiChevronDown } from "react-icons/fi";
 import Dropd from "react-dropd";
 import logo2 from "assets/footerLogo.svg";
 import { ReactComponent as Location } from "assets/location.svg";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionItemHeading,
+  AccordionItemButton,
+  AccordionItemPanel
+} from "react-accessible-accordion";
 
 import {
   footer,
@@ -12,18 +19,27 @@ import {
   footer_logo,
   item_text,
   footer_links,
+  footer_links2,
   social_icons,
   language_box,
   legal,
   legal_links,
   social_media1,
-  social_media2
+  social_media2,
+  accordion_parent,
+  accordion_group,
+  accordion_child
 } from "./style.module.css";
 
 const Footer = () => {
   const languageList = [{ label: "English", value: "english" }];
-
   const [language, setLanguage] = useState(languageList[0]);
+
+  const footerLinks = [
+    { heading: "Join us", content: "Careers", link: "careers" },
+    { heading: "Support", content: "Contact us", link: "contact" },
+    { heading: "Media", content: "News", link: "media" }
+  ];
 
   return (
     <footer className={footer}>
@@ -120,6 +136,63 @@ const Footer = () => {
               <Link to="/media">News</Link>
             </dd>
           </dl>
+
+          <div className={footer_links2}>
+            <Accordion allowZeroExpanded>
+              <AccordionItem className={accordion_group}>
+                <AccordionItemHeading>
+                  <AccordionItemButton className={accordion_parent}>
+                    <h6>Products</h6>
+                    <span>
+                      <FiChevronDown size="15px" />
+                    </span>
+                  </AccordionItemButton>
+                </AccordionItemHeading>
+                <AccordionItemPanel className={accordion_child}>
+                  <Link to="/products/raw-shea">Raw shea butter</Link>
+                </AccordionItemPanel>
+                <AccordionItemPanel className={accordion_child}>
+                  <Link to="/products/organic-shea">Organic shea butter</Link>
+                </AccordionItemPanel>
+                <AccordionItemPanel className={accordion_child}>
+                  <Link to="/products/de-oiled-cake">De oiled cake</Link>
+                </AccordionItemPanel>
+              </AccordionItem>
+
+              <AccordionItem className={accordion_group}>
+                <AccordionItemHeading>
+                  <AccordionItemButton className={accordion_parent}>
+                    <h6>Company</h6>
+                    <span>
+                      <FiChevronDown size="15px" />
+                    </span>
+                  </AccordionItemButton>
+                </AccordionItemHeading>
+                <AccordionItemPanel className={accordion_child}>
+                  <Link to="/about">About Us</Link>
+                </AccordionItemPanel>
+                <AccordionItemPanel className={accordion_child}>
+                  <Link to="/about#board">Board members</Link>
+                </AccordionItemPanel>
+              </AccordionItem>
+
+              {footerLinks.map((item, i) => (
+                <AccordionItem className={accordion_group} key={i}>
+                  <AccordionItemHeading>
+                    <AccordionItemButton className={accordion_parent}>
+                      <h6>{item.heading}</h6>
+                      <span>
+                        <FiChevronDown size="15px" />
+                      </span>
+                    </AccordionItemButton>
+                  </AccordionItemHeading>
+                  <AccordionItemPanel className={accordion_child}>
+                    <Link to={`/${item.link}`}>{item.content}</Link>
+                  </AccordionItemPanel>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
 
           <div className={social_media2}>
             <h5>Follow Us</h5>
