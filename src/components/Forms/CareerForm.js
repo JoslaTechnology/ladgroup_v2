@@ -32,14 +32,15 @@ const CareerForm = ({ setShowModal }) => {
 
       try {
         const data = await submitFormData(body);
-        if (data) {
+        if (data.status === "success") {
           doAlert("Submitted successfully", "success");
           setSubmitting(false);
+          setShowModal(false);
+        } else if (data.includes("You are not authorised to access this API service")) {
+          doAlert("Application unsuccessful, try again", "error");
+          setSubmitting(false);
         }
-
-        setShowModal(false);
       } catch (error) {
-        console.log(error);
         doAlert("Application unsuccessful, try again", "error");
         setSubmitting(false);
       }

@@ -1,13 +1,9 @@
 import React, { Fragment } from "react";
-import { Formik, Form } from "formik";
 import { GoLocation } from "react-icons/go";
 import { FiPhoneCall, FiMail } from "react-icons/fi";
-
-import { contactPageForm } from "utils/validationSchema";
 import Leading from "components/leading";
-import { TextInput, SelectInput, TextAreaInput } from "components/Input";
-import Button from "components/Button";
 
+import { item_icon, item_text } from "components/Footer/style.module.css";
 import { main } from "style/layout.module.css";
 import {
   contact_container,
@@ -18,26 +14,9 @@ import {
   conact_details_group,
   social_contacts
 } from "./style.module.css";
-import { item_icon, item_text } from "components/Footer/style.module.css";
-
-const handleSubmit = (values) => {
-  console.log(values);
-};
+import ContactForm from "components/Forms/ContactForm";
 
 const Contact = () => {
-  const initialValues = {
-    name: "",
-    email: "",
-    category: "",
-    messageBody: ""
-  };
-
-  const selectOptions = [
-    { value: "", title: "Select message category" },
-    { value: "general", title: "general" },
-    { value: "enquiry", title: "enquiry" }
-  ];
-
   return (
     <Fragment>
       <div className={main}>
@@ -48,23 +27,7 @@ const Contact = () => {
         <section>
           <div className={contact_form}>
             <p>Feel free to contact us any time. We will get back to you as soon as we possible!</p>
-            <Formik
-              initialValues={initialValues}
-              validationSchema={contactPageForm}
-              onSubmit={(value) => {
-                handleSubmit(value);
-              }}
-            >
-              {() => (
-                <Form>
-                  <TextInput name="name" label="Name" placeholder="Enter your name" />
-                  <TextInput name="email" label="Email" placeholder="Enter your email addres" />
-                  <SelectInput name="category" label="Message category" options={selectOptions} selected={""} />
-                  <TextAreaInput name="messageBody" label="Message" placeholder="Your message here" />
-                  <Button label="Send" size="large" type="submit" />
-                </Form>
-              )}
-            </Formik>
+            <ContactForm />
           </div>
         </section>
 
