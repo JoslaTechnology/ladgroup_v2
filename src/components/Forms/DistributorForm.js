@@ -1,17 +1,18 @@
 import React, { Fragment } from "react";
 import { Formik, Form } from "formik";
-import doAlert from "utils/doAlert";
 import { DistributorFormSchema } from "utils/validationSchema";
-import { header, required_flag, header_distributor } from "./style.module.css";
-import { TextInput, SelectInput, TextAreaInput, NumberInput, FileInput } from "components/Input";
-import Button from "components/Button";
+import { distributorFormContent } from "./mailcontent";
+import { generateFileUrl, submitFormData } from "lib/client";
 
-import { contact_form } from "./style.module.css";
+import doAlert from "utils/doAlert";
+import Button from "components/Button";
 import { ButtonSpinner } from "components/loader";
+import { TextInput, SelectInput, TextAreaInput, NumberInput, FileInput } from "components/Input";
+
+import { header, required_flag, header_distributor } from "./style.module.css";
+import { contact_form } from "./style.module.css";
 
 const DistributorForm = ({ setShowDistributorModal }) => {
-  // const [loading, setLoading] = useState(false);
-
   const initialValues = {
     name: "",
     companyName: "",
@@ -30,17 +31,30 @@ const DistributorForm = ({ setShowDistributorModal }) => {
     messageBody: ""
   };
 
-  const handleSubmit = (values, setSubmitting) => {
-    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
+  const handleSubmit = async (values, setSubmitting) => {
     setSubmitting(true);
-    console.log(values);
+    const fileData = await generateFileUrl([values.bankReference]);
 
-    sleep(3000).then(() => {
+    if (fileData) {
+      const body = distributorFormContent(values, fileData);
+
+      try {
+        const data = await submitFormData(body);
+        if (data) {
+          doAlert("Submitted successfully", "success");
+          setSubmitting(false);
+        }
+
+        setShowDistributorModal(false);
+      } catch (error) {
+        console.log(error);
+        doAlert("Application unsuccessful, try again", "error");
+        setSubmitting(false);
+      }
+    } else {
+      doAlert("file upload failed, try again", "error");
       setSubmitting(false);
-      doAlert("Submitted successfully", "success");
-      setShowDistributorModal(false);
-    });
+    }
   };
 
   const selectOptions1 = [

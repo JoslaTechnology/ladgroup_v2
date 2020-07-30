@@ -20,7 +20,7 @@ const Career = () => {
     <Fragment>
       {showModal ? (
         <Modal close={setShowModal} color="#fff">
-          <CareerForm setShowModal={setShowModal}/>
+          <CareerForm setShowModal={setShowModal} />
         </Modal>
       ) : (
         ""
