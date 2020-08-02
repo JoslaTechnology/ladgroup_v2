@@ -1,8 +1,10 @@
 const formatUrl = (fileData) => {
   let urls = [];
+  console.log(fileData)
 
-  if (typeof fileData.length > 1) {
-    urls.push(`<p  style="font-size: 0.8rem;">${fileData.data.createdFileURL}</p>`);
+  if (fileData.length > 1) {
+    // urls.push(`<p  style="font-size: 0.8rem;">${fileData.data.createdFileURL}</p>`);
+    fileData.forEach(file => urls.push(`<p  style="font-size: 0.8rem;">${file.data.createdFileURL}</p>`))
   } else {
     urls = Object.values(fileData).map((url, i) => `<p  style="font-size: 0.8rem;" id=${i}>${url.createdFileURL}</p>`);
   }
