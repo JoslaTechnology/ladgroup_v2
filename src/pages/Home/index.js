@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import Carousel from "react-bootstrap/Carousel";
+import { Link } from "react-router-dom";
 
 import DistributorForm from "components/Forms/DistributorForm";
 import SupplierForm from "components/Forms/SupplierForm";
@@ -113,26 +114,34 @@ const Home = () => {
         <div className="container">
           <h2 className={sub_heading}>Our products</h2>
           <div className={`${grid_2x2} scale_effect`}>
-            <div className={product}>
-              <img src={product11} alt="Raw shea butter" />
-              <p>For distributors</p>
-              <h3>Raw shea butter</h3>
-            </div>
-            <div className={product}>
-              <img src={product12} alt="Organic shea butter" />
-              <p>Available on order</p>
-              <h3>Organic shea butter</h3>
-            </div>
-            <div className={product}>
-              <img src={product13} alt="De oiled cake" />
-              <p>Well processed</p>
-              <h3>De oiled cake</h3>
-            </div>
+            <Link to="/products/raw-shea">
+              <div className={product}>
+                <img src={product11} alt="Raw shea butter" />
+                <p>For distributors</p>
+                <h3>Raw shea butter</h3>
+              </div>
+            </Link>
+            <Link to="/products/organic-shea">
+              <div className={product}>
+                <img src={product12} alt="Organic shea butter" />
+                <p>Available on order</p>
+                <h3>Organic shea butter</h3>
+              </div>
+            </Link>
+            <Link to="/products/de-oiled-cake">
+              <div className={product}>
+                <img src={product13} alt="De oiled cake" />
+                <p>Well processed</p>
+                <h3>De oiled cake</h3>
+              </div>
+            </Link>
+            {/* <Link to=""> */}
             <div className={`${product} unavailable`}>
               <img src={product14} alt="Refined shea butter" />
               <p>Available soon</p>
               <h3>Refined shea butter</h3>
             </div>
+            {/* </Link> */}
           </div>
         </div>
       </section>
@@ -188,16 +197,20 @@ const Home = () => {
       <section className="gallery">
         <div className="container">
           <div className={`${grid_2x2} scale_effect`}>
-            <div className={product}>
-              <img src={gallery1} alt="Raw shea butter" />
-              <p>CEO message</p>
-              <h3>Pioneering in shea nut production</h3>
-            </div>
-            <div className={product}>
-              <img src={gallery2} alt="Organic shea butter" />
-              <p>News</p>
-              <h3>Sahel Capital to Invest in Ladgroup - Nipc</h3>
-            </div>
+            <Link to="/media">
+              <div className={product}>
+                <img src={gallery1} alt="Raw shea butter" />
+                <p>CEO message</p>
+                <h3>Pioneering in shea nut production</h3>
+              </div>
+            </Link>
+            <Link to="/media">
+              <div className={product}>
+                <img src={gallery2} alt="Organic shea butter" />
+                <p>News</p>
+                <h3>Sahel Capital to Invest in Ladgroup - Nipc</h3>
+              </div>
+            </Link>
           </div>
         </div>
       </section>

@@ -72,12 +72,12 @@ const Footer = () => {
           <div className={social_media1}>
             <ul className={social_icons}>
               <li>
-                <a href="#!">
+                <a href="https://www.linkedin.com/company/ladgrouplimited/" target="blank"> 
                   <i className="fa fa-linkedin"></i>
                 </a>
               </li>
               <li>
-                <a href="#!">
+                <a href="https://web.facebook.com/pages/category/Local-Business/Ladgroup-Limited-1405064996405983/" target="blank">
                   <i className="fa fa-facebook"></i>
                 </a>
               </li>
@@ -198,12 +198,12 @@ const Footer = () => {
             <h5>Follow Us</h5>
             <ul className={social_icons}>
               <li>
-                <a href="#!">
+                <a href="https://www.linkedin.com/company/ladgrouplimited/" target="blank">
                   <i className="fa fa-linkedin"></i>
                 </a>
               </li>
               <li>
-                <a href="#!">
+                <a href="https://web.facebook.com/pages/category/Local-Business/Ladgroup-Limited-1405064996405983/" target="blank">
                   <i className="fa fa-facebook"></i>
                 </a>
               </li>
