@@ -4,8 +4,8 @@ import experience from "assets/experience.svg";
 import investment from "assets/investment.svg";
 
 import founder from "assets/founder.svg";
-import male from "assets/member1.svg";
-import female from "assets/member2.svg";
+import male from "assets/male.svg";
+import female from "assets/female.svg";
 
 export const tabContent = [
   {
