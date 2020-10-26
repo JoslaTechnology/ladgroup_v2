@@ -4,7 +4,7 @@ import Form from "react-bootstrap/Form";
 import { has_error, input, labeltext } from "components/Input/style.module.css";
 
 const FileInput = ({ accept, label, setFieldValue, ...props }) => {
-  const [field, meta] = useField(props);
+  const [, meta] = useField(props);
 
   const [fileName, setFileName] = useState(null);
 
