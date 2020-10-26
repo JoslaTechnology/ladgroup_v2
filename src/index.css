@@ -91,6 +91,15 @@ section {
   margin: 0 auto;
 }
 
+.cursor {
+  cursor: pointer;
+}
+
+.activeNav {
+  font-weight: bolder;
+  opacity: 0.6;
+}
+
 @media screen and (max-width: 600px) {
   html,
   body {

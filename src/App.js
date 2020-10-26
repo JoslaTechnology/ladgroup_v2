@@ -1,6 +1,6 @@
 import React, { Fragment, Suspense, lazy } from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
-import { FullPageSpinner } from "./components/loader/FullPageSpinner";
+import { FullPageSpinner } from "./components/loader";
 import ErrorBoundary from "./components/errorBoundary";
 import Home from "pages/Home";
 import Navigation from "components/Navigation";
@@ -8,9 +8,9 @@ import Footer from "components/Footer";
 
 const About = lazy(() => import("./pages/About"));
 const Products = lazy(() => import("./pages/Products"));
-const Support = lazy(() => import("./pages/Support"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Media = lazy(() => import("./pages/Media"));
+const Career = lazy(() => import("./pages/Career"));
 
 function App() {
   return (
@@ -18,13 +18,13 @@ function App() {
       <Router>
         <ErrorBoundary>
           <Suspense fallback={<FullPageSpinner />}>
-            <Navigation />
+          <Navigation />
             <Switch>
               <Route exact path="/about" component={About} />
-              <Route path="/products" component={Products} />
-              <Route exact path="/support" component={Support} />
+              <Route  path="/products" component={Products} />
               <Route exact path="/contact" component={Contact} />
               <Route exact path="/media" component={Media} />
+              <Route exact path="/careers" component={Career} />
               <Route exact path="/" component={Home} />
               <Route component={() => <Redirect to="/" />} />
             </Switch>

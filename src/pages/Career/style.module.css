@@ -1,0 +1,12 @@
+/* tab section */
+.applications_content {
+  margin: 0 auto;
+  width: 90%;
+  padding: 2rem 0;
+}
+
+.cv {
+  color: var(--dark-blue);
+  font-weight: bold;
+  cursor: pointer;
+}

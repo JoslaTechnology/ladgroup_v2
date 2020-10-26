@@ -1,19 +1,71 @@
-/* overide react-bootstrap styles for tabs on about and career page */
-.nav-link {
+/* override for react bootstrap for tabs on about, career, media pages */
+a.nav-content {
+  font-size: 1.6rem;
+  color: var(--dark-blue);
+}
+
+.nav-content {
+  font-size: 1.6rem;
+  color: var(--dark-blue);
   border: 1px solid var(--dark-blue) !important;
   border-top-left-radius: 1.5rem !important;
   border-top-right-radius: 1.5rem !important;
 }
 
-.nav-link:active {
-  outline-color: var(--dark-blue);
-}
-
-.active.nav-link {
-  background-color: var(--dark-blue) !important;
-  color: #fff !important;
-}
-
-.nav-link:active {
+.nav-content.nav-link:active {
   outline: none;
+}
+
+.active.nav-content {
+  color: #fff !important;
+  background-color: var(--dark-blue) !important;
+}
+
+/* override for general navbar */
+.nav-dropdown > div:nth-child(2) {
+  margin-top: 1.4rem;
+  width: 23rem;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 2rem 1.3rem 1rem 1.3rem;
+}
+
+.nav-dropdown > div:nth-child(2) a {
+  color: #000;
+  font-size: 1.6rem;
+  display:  block;
+  letter-spacing: 1.2px;
+  padding: 1.2rem 3rem;
+}
+
+.nav-dropdown > div:nth-child(2) a:hover {
+  background-color: var(--dark-blue);
+  color: #fff;
+}
+
+.accordion .show a,
+.accordion .show .collapse a {
+  text-align: center !important;
+  width: 80vw !important;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  /* height: 100% !important; */
+  transition: all 0.5s ease-in-out !important;
+  background-color: var(--dark-blue);
+  color: #fff;
+  font-size: 14px;
+}
+
+.accordion .collapsing {
+  display: none;
+}
+
+.form-upload > input {
+  border: 1px solid red !important;
+  height: 4rem;
+  border: 1px solid #ced4da;
+  background-color: red;
+
 }

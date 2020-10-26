@@ -1,5 +1,6 @@
 .footer {
   padding-bottom: 8rem;
+  overflow: hidden;
 }
 
 .items {
@@ -15,8 +16,14 @@
 }
 
 .item_icon svg {
-  height: 10px;
+  height: 12px;
+  margin-right: 15px;
   vertical-align: middle;
+}
+
+.item_text,
+.item_icon svg {
+  display: inline-block;
 }
 
 .footer_logo {
@@ -29,11 +36,20 @@
   margin: 1.5rem 0;
 }
 
+.footer_links2 {
+  display: none;
+}
+
+.social_media1 {
+  display: none;
+}
+
 .footer_links dt,
 .footer_links h5 {
   color: #b9b9b9;
   padding: 1rem 0;
   font-size: 1.4rem;
+  font-weight: bold;
 }
 
 .footer_links dd a {
@@ -82,6 +98,10 @@
   color: #161515;
 }
 
+.language_box ul {
+  font-size: 1rem;
+}
+
 .legal {
   display: flex;
   justify-content: space-between;
@@ -114,4 +134,101 @@
 .legal a:hover,
 .social_icons a:hover {
   color: #074a6e;
+}
+
+@media screen and (max-width: 600px) {
+  .footer_links {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer_links dl {
+    display: none;
+  }
+
+  .footer_links2 {
+    display: block;
+    margin: 2rem 0;
+  }
+
+  .footer_links2 .accordion_group:not(:last-child) {
+    margin-bottom: 7px;
+  }
+
+  .accordion_parent {
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px 0;
+    width: 15rem; /* outline-color: #000; */
+    outline: none;
+  }
+
+  .accordion_child {
+    text-align: center;
+    margin-bottom: 4px;
+  }
+
+  .accordion_parent h6 {
+    margin-right: 5px;
+    font-size: 16px;
+  }
+
+  .accordion_child a {
+    font-size: 14px;
+    color: var(--light-grey);
+  }
+
+  .social_media2 {
+    display: none;
+  }
+
+  .social_media1 {
+    display: block;
+  }
+
+  .social_media1 li {
+    margin: 0 20px;
+  }
+
+  .social_media1 i {
+    font-size: 25px;
+  }
+
+  .language_box {
+    flex-direction: column;
+  }
+
+  .language_box p {
+    font-size: 1.6rem;
+    padding: 5px 0;
+  }
+
+  .language_box button {
+    margin-left: 1rem;
+    height: 3rem;
+    border-color: #161515;
+    font-size: 1.3rem;
+  }
+
+  .legal {
+    flex-direction: column;
+  }
+
+  .legal_links ul {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .legal_links li {
+    margin: 5px 0;
+    text-align: center;
+  }
+
+  .legal p,
+  .legal a {
+    font-size: 1.3rem;
+  }
 }

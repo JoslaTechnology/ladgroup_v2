@@ -8,7 +8,7 @@ const Leading = () => {
     <section className="contact-us">
       <div className={contact}>
         <div className={contact_text}>
-          <p>Leading for others to follow</p>
+          <p>Pioneering in shea nut production</p>
           <Link to="/contact">
             <Button label="Contact us" />
           </Link>
