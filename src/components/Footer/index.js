@@ -52,7 +52,7 @@ const Footer = () => {
                 <Location />
               </span>
               <span className={item_text}>
-                Factory address - Kilometer 4, Sagamu Benin Expressway, Ikenne-Remo, Ogun State, Nigeria.
+                Factory address - Kilometer 4, Sagamu Benin Expressway, Ikenne-Remo,<wbr/> Ogun State, Nigeria.
               </span>
             </p>
           </div>
