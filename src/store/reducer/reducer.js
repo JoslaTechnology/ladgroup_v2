@@ -14,7 +14,6 @@ const reducer = (state = initialState, action) => {
         case actionTypes.ATTACHMENTS_DATA:
             const attachmentData = Object.assign({}, state);
             attachmentData.selectedFiles = action.payload;
-            console.log("attachmentData.selectedFiles", attachmentData.selectedFiles);
 
             return attachmentData;
         default:

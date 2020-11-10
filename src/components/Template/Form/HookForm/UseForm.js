@@ -60,8 +60,6 @@ export const UseForm = callback => {
         if (event.target.name === 'attachments') {
             const fileList = event.target?.files;
             // create a store for this
-            console.log("event.target.value", event.target.value);
-
             disptach(updateAttachmentsData(fileList))
 
         }
@@ -153,7 +151,6 @@ export const UseForm = callback => {
         for (let item of result.error.details) {
             errorsJob[item.path[0]] = item.message;
             if (Object.keys(errorsJob).length > 0) {
-                console.log(errorsJob);
                 return Object.keys(errorsJob)[0];
             } else { return null; }
         }

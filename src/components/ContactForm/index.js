@@ -72,7 +72,6 @@ const ContactForm = () => {
       email2: data.email
     };
 
-    console.log("serverData", serverData);
     axios
       .post(`${env.api_mail}/mail/ladgroup`, qs.stringify(serverData), {
         headers: {
@@ -92,7 +91,6 @@ const ContactForm = () => {
         },
         (error) => {
           toast.error("Enquiry was not sent");
-          console.log(error);
         }
       )
       .catch((error) => {

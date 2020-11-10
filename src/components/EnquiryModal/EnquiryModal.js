@@ -54,7 +54,6 @@ const EnquiryModal = (props) => {
                 (error) => {
                     toast.error("Enquiry was not sent");
                     setDisableSubmitBtn(false);
-                    console.log(error);
                 }
             )
             .catch((error) => {

@@ -89,7 +89,6 @@ const SupplierModal = (props) => {
             }
 
         }).catch(err => {
-            console.log(err);
         })
 
     }
@@ -119,7 +118,6 @@ const SupplierModal = (props) => {
                 (error) => {
                     toast.error("Distributor Info. was not sent");
                     setDisableSubmitBtn(false);
-                    console.log(error);
                 }
             )
             .catch((error) => {

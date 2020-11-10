@@ -36,7 +36,6 @@ const Home = () => {
 
   const handleDistribution = (data) => {
     setShowDistModal(data); setActiveModal(2);
-    console.log("data", data);
   }
 
 

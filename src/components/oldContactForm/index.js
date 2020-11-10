@@ -94,7 +94,6 @@
 //         },
 //         (error) => {
 //           toast.error("Enquiry was not sent");
-//           console.log(error);
 //         }
 //       )
 //       .catch((error) => {

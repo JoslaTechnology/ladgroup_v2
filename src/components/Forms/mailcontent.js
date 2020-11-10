@@ -2,7 +2,6 @@ const LADGROUPMAIL = process.env.REACT_APP_LADGROUP_MAIL;
 
 const formatUrl = (fileData) => {
   let urls = [];
-  console.log(fileData);
 
   if (fileData.length > 1) {
     // urls.push(`<p  style="font-size: 0.8rem;">${fileData.data.createdFileURL}</p>`);
@@ -50,7 +49,6 @@ export const placeOrderFormContent = (values) => {
     email: LADGROUPMAIL,
     email2: values.email
   };
-  console.log(LADGROUPMAIL)
 
   return serverData;
 };

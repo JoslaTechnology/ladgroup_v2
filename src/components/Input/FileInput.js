@@ -59,7 +59,6 @@ export default FileInput;
     //     })(fileList[i]);
     //     // let file = fileList[i];
     //   }
-    //   console.log(typeof values);
     //   setFieldValue(props.name, [...values]);
     // } else if (fileList.length === 1) {
     //   let reader = new FileReader();

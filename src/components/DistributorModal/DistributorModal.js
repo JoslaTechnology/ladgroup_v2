@@ -114,7 +114,6 @@ const DistributorModal = (props) => {
                 (error) => {
                     toast.error("Distributor Info. was not sent");
                     setDisableSubmitBtn(false);
-                    console.log(error);
                 }
             )
             .catch((error) => {
