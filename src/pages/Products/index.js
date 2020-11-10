@@ -1,4 +1,4 @@
-import React, { Fragment, Suspense, lazy } from "react";
+import React, { Fragment, Suspense, lazy, useState } from "react";
 import { Switch, Route, Redirect, useRouteMatch } from "react-router-dom";
 import { Spinner } from "components/loader";
 import Button from "components/Button";
@@ -11,6 +11,8 @@ import process5 from "assets/process5.svg";
 
 import { process, process_group, order, order_text } from "./style.module.css";
 import { sub_heading } from "style/layout.module.css";
+import Modal from "components/Modal";
+import PlaceOrderForm from "components/Forms/PlaceOrderForm";
 
 const DeOiledCake = lazy(() => import("./DeOiledCake"));
 const OrganicShea = lazy(() => import("./OrganicShea"));
@@ -18,6 +20,7 @@ const RawShea = lazy(() => import("./RawShea"));
 
 const Products = () => {
   let { path } = useRouteMatch();
+  const [placeOrderModal, setPlaceOrderModal] = useState(false);
 
   return (
     <Fragment>
@@ -29,7 +32,11 @@ const Products = () => {
           <Route component={() => <Redirect to="/" />} />
         </Switch>
       </Suspense>
-
+      {placeOrderModal ? (
+        <Modal close={setPlaceOrderModal}>
+          <PlaceOrderForm />
+        </Modal>
+      ) : null}
       <section className="process">
         <div className="container">
           <h2 className={sub_heading}>Our raw shea butter production</h2>
@@ -67,7 +74,7 @@ const Products = () => {
         <div className={order}>
           <div className={order_text}>
             <p>We manufacture and deliver essential raw shea butter to you</p>
-            <Button label="Order now" />
+            <Button label="Order now" onClick={() => setPlaceOrderModal(true)}/>
           </div>
         </div>
       </section>

@@ -77,14 +77,14 @@ const CareerForm = ({ setShowModal }) => {
               <SelectInput name="nationality" label="Select nationality" options={selectOptions} selected={""} />
               <FileInput
                 name="cv"
-                label="CV (max: 80kb)"
+                label="CV (max: 1mb)"
                 setFieldValue={setFieldValue}
                 placeholder="upload your CV"
                 multiple
               />
               <FileInput
                 name="coverLetter"
-                label="Cover Letter (max: 80kb)"
+                label="Cover Letter (max: 1mb)"
                 setFieldValue={setFieldValue}
                 placeholder="upload your cover letter"
               />

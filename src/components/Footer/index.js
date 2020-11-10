@@ -76,18 +76,18 @@ const Footer = () => {
                   <i className="fa fa-linkedin"></i>
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href="https://web.facebook.com/pages/category/Local-Business/Ladgroup-Limited-1405064996405983/" target="blank">
                   <i className="fa fa-facebook"></i>
                 </a>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <a href="#!">
                   <i className="fa fa-twitter"></i>
                 </a>
-              </li>
+              </li> */}
               <li>
-                <a href="#!">
+                <a href="https://www.instagram.com/ladgroup_sheabutter/" target="blank">
                   <i className="fa fa-instagram"></i>
                 </a>
               </li>
@@ -202,18 +202,18 @@ const Footer = () => {
                   <i className="fa fa-linkedin"></i>
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a href="https://web.facebook.com/pages/category/Local-Business/Ladgroup-Limited-1405064996405983/" target="blank">
                   <i className="fa fa-facebook"></i>
                 </a>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <a href="#!">
                   <i className="fa fa-twitter"></i>
                 </a>
-              </li>
+              </li> */}
               <li>
-                <a href="#!">
+                <a href="https://www.instagram.com/ladgroup_sheabutter/" target="blaank">
                   <i className="fa fa-instagram"></i>
                 </a>
               </li>

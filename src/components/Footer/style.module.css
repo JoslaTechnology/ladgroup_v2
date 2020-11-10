@@ -67,13 +67,17 @@
 
 .social_icons {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .social_icons a {
   color: #161515;
   font-size: 1.2rem;
 }
+
+.social_icons li:first-of-type {
+  margin-right: 1rem;
+} 
 
 .language_box {
   display: flex;

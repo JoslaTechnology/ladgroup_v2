@@ -76,11 +76,13 @@ section {
   opacity: 0.7;
 }
 
-.scale_effect > div {
+.scale_effect > div,
+.scale_effect > a {
   transition: all 0.3s ease-in;
 }
 
-.scale_effect > div:hover {
+.scale_effect > div:hover,
+.scale_effect > a:hover {
   transform: scale(1.02);
 }
 

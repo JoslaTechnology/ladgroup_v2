@@ -1,16 +1,17 @@
+const LADGROUPMAIL = process.env.REACT_APP_LADGROUP_MAIL;
+
 const formatUrl = (fileData) => {
   let urls = [];
-  console.log(fileData)
+  console.log(fileData);
 
   if (fileData.length > 1) {
     // urls.push(`<p  style="font-size: 0.8rem;">${fileData.data.createdFileURL}</p>`);
-    fileData.forEach(file => urls.push(`<p  style="font-size: 0.8rem;">${file.data.createdFileURL}</p>`))
+    fileData.forEach((file) => urls.push(`<p  style="font-size: 0.8rem;">${file.data.createdFileURL}</p>`));
   } else {
     urls = Object.values(fileData).map((url, i) => `<p  style="font-size: 0.8rem;" id=${i}>${url.createdFileURL}</p>`);
   }
   return urls;
 };
-
 
 export const contactForm = (values) => {
   const serverData = {
@@ -24,11 +25,35 @@ export const contactForm = (values) => {
     </div></html>`,
 
     name: values.name,
-    email: "ekeziedavid1@gmail.com",
+    email: LADGROUPMAIL,
     email2: values.email
   };
   return serverData;
-}
+};
+
+export const placeOrderFormContent = (values) => {
+  const serverData = {
+    token: 1234,
+    subject: "Order",
+    message: `</html><div>
+    <p style="font-size: 1rem;">Full name: ${values.name}</p>
+    <p style="font-size: 1rem;">Email: ${values.email}</p>
+    <p style="font-size: 1rem;">Phone: ${values.phoneNumber}</p>
+    <p style="font-size: 1rem;">Address: ${values.address}</p>
+    <p style="font-size: 1rem;">State of Residence: ${values.stateOfResidence}</p>
+    <p style="font-size: 1rem;">Nationality: ${values.nationality}</p>
+    <p style="font-size: 1rem;">Product: ${values.product}</p>
+    <p style="font-size: 1rem;">Quantity: ${values.quantity}</p>
+    </div></html>`,
+
+    name: values.name,
+    email: LADGROUPMAIL,
+    email2: values.email
+  };
+  console.log(LADGROUPMAIL)
+
+  return serverData;
+};
 
 export const careerformContent = (values, fileData) => {
   const urls = formatUrl(fileData);
@@ -46,7 +71,7 @@ export const careerformContent = (values, fileData) => {
     ${urls}
     </div></html>`,
     name: values.name,
-    email: "ekeziedavid1@gmail.com",
+    email: LADGROUPMAIL,
     email2: values.email
   };
   return serverData;
@@ -77,7 +102,7 @@ export const distributorFormContent = (values, fileData) => {
     ${urls}
     </div></html>`,
     name: values.name,
-    email: "ekeziedavid1@gmail.com",
+    email: LADGROUPMAIL,
     email2: values.email
   };
   return serverData;
@@ -105,7 +130,7 @@ export const supplierFormContent = (values, fileData) => {
     ${urls}
     </div></html>`,
     name: values.name,
-    email: "ekeziedavid1@gmail.com",
+    email: LADGROUPMAIL,
     email2: values.email
   };
   return serverData;

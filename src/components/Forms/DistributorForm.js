@@ -123,7 +123,7 @@ const DistributorForm = ({ setShowDistributorModal }) => {
               <SelectInput name="quantity" label="Quantity required monthly *" options={selectOptions2} selected={""} />
               <FileInput
                 name="bankReference"
-                label="Upload your bank reference(max: 80kb)*"
+                label="Upload your bank reference(max: 1mb)*"
                 setFieldValue={setFieldValue}
                 placeholder="Bankers reference"
               />

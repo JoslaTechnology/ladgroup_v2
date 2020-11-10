@@ -55,10 +55,8 @@ export const memberList = [
 
   {
     image: male,
-    name: "Mr. Adekunle O. Onafowokan",
-    position: "Managing Director",
-    caption:
-      "Mr. Adekunle O. Onafowokan earned a BSc in Mechanical Engineering from University of Birmingham, United Kingdom, MSc in Food Process Engineering from University of Reading, United Kingdom and Master of Business Administration (MBA) from Yale University, New Haven CT, United States of America. Mr Kunle is a Member of the Institution of Mechanical Engineers, United Kingdom. With Ladgroup, Kunle has gained extensive experience in all aspects of the commodity supply chain and understands the intricacies of the export and import trade."
+    name: "Mr. Tunde Bajela",
+    position: "Non-Executive Director"
   },
   {
     image: female,

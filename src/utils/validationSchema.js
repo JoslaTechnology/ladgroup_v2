@@ -8,7 +8,7 @@ const validateMessage = () => Yup.string().trim().max(700, "cannot exceed 700 ch
 const validateFile = () =>
   Yup.mixed()
     .required("choose a file")
-    .test("fileSize", "choose a file within the size limit", (value) => value && value.size <= 80000);
+    .test("fileSize", "choose a file within the size limit", (value) => value && value.size <= 1000000);
 const validatePhone = () => {
   return Yup.string()
     .required("Phone number is required")
@@ -60,7 +60,7 @@ export const DistributorFormSchema = Yup.object().shape({
   exclusive: Yup.string().required("kindly select an option"),
   quantity: Yup.string().required("kindly select an option"),
   bankReference: validateFile(),
-  turnover: Yup.string().min(2, "minimum of two").max(255, "255 charccters max"),
+  turnover: Yup.string().max(255, "255 charccters max"),
   experience: Yup.number().required("field is required").min(0).max(100, "max: 100"),
   messageBody: validateMessage()
 });
@@ -77,12 +77,17 @@ export const SupplierFormSchema = Yup.object().shape({
   experience: Yup.number().required("field is required").min(0).max(100, "max: 100"),
   document: Yup.mixed()
     .required("choose a file")
-    .test("fileSize", "choose a file within the size limit", (value) => value && value.size <= 80000),
-  turnover: Yup.string().min(2, "minimum of two").max(255, "255 charccters max"),
+    .test("fileSize", "choose a file within the size limit", (value) => value && value.size <= 1000000),
+  turnover: Yup.string().max(255, "255 charccters max"),
   messageBody: validateMessage()
 });
 
-// const validateFile = () =>
-//   Yup.array()
-//     .of(Yup.mixed().test("fileSize", "file is too large (max: 80kb)", (value) => value && value.size <= 80000))
-//     .required("choose a file");
+export const PlaceOrderFormSchema = Yup.object().shape({
+  name: validateName(),
+  email: validateEmail(),
+  phoneNumber: validatePhone(),
+  address: validateRandomText().required("field is required"),
+  stateOfResidence: Yup.string().required("kindly select an option"),
+  product: validateRandomText().required("field is required"),
+  quantity: Yup.string().required("kindly select an option")
+}) 

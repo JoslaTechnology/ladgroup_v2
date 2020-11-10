@@ -18,6 +18,10 @@
   background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("./supplier_form.png");
 }
 
+.header.header_order {
+  background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("./placeorderbg.png");
+}
+
 .header h1 {
   position: absolute;
   font-size: 1.6rem;

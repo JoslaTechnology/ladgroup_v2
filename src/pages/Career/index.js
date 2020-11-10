@@ -102,7 +102,7 @@ const Career = () => {
                     </Row>
                   </>
                 ) : (
-                  <p>Hello there, sorry there are no vacancy at the moment. Kindly check back some other time</p>
+                  <p>Hello there, sorry there are no vacancies at the moment. Kindly check back some other time</p>
                 )}
               </Tab.Pane>
               <Tab.Pane eventKey="two" className={applications_content}>
