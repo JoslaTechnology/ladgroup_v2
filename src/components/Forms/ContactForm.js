@@ -25,21 +25,21 @@ const ContactForm = () => {
   const handleSubmit = async (values, setSubmitting, resetForm) => {
     setSubmitting(true);
 
-    const message = contactForm(values)
+    const message = contactForm(values);
     try {
       const data = await submitFormData(message);
-      if (data.status === "success") {
+      if (data.success === true) {
         doAlert("Sent Successfully", "success");
-        resetForm()
+        resetForm();
         setSubmitting(false);
-      } else if (data.includes("You are not authorised to access this API service")) {
+      } else {
         doAlert("Message unsuccessful, try again", "error");
         setSubmitting(false);
       }
     } catch (error) {
       doAlert("Application unsuccessful, try again", "error");
       setSubmitting(false);
-    }  
+    }
   };
 
   return (

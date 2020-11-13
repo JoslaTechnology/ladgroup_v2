@@ -14,7 +14,7 @@ const formatUrl = (fileData) => {
 
 export const contactForm = (values) => {
   const serverData = {
-    token: 1234,
+    token: process.env.REACT_APP_TOKEN,
     subject: "Contact Message",
     message: `</html><div>
     <p style="font-size: 1rem;">Full name: ${values.name}</p>
@@ -32,7 +32,7 @@ export const contactForm = (values) => {
 
 export const placeOrderFormContent = (values) => {
   const serverData = {
-    token: 1234,
+    token: process.env.REACT_APP_TOKEN,
     subject: "Order",
     message: `</html><div>
     <p style="font-size: 1rem;">Full name: ${values.name}</p>
@@ -57,7 +57,7 @@ export const careerformContent = (values, fileData) => {
   const urls = formatUrl(fileData);
 
   const serverData = {
-    token: 1234,
+    token: process.env.REACT_APP_TOKEN,
     subject: "Job Application",
     message: `</html><div>
     <p style="font-size: 1rem;">Full name: ${values.name}</p>
@@ -79,7 +79,7 @@ export const distributorFormContent = (values, fileData) => {
   const urls = formatUrl(fileData);
 
   const serverData = {
-    token: 1234,
+    token: process.env.REACT_APP_TOKEN,
     subject: "Distributor Application",
     message: `</html><div>
     <p style="font-size: 1rem;">Full name: ${values.name}</p>
@@ -110,7 +110,7 @@ export const supplierFormContent = (values, fileData) => {
   const urls = formatUrl(fileData);
 
   const serverData = {
-    token: 1234,
+    token: process.env.REACT_APP_TOKEN,
     subject: "Supplier Application",
     message: `</html><div>
     <p style="font-size: 1rem;">Full name: ${values.name}</p>

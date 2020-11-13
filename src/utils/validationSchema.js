@@ -91,3 +91,6 @@ export const PlaceOrderFormSchema = Yup.object().shape({
   product: validateRandomText().required("field is required"),
   quantity: Yup.string().required("kindly select an option")
 }) 
+
+
+// REACT_APP_API_URL=https://josla-mail-server.eu-gb.mybluemix.net

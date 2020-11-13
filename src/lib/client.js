@@ -29,12 +29,14 @@ export const generateFileUrl = async (files) => {
 };
 
 export const submitFormData = async (payload) => {
-  const url = `${process.env.REACT_APP_API_URL}/mail/ladgroup`;
+  const url = `${process.env.REACT_APP_API_URL}/ladgroup/contact`;
   const { data } = await axios.post(url, qs.stringify(payload), {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded"
     }
   });
+  console.log(payload);
+
 
   return data;
 };
