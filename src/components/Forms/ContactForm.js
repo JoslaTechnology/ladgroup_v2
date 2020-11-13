@@ -1,8 +1,9 @@
 import React, { Fragment } from "react";
 import { Formik, Form } from "formik";
 import { contactPageForm } from "utils/validationSchema";
-import { submitFormData } from "lib/client";
-import { contactForm } from "./mailcontent";
+import client, { uploadFileAndGenerateURL } from "lib/client";
+import { contactForm } from "../../utils/mailcontent";
+// import { app } from "base";
 
 import doAlert from "utils/doAlert";
 import { TextInput, SelectInput, TextAreaInput } from "components/Input";
@@ -23,21 +24,15 @@ const ContactForm = () => {
     { value: "enquiry", title: "enquiry" }
   ];
   const handleSubmit = async (values, setSubmitting, resetForm) => {
-    setSubmitting(true);
-
-    const message = contactForm(values);
+    const body = contactForm(values);
     try {
-      const data = await submitFormData(message);
+      const data = await client(body);
       if (data.success === true) {
-        doAlert("Sent Successfully", "success");
-        resetForm();
-        setSubmitting(false);
-      } else {
-        doAlert("Message unsuccessful, try again", "error");
+        doAlert("Submitted successfully", "success");
         setSubmitting(false);
       }
     } catch (error) {
-      doAlert("Application unsuccessful, try again", "error");
+      doAlert("Unsuccessful, try again later", "error");
       setSubmitting(false);
     }
   };

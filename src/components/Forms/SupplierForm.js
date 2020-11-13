@@ -1,8 +1,9 @@
 import React, { Fragment } from "react";
 import { Formik, Form } from "formik";
 import { SupplierFormSchema } from "utils/validationSchema";
-import { generateFileUrl, submitFormData } from "lib/client";
-import { supplierFormContent } from "./mailcontent";
+import client, { uploadFileAndGenerateURL } from "lib/client";
+import { supplierFormContent } from "../../utils/mailcontent";
+// import { app } from "base";
 
 import doAlert from "utils/doAlert";
 import Button from "components/Button";
@@ -29,31 +30,33 @@ const SupplierForm = ({ setShowSupplierModal }) => {
   };
 
   const handleSubmit = async (values, setSubmitting) => {
-    // const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-    setSubmitting(true);
-    const fileData = await generateFileUrl([values.document]);
+    // try {
+    // const documentURL = await uploadFileAndGenerateURL(values.document);
+    // values.document = documentURL;
+    // console.log(values.document);
 
-    if (fileData) {
-      const body = supplierFormContent(values, fileData);
+    // check if file upload is successful by checking for url
+    // if (values.document.toString().includes("http")) {
 
-      try {
-        const data = await submitFormData(body);
-        if (data.status === "success") {
-          doAlert("Submitted successfully", "success");
-          setSubmitting(false);
-          setShowSupplierModal(false);
-        } else if (data.includes("You are not authorised to access this API service")) {
-          doAlert("Application unsuccessful, try again", "error");
-          setSubmitting(false);
-        }
-      } catch (error) {
-        doAlert("Application unsuccessful, try again", "error");
+    values.document = "bank ref";
+    const body = supplierFormContent(values);
+    try {
+      const data = await client(body);
+      if (data.success === true) {
+        doAlert("Submitted successfully", "success");
         setSubmitting(false);
+        setShowSupplierModal(false);
       }
-    } else {
-      doAlert("file upload failed, try again", "error");
+    } catch (error) {
+      doAlert("Unsuccessful, try again later", "error");
       setSubmitting(false);
+      setShowSupplierModal(false);
+      // }
     }
+    // } catch (error) {
+    //   doAlert("Application unsuccessful, try again", "error");
+    //   setSubmitting(false);
+    // }
   };
 
   const selectOptions = [

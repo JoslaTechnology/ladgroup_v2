@@ -34,7 +34,7 @@ const Products = () => {
       </Suspense>
       {placeOrderModal ? (
         <Modal close={setPlaceOrderModal}>
-          <PlaceOrderForm />
+          <PlaceOrderForm setPlaceOrderModal={setPlaceOrderModal} />
         </Modal>
       ) : null}
       <section className="process">
@@ -74,7 +74,7 @@ const Products = () => {
         <div className={order}>
           <div className={order_text}>
             <p>We manufacture and deliver essential raw shea butter to you</p>
-            <Button label="Order now" onClick={() => setPlaceOrderModal(true)}/>
+            <Button label="Order now" onClick={() => setPlaceOrderModal(true)} />
           </div>
         </div>
       </section>

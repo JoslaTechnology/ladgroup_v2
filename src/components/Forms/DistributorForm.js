@@ -1,8 +1,9 @@
 import React, { Fragment } from "react";
 import { Formik, Form } from "formik";
 import { DistributorFormSchema } from "utils/validationSchema";
-import { distributorFormContent } from "./mailcontent";
-import { generateFileUrl, submitFormData } from "lib/client";
+import client, { uploadFileAndGenerateURL } from "lib/client";
+import { distributorFormContent } from "utils/mailcontent";
+// import { app } from "base";
 
 import doAlert from "utils/doAlert";
 import Button from "components/Button";
@@ -25,37 +26,46 @@ const DistributorForm = ({ setShowDistributorModal }) => {
     productRange: "",
     exclusive: "",
     quantity: "",
-    bankReference: null,
+    bankReference: "",
     turnover: "",
     experience: "",
     messageBody: ""
   };
 
+  // const uploadFileAndGenerateURL = async (file) => {
+  //   const storageRef = app.storage().ref();
+  //   const fileRef = storageRef.child(file.name);
+  //   await fileRef.put(file);
+  //   return await fileRef.getDownloadURL();
+  // };
+
   const handleSubmit = async (values, setSubmitting) => {
-    setSubmitting(true);
-    const fileData = await generateFileUrl([values.bankReference]);
+    // try {
+    // const bankReferenceURL = await uploadFileAndGenerateURL(values.bankReference);
+    // values.bankReference = bankReferenceURL;
+    // console.log(values.bankReference);
 
-    if (fileData) {
-      const body = distributorFormContent(values, fileData);
+    // check if file upload is successful by checking for url
+    // if (values.bankReference.toString().includes("http")) {
 
-      try {
-        const data = await submitFormData(body);
-        if (data.status === "success") {
-          doAlert("Submitted successfully", "success");
-          setSubmitting(false);
-          setShowDistributorModal(false);
-        } else if (data.includes("You are not authorised to access this API service")) {
-          doAlert("Application unsuccessful, try again", "error");
-          setSubmitting(false);
-        }
-      } catch (error) {
-        doAlert("Application unsuccessful, try again", "error");
+    values.bankReference = "bank ref";
+    const body = distributorFormContent(values);
+    try {
+      const data = await client(body);
+      if (data.success === true) {
+        doAlert("Submitted successfully", "success");
         setSubmitting(false);
+        setShowDistributorModal(false);
       }
-    } else {
-      doAlert("file upload failed, try again", "error");
+    } catch (error) {
+      doAlert("Unsuccessful, try again later", "error");
       setSubmitting(false);
+      // }
     }
+    // } catch (error) {
+    //   doAlert("Application unsuccessful, try again", "error");
+    //   setSubmitting(false);
+    // }
   };
 
   const selectOptions1 = [

@@ -1,5 +1,3 @@
-const LADGROUPMAIL = process.env.REACT_APP_LADGROUP_MAIL;
-
 const formatUrl = (fileData) => {
   let urls = [];
 
@@ -15,17 +13,14 @@ const formatUrl = (fileData) => {
 export const contactForm = (values) => {
   const serverData = {
     token: process.env.REACT_APP_TOKEN,
+    to: "victoryasokomeh@gmail.com",
     subject: "Contact Message",
     message: `</html><div>
     <p style="font-size: 1rem;">Full name: ${values.name}</p>
     <p style="font-size: 1rem;">Email: ${values.email}</p>
     <p style="font-size: 1rem;">Category: ${values.category}</p>
     <p style="font-size: 1rem;">Message: ${values.messageBody}</p>
-    </div></html>`,
-
-    name: values.name,
-    email: LADGROUPMAIL,
-    email2: values.email
+    </div></html>`
   };
   return serverData;
 };
@@ -33,7 +28,8 @@ export const contactForm = (values) => {
 export const placeOrderFormContent = (values) => {
   const serverData = {
     token: process.env.REACT_APP_TOKEN,
-    subject: "Order",
+    to: "victoryasokomeh@gmail.com",
+    subject: "Items Order",
     message: `</html><div>
     <p style="font-size: 1rem;">Full name: ${values.name}</p>
     <p style="font-size: 1rem;">Email: ${values.email}</p>
@@ -43,21 +39,15 @@ export const placeOrderFormContent = (values) => {
     <p style="font-size: 1rem;">Nationality: ${values.nationality}</p>
     <p style="font-size: 1rem;">Product: ${values.product}</p>
     <p style="font-size: 1rem;">Quantity: ${values.quantity}</p>
-    </div></html>`,
-
-    name: values.name,
-    email: LADGROUPMAIL,
-    email2: values.email
+    </div></html>`
   };
-
   return serverData;
 };
 
-export const careerformContent = (values, fileData) => {
-  const urls = formatUrl(fileData);
-
+export const careerformContent = (values) => {
   const serverData = {
     token: process.env.REACT_APP_TOKEN,
+    to: "victoryasokomeh@gmail.com",
     subject: "Job Application",
     message: `</html><div>
     <p style="font-size: 1rem;">Full name: ${values.name}</p>
@@ -65,21 +55,17 @@ export const careerformContent = (values, fileData) => {
     <p style="font-size: 1rem;">Phone: ${values.phoneNumber}</p>
     <p style="font-size: 1rem;">Nationality: ${values.nationality}</p>
     <p style="font-size: 1rem;">Message: ${values.messageBody}</p>
-    <p style="font-size: 1rem;">Attachments url below: </p>
-    ${urls}
-    </div></html>`,
-    name: values.name,
-    email: LADGROUPMAIL,
-    email2: values.email
+    <p style="font-size: 1rem;">CV: ${values.cv}</p>
+    <p style="font-size: 1rem;">Cover letter: ${values.coverLetter}</p>
+    </div></html>`
   };
   return serverData;
 };
 
-export const distributorFormContent = (values, fileData) => {
-  const urls = formatUrl(fileData);
-
+export const distributorFormContent = (values) => {
   const serverData = {
     token: process.env.REACT_APP_TOKEN,
+    to: "victoryasokomeh@gmail.com",
     subject: "Distributor Application",
     message: `</html><div>
     <p style="font-size: 1rem;">Full name: ${values.name}</p>
@@ -96,21 +82,16 @@ export const distributorFormContent = (values, fileData) => {
     <p style="font-size: 1rem;">Turnover: ${values.turnover}</p>
     <p style="font-size: 1rem;">Experience: ${values.experience}</p>
     <p style="font-size: 1rem;">Message: ${values.messageBody}</p>
-    <p style="font-size: 1rem;">Attachments url below: </p> 
-    ${urls}
-    </div></html>`,
-    name: values.name,
-    email: LADGROUPMAIL,
-    email2: values.email
+    <p style="font-size: 1rem;">Bank reference: ${values.bankReference}</p>
+    </div></html>`
   };
   return serverData;
 };
 
-export const supplierFormContent = (values, fileData) => {
-  const urls = formatUrl(fileData);
-
+export const supplierFormContent = (values) => {
   const serverData = {
     token: process.env.REACT_APP_TOKEN,
+    to: "victoryasokomeh@gmail.com",
     subject: "Supplier Application",
     message: `</html><div>
     <p style="font-size: 1rem;">Full name: ${values.name}</p>
@@ -124,12 +105,8 @@ export const supplierFormContent = (values, fileData) => {
     <p style="font-size: 1rem;">Experience: ${values.experience}</p>
     <p style="font-size: 1rem;">Turnover: ${values.turnover}</p>
     <p style="font-size: 1rem;">Message: ${values.messageBody}</p>
-    <p style="font-size: 1rem;">Attachments url below: </p> 
-    ${urls}
-    </div></html>`,
-    name: values.name,
-    email: LADGROUPMAIL,
-    email2: values.email
+    <p style="font-size: 1rem;">Document: ${values.document}</p>
+    </div></html>`
   };
   return serverData;
 };

@@ -1,8 +1,9 @@
 import React, { Fragment } from "react";
 import { Formik, Form } from "formik";
 import { careerPageForm } from "utils/validationSchema";
-import { generateFileUrl, submitFormData } from "lib/client";
-import { careerformContent } from "./mailcontent";
+import client, { uploadFileAndGenerateURL } from "lib/client";
+import { careerformContent } from "../../utils/mailcontent";
+// import { app } from "base";
 
 import doAlert from "utils/doAlert";
 import Button from "components/Button";
@@ -24,30 +25,37 @@ const CareerForm = ({ setShowModal }) => {
   };
 
   const handleSubmit = async (values, setSubmitting) => {
-    setSubmitting(true);
-    const fileData = await generateFileUrl([values.cv, values.coverLetter]);
+    // try {
+    // const cvURL = await uploadFileAndGenerateURL(values.cv);
+    // const coverLetterURL = await uploadFileAndGenerateURL(values.coverLetter);
+    // values.cv = cvURL;
+    // values.coverLetter = coverLetterURL;
+    // console.log(values.cvURL);
+    // console.log(values.coverLetterURL);
 
-    if (fileData) {
-      const body = careerformContent(values, fileData);
+    // check if file upload is successful by checking for url
+    // if (values.cv.toString().includes("http") && values.coverLetter.toString().includes("http")) {
 
-      try {
-        const data = await submitFormData(body);
-        if (data.status === "success") {
-          doAlert("Submitted successfully", "success");
-          setSubmitting(false);
-          setShowModal(false);
-        } else if (data.includes("You are not authorised to access this API service")) {
-          doAlert("Application unsuccessful, try again", "error");
-          setSubmitting(false);
-        }
-      } catch (error) {
-        doAlert("Application unsuccessful, try again", "error");
+    values.cv = "bank ref";
+    values.coverLetter = "bank ref";
+    const body = careerformContent(values);
+    try {
+      const data = await client(body);
+      if (data.success === true) {
+        doAlert("Submitted successfully", "success");
         setSubmitting(false);
+        setShowModal(false);
       }
-    } else {
-      doAlert("file upload failed, try again", "error");
+    } catch (error) {
+      doAlert("Unsuccessful, try again later", "error");
       setSubmitting(false);
+      setShowModal(false);
+      // }
     }
+    // } catch (error) {
+    //   doAlert("Application unsuccessful, try again", "error");
+    //   setSubmitting(false);
+    // }
   };
 
   const selectOptions = [
