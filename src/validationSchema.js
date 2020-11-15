@@ -1,5 +1,6 @@
 import * as Yup from "yup";
 
+console.log(Yup)
 export const contactFormSchema = Yup.object().shape({
   fullname: Yup.string().required("kindly fill all fields"),
   company: Yup.string().required("kindly fill all fields"),

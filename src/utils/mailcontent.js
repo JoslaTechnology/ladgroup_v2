@@ -1,15 +1,3 @@
-const formatUrl = (fileData) => {
-  let urls = [];
-
-  if (fileData.length > 1) {
-    // urls.push(`<p  style="font-size: 0.8rem;">${fileData.data.createdFileURL}</p>`);
-    fileData.forEach((file) => urls.push(`<p  style="font-size: 0.8rem;">${file.data.createdFileURL}</p>`));
-  } else {
-    urls = Object.values(fileData).map((url, i) => `<p  style="font-size: 0.8rem;" id=${i}>${url.createdFileURL}</p>`);
-  }
-  return urls;
-};
-
 export const contactForm = (values) => {
   const serverData = {
     token: process.env.REACT_APP_TOKEN,

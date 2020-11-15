@@ -2,9 +2,8 @@ import React, { Fragment } from "react";
 import { Formik, Form } from "formik";
 import { PlaceOrderFormSchema } from "utils/validationSchema";
 import { placeOrderFormContent } from "../../utils/mailcontent";
-import client, { uploadFileAndGenerateURL } from "lib/client";
+import client from "lib/client";
 import nigerianStates from "lib/nigerianStates";
-import { app } from "base";
 
 import doAlert from "utils/doAlert";
 import Button from "components/Button";

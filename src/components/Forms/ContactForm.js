@@ -1,9 +1,8 @@
 import React, { Fragment } from "react";
 import { Formik, Form } from "formik";
 import { contactPageForm } from "utils/validationSchema";
-import client, { uploadFileAndGenerateURL } from "lib/client";
+import client from "lib/client";
 import { contactForm } from "../../utils/mailcontent";
-// import { app } from "base";
 
 import doAlert from "utils/doAlert";
 import { TextInput, SelectInput, TextAreaInput } from "components/Input";
@@ -23,6 +22,7 @@ const ContactForm = () => {
     { value: "general", title: "general" },
     { value: "enquiry", title: "enquiry" }
   ];
+
   const handleSubmit = async (values, setSubmitting, resetForm) => {
     const body = contactForm(values);
     try {
@@ -30,6 +30,7 @@ const ContactForm = () => {
       if (data.success === true) {
         doAlert("Submitted successfully", "success");
         setSubmitting(false);
+        resetForm();
       }
     } catch (error) {
       doAlert("Unsuccessful, try again later", "error");

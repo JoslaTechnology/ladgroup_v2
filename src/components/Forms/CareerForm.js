@@ -3,7 +3,6 @@ import { Formik, Form } from "formik";
 import { careerPageForm } from "utils/validationSchema";
 import client, { uploadFileAndGenerateURL } from "lib/client";
 import { careerformContent } from "../../utils/mailcontent";
-// import { app } from "base";
 
 import doAlert from "utils/doAlert";
 import Button from "components/Button";
@@ -25,37 +24,32 @@ const CareerForm = ({ setShowModal }) => {
   };
 
   const handleSubmit = async (values, setSubmitting) => {
-    // try {
-    // const cvURL = await uploadFileAndGenerateURL(values.cv);
-    // const coverLetterURL = await uploadFileAndGenerateURL(values.coverLetter);
-    // values.cv = cvURL;
-    // values.coverLetter = coverLetterURL;
-    // console.log(values.cvURL);
-    // console.log(values.coverLetterURL);
-
-    // check if file upload is successful by checking for url
-    // if (values.cv.toString().includes("http") && values.coverLetter.toString().includes("http")) {
-
-    values.cv = "bank ref";
-    values.coverLetter = "bank ref";
-    const body = careerformContent(values);
     try {
-      const data = await client(body);
-      if (data.success === true) {
-        doAlert("Submitted successfully", "success");
-        setSubmitting(false);
-        setShowModal(false);
+      const cvURL = await uploadFileAndGenerateURL(values.cv);
+      const coverLetterURL = await uploadFileAndGenerateURL(values.coverLetter);
+      values.cv = cvURL;
+      values.coverLetter = coverLetterURL;
+
+      // check if file upload is successful by checking for url
+      if (values.cv.toString().includes("http") && values.coverLetter.toString().includes("http")) {
+        const body = careerformContent(values);
+        try {
+          const data = await client(body);
+          if (data.success === true) {
+            doAlert("Submitted successfully", "success");
+            setSubmitting(false);
+            setShowModal(false);
+          }
+        } catch (error) {
+          doAlert("Unsuccessful, try again later", "error");
+          setSubmitting(false);
+          setShowModal(false);
+        }
       }
     } catch (error) {
-      doAlert("Unsuccessful, try again later", "error");
+      doAlert("Application unsuccessful, try again", "error");
       setSubmitting(false);
-      setShowModal(false);
-      // }
     }
-    // } catch (error) {
-    //   doAlert("Application unsuccessful, try again", "error");
-    //   setSubmitting(false);
-    // }
   };
 
   const selectOptions = [

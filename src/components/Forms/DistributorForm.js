@@ -3,7 +3,6 @@ import { Formik, Form } from "formik";
 import { DistributorFormSchema } from "utils/validationSchema";
 import client, { uploadFileAndGenerateURL } from "lib/client";
 import { distributorFormContent } from "utils/mailcontent";
-// import { app } from "base";
 
 import doAlert from "utils/doAlert";
 import Button from "components/Button";
@@ -32,40 +31,31 @@ const DistributorForm = ({ setShowDistributorModal }) => {
     messageBody: ""
   };
 
-  // const uploadFileAndGenerateURL = async (file) => {
-  //   const storageRef = app.storage().ref();
-  //   const fileRef = storageRef.child(file.name);
-  //   await fileRef.put(file);
-  //   return await fileRef.getDownloadURL();
-  // };
-
   const handleSubmit = async (values, setSubmitting) => {
-    // try {
-    // const bankReferenceURL = await uploadFileAndGenerateURL(values.bankReference);
-    // values.bankReference = bankReferenceURL;
-    // console.log(values.bankReference);
-
-    // check if file upload is successful by checking for url
-    // if (values.bankReference.toString().includes("http")) {
-
-    values.bankReference = "bank ref";
-    const body = distributorFormContent(values);
     try {
-      const data = await client(body);
-      if (data.success === true) {
-        doAlert("Submitted successfully", "success");
-        setSubmitting(false);
-        setShowDistributorModal(false);
+      const bankReferenceURL = await uploadFileAndGenerateURL(values.bankReference);
+      values.bankReference = bankReferenceURL;
+
+      // check if file upload is successful by checking for url
+      if (values.bankReference.toString().includes("http")) {
+        const body = distributorFormContent(values);
+        try {
+          const data = await client(body);
+          if (data.success === true) {
+            doAlert("Submitted successfully", "success");
+            setSubmitting(false);
+            setShowDistributorModal(false);
+          }
+        } catch (error) {
+          doAlert("Unsuccessful, try again later", "error");
+          setSubmitting(false);
+          setShowDistributorModal(false);
+        }
       }
     } catch (error) {
-      doAlert("Unsuccessful, try again later", "error");
+      doAlert("Application unsuccessful, try again", "error");
       setSubmitting(false);
-      // }
     }
-    // } catch (error) {
-    //   doAlert("Application unsuccessful, try again", "error");
-    //   setSubmitting(false);
-    // }
   };
 
   const selectOptions1 = [

@@ -3,7 +3,6 @@ import { Formik, Form } from "formik";
 import { SupplierFormSchema } from "utils/validationSchema";
 import client, { uploadFileAndGenerateURL } from "lib/client";
 import { supplierFormContent } from "../../utils/mailcontent";
-// import { app } from "base";
 
 import doAlert from "utils/doAlert";
 import Button from "components/Button";
@@ -30,33 +29,30 @@ const SupplierForm = ({ setShowSupplierModal }) => {
   };
 
   const handleSubmit = async (values, setSubmitting) => {
-    // try {
-    // const documentURL = await uploadFileAndGenerateURL(values.document);
-    // values.document = documentURL;
-    // console.log(values.document);
-
-    // check if file upload is successful by checking for url
-    // if (values.document.toString().includes("http")) {
-
-    values.document = "bank ref";
-    const body = supplierFormContent(values);
     try {
-      const data = await client(body);
-      if (data.success === true) {
-        doAlert("Submitted successfully", "success");
-        setSubmitting(false);
-        setShowSupplierModal(false);
+      const documentURL = await uploadFileAndGenerateURL(values.document);
+      values.document = documentURL;
+
+      // check if file upload is successful by checking for url
+      if (values.document.toString().includes("http")) {
+        const body = supplierFormContent(values);
+        try {
+          const data = await client(body);
+          if (data.success === true) {
+            doAlert("Submitted successfully", "success");
+            setSubmitting(false);
+            setShowSupplierModal(false);
+          }
+        } catch (error) {
+          doAlert("Unsuccessful, try again later", "error");
+          setSubmitting(false);
+          setShowSupplierModal(false);
+        }
       }
     } catch (error) {
-      doAlert("Unsuccessful, try again later", "error");
+      doAlert("Application unsuccessful, try again", "error");
       setSubmitting(false);
-      setShowSupplierModal(false);
-      // }
     }
-    // } catch (error) {
-    //   doAlert("Application unsuccessful, try again", "error");
-    //   setSubmitting(false);
-    // }
   };
 
   const selectOptions = [
