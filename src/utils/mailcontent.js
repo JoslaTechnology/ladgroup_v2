@@ -1,7 +1,7 @@
 export const contactForm = (values) => {
   const serverData = {
     token: process.env.REACT_APP_TOKEN,
-    to: "victoryasokomeh@gmail.com",
+    to: "info@ladgroup.org",
     subject: "Contact Message",
     message: `</html><div>
     <p style="font-size: 1rem;">Full name: ${values.name}</p>
@@ -16,7 +16,7 @@ export const contactForm = (values) => {
 export const placeOrderFormContent = (values) => {
   const serverData = {
     token: process.env.REACT_APP_TOKEN,
-    to: "victoryasokomeh@gmail.com",
+    to: "shea-sales@ladgroup.org",
     subject: "Items Order",
     message: `</html><div>
     <p style="font-size: 1rem;">Full name: ${values.name}</p>
@@ -35,7 +35,7 @@ export const placeOrderFormContent = (values) => {
 export const careerformContent = (values) => {
   const serverData = {
     token: process.env.REACT_APP_TOKEN,
-    to: "victoryasokomeh@gmail.com",
+    to: "info@ladgroup.org",
     subject: "Job Application",
     message: `</html><div>
     <p style="font-size: 1rem;">Full name: ${values.name}</p>
@@ -53,7 +53,7 @@ export const careerformContent = (values) => {
 export const distributorFormContent = (values) => {
   const serverData = {
     token: process.env.REACT_APP_TOKEN,
-    to: "victoryasokomeh@gmail.com",
+    to: "shea-sales@ladgroup.org",
     subject: "Distributor Application",
     message: `</html><div>
     <p style="font-size: 1rem;">Full name: ${values.name}</p>
@@ -79,7 +79,7 @@ export const distributorFormContent = (values) => {
 export const supplierFormContent = (values) => {
   const serverData = {
     token: process.env.REACT_APP_TOKEN,
-    to: "victoryasokomeh@gmail.com",
+    to: "suppliers@ladgroup.org",
     subject: "Supplier Application",
     message: `</html><div>
     <p style="font-size: 1rem;">Full name: ${values.name}</p>
