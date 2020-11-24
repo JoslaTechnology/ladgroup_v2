@@ -28,13 +28,25 @@ const About = () => {
       <section>
         <div className="container">
           <div className={`${grid_1x2} scale_effect`}>
-            <div className={grid_1x2_text}>
-              <h3>Pioneering in shea nut production</h3>
-              <p>Brief message from the CEO</p>
+            <div className={`${grid_1x2_text}`}>
+              <h3>Leading for others to follow</h3>
+              <p>'Great is Your Faithfulness O Lord'</p>
+              <p>
+                I founded Ladgroup in 1971, primarily out of the desire to provide for the future needs of my family and
+                contribute to the development of our great nation, Nigeria. <br /> <br /> Ladgroup started out as a
+                trading company focusing on the export of commodities such as ginger, gum, cocoa, sheanuts, etc. The
+                Company grew to become Nigeria’s largest exporter of cocoa, importer of frozen fish from Argentina, and
+                the first indigenous company to import rice from Thailand. <br /> <br />
+                Ladgroup’s core values remain the overriding principles of hard work, courage and integrity, values
+                which have supported the growth of the company till today. <br /> <br />
+                As we enter the next phase of growth of the company, strong visionary leadership, teamwork, and
+                tenacity, is needed to excel. I believe all the necessary ingredients to build on my legacy exist and
+                with God on our side, great things are possible.
+              </p>
             </div>
             <div id={left} className={grid_1x2_image}>
               <img src={ceo} alt="message from ceo" />
-              <p>CEO message</p>
+              <p>Founder's message</p>
             </div>
           </div>
         </div>

@@ -200,7 +200,7 @@ const Home = () => {
             <Link to="/media">
               <div className={product}>
                 <img src={gallery1} alt="Raw shea butter" />
-                <p>CEO message</p>
+                <p>Founder's message</p>
                 <h3>Pioneering in shea nut production</h3>
               </div>
             </Link>

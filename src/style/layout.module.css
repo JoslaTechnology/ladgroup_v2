@@ -62,6 +62,10 @@ h2.sub_heading::after {
   font-size: 1.8rem;
 }
 
+.grid_1x2 .grid_1x2_text p {
+  font-size: 1.4rem;
+}
+
 .grid_1x2_image {
   position: relative;
   box-shadow: 0 1rem 1.5rem rgba(0, 0, 0, 0.2);
