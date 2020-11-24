@@ -30,18 +30,24 @@ const About = () => {
           <div className={`${grid_1x2} scale_effect`}>
             <div className={`${grid_1x2_text}`}>
               <h3>Leading for others to follow</h3>
-              <p>'Great is Your Faithfulness O Lord'</p>
               <p>
-                I founded Ladgroup in 1971, primarily out of the desire to provide for the future needs of my family and
-                contribute to the development of our great nation, Nigeria. <br /> <br /> Ladgroup started out as a
-                trading company focusing on the export of commodities such as ginger, gum, cocoa, sheanuts, etc. The
-                Company grew to become Nigeria’s largest exporter of cocoa, importer of frozen fish from Argentina, and
-                the first indigenous company to import rice from Thailand. <br /> <br />
+                Ladgroup was founded in 1971, primarily out of the desire to provide for the future needs of my family
+                and contribute to the development of our great nation, Nigeria.
+                <br /> <br />
+                Ladgroup started out as a trading company focusing on the export of commodities such as ginger, gum,
+                cocoa, sheanuts, etc. The Company grew to become Nigeria’s largest exporter of cocoa, importer of frozen
+                fish from Argentina, and the first indigenous company to import rice from Thailand
+                <br /> <br />
                 Ladgroup’s core values remain the overriding principles of hard work, courage and integrity, values
-                which have supported the growth of the company till today. <br /> <br />
+                which have supported the growth of the company till today.
+                <br /> <br />
                 As we enter the next phase of growth of the company, strong visionary leadership, teamwork, and
                 tenacity, is needed to excel. I believe all the necessary ingredients to build on my legacy exist and
                 with God on our side, great things are possible.
+                <br /> <br />
+                May His Grace always be with us.
+                <br /> <br />
+                Prince (Dr) Babatunde Adedapo Onafowokan
               </p>
             </div>
             <div id={left} className={grid_1x2_image}>
@@ -51,7 +57,6 @@ const About = () => {
           </div>
         </div>
       </section>
-
       <section className="about_info">
         <div className="container">
           <Tab.Container id="left-tabs-example" defaultActiveKey="first">
@@ -90,7 +95,6 @@ const About = () => {
           </Tab.Container>
         </div>
       </section>
-
       <section>
         <div className="container">
           <h2 className={sub_heading}>Vision and Mission</h2>
@@ -119,7 +123,6 @@ const About = () => {
           </div>
         </div>
       </section>
-
       <section className="board-members" id="board">
         <div className="container">
           <h2 className={sub_heading}>Board Members</h2>
